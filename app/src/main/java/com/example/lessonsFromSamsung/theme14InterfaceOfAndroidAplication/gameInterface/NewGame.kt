@@ -7,6 +7,6 @@ import com.example.lessonsFromSamsung.R
 class NewGame : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_new_game)
+        setContentView(R.layout.activity_theme_14_new_game)
     }
 }

@@ -4,6 +4,7 @@ private fun main() {
     val value = buildDifficultMessage()
         .also { println(it) }
 
+    // Function reference - ссылка на функцию
     val value1 = buildDifficultMessage()
         .also(::println)
 

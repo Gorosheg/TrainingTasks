@@ -5,7 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.lessonsFromSamsung.R
-import kotlinx.android.synthetic.main.activity_change_color.*
+import kotlinx.android.synthetic.main.activity_theme_16_change_color.*
 
 class ChangeColorActivity : AppCompatActivity() {
 
@@ -13,7 +13,7 @@ class ChangeColorActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_change_color)
+        setContentView(R.layout.activity_theme_16_change_color)
 
         applyUserColor(intent.getStringExtra(KEY_COLOR))
 

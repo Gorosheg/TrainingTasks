@@ -8,24 +8,25 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name="com.example.lessonsFromSamsung.theme16TestingAndDebugging.color.MainChangeColorActivity" />
 
-        <activity android:name="com.example.lessonsFromSamsung.theme16TestingAndDebugging.color.ChangeColorActivity" />
-        <activity android:name="com.example.lessonsFromSamsung.theme14InterfaceOfAndroidAplication.gameInterface.Records" />
-        <activity android:name="com.example.lessonsFromSamsung.theme14InterfaceOfAndroidAplication.gameInterface.Settings" />
-        <activity android:name="com.example.lessonsFromSamsung.theme14InterfaceOfAndroidAplication.gameInterface.NewGame" />
-        <activity android:name="com.example.lessonsFromSamsung.theme14InterfaceOfAndroidAplication.gameInterface.FirstPage" />
-        <activity android:name="com.example.lessonsFromSamsung.theme14InterfaceOfAndroidAplication.ExercisesWithViews" />
-        <activity android:name="com.example.lessonsFromSamsung.theme14InterfaceOfAndroidAplication.Qize.QuizActivity" />
-        <activity android:name="com.example.lessonsFromSamsung.theme16TestingAndDebugging.Theme16" />
-        <activity android:name=".Theme22">
+        android:theme="@style/AppTheme">
+        <activity android:name=".theme16TestingAndDebugging.color.MainChangeColorActivity" />
+        <activity android:name=".theme16TestingAndDebugging.color.ChangeColorActivity" />
+        <activity android:name=".theme14InterfaceOfAndroidAplication.gameInterface.Records" />
+        <activity android:name=".theme14InterfaceOfAndroidAplication.gameInterface.Settings" />
+        <activity android:name=".theme14InterfaceOfAndroidAplication.gameInterface.NewGame" />
+        <activity android:name=".theme14InterfaceOfAndroidAplication.gameInterface.FirstPage" />
+        <activity android:name=".theme14InterfaceOfAndroidAplication.ExercisesWithViews" />
+        <activity android:name=".theme14InterfaceOfAndroidAplication.qize.QuizActivity" />
+
+        <activity android:name=".theme16TestingAndDebugging.AutorizationAndChangingBackgroundColorsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-package com.example.lessonsFromSamsung.theme14InterfaceOfAndroidAplication.Qize
+package com.example.lessonsFromSamsung.theme14InterfaceOfAndroidAplication.qize
 
 import android.os.Bundle
 import android.view.View

@@ -5,12 +5,12 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.lessonsFromSamsung.R
-import kotlinx.android.synthetic.main.activity_first.*
+import kotlinx.android.synthetic.main.activity_theme_14_first.*
 
 class FirstPage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_first)
+        setContentView(R.layout.activity_theme_14_first)
 
         startGameButton.setOnClickListener {
             val intent = Intent(this, NewGame::class.java)

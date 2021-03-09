@@ -1,4 +1,4 @@
-package com.example.lessonsFromSamsung.theme14InterfaceOfAndroidAplication.Qize
+package com.example.lessonsFromSamsung.theme14InterfaceOfAndroidAplication.qize
 
 data class Question(
     val question: String,
