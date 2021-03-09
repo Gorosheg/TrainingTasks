@@ -1,4 +1,4 @@
-package com.example.lesson22InputOutputExceptions
+package com.example.lessonsFromSamsung.theme22InputOutputExceptions
 
 private fun main() {
     val example0 = Example()

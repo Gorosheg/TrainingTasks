@@ -1,4 +1,4 @@
-package com.example
+package com.example.lessonsFromSamsung.utils
 
 import java.util.*
 

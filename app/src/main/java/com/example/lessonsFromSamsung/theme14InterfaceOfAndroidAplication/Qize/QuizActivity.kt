@@ -1,4 +1,4 @@
-package com.example.lesson1
+package com.example.lessonsFromSamsung.theme14InterfaceOfAndroidAplication.Qize
 
 import android.os.Bundle
 import android.view.View
@@ -6,10 +6,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isGone
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
-import com.example.lesson1.utils.setAppTextColor
+import com.example.lessonsFromSamsung.R
+import com.example.lessonsFromSamsung.utils.setAppTextColor
 import kotlinx.android.synthetic.main.activity_theme_14_questionnaire.*
 
-class Theme14QuestionnaireActivity : AppCompatActivity() {
+class QuizActivity : AppCompatActivity() {
 
     private var questionCounter = 0
 

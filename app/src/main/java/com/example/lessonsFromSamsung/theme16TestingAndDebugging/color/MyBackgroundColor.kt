@@ -1,7 +1,7 @@
-package com.example.lesson1.color
+package com.example.lessonsFromSamsung.theme16TestingAndDebugging.color
 
 import androidx.annotation.ColorRes
-import com.example.lesson1.R
+import com.example.lessonsFromSamsung.R
 
 enum class MyBackgroundColor(@ColorRes val colorRes: Int) {
 

@@ -1,4 +1,4 @@
-package com.example.lesson1.utils
+package com.example.lessonsFromSamsung.utils
 
 import android.widget.TextView
 import androidx.annotation.ColorRes

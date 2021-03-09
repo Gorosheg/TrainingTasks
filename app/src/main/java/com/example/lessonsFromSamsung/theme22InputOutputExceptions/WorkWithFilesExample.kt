@@ -1,6 +1,6 @@
-package com.example.lesson22InputOutputExceptions
+package com.example.lessonsFromSamsung.theme22InputOutputExceptions
 
-import com.example.scanner
+import com.example.lessonsFromSamsung.utils.scanner
 import java.io.File
 import java.io.FileNotFoundException
 import java.io.FileWriter

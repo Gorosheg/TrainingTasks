@@ -1,9 +1,10 @@
-package com.example.lesson1
+package com.example.lessonsFromSamsung.theme16TestingAndDebugging
 
 import android.graphics.Color
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.lessonsFromSamsung.R
 import kotlinx.android.synthetic.main.activity_theme_16.*
 
 private const val LOGIN = "asdfg"

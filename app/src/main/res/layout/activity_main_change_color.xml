@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    tools:context=".color.MainChangeColorActivity">
+    tools:context=".theme16TestingAndDebugging.color.MainChangeColorActivity">
 
     <Button
         android:id="@+id/goChangeColorPageButton"

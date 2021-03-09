@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.lesson1">
+    package="com.example.lessonsFromSamsung">
 
     <application
         android:allowBackup="true"
@@ -9,16 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".color.MainChangeColorActivity" />
+        <activity android:name="com.example.lessonsFromSamsung.theme16TestingAndDebugging.color.MainChangeColorActivity" />
 
-        <activity android:name=".color.ChangeColorActivity" />
-        <activity android:name=".gameInterface.Records" />
-        <activity android:name=".gameInterface.Settings" />
-        <activity android:name=".gameInterface.NewGame" />
-        <activity android:name=".gameInterface.First" />
-        <activity android:name=".Theme14Activity" />
-        <activity android:name=".Theme14QuestionnaireActivity" />
-        <activity android:name=".Theme16" />
+        <activity android:name="com.example.lessonsFromSamsung.theme16TestingAndDebugging.color.ChangeColorActivity" />
+        <activity android:name="com.example.lessonsFromSamsung.theme14InterfaceOfAndroidAplication.gameInterface.Records" />
+        <activity android:name="com.example.lessonsFromSamsung.theme14InterfaceOfAndroidAplication.gameInterface.Settings" />
+        <activity android:name="com.example.lessonsFromSamsung.theme14InterfaceOfAndroidAplication.gameInterface.NewGame" />
+        <activity android:name="com.example.lessonsFromSamsung.theme14InterfaceOfAndroidAplication.gameInterface.FirstPage" />
+        <activity android:name="com.example.lessonsFromSamsung.theme14InterfaceOfAndroidAplication.ExercisesWithViews" />
+        <activity android:name="com.example.lessonsFromSamsung.theme14InterfaceOfAndroidAplication.Qize.QuizActivity" />
+        <activity android:name="com.example.lessonsFromSamsung.theme16TestingAndDebugging.Theme16" />
         <activity android:name=".Theme22">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

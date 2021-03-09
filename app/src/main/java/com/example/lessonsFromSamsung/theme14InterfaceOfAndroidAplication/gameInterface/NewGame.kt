@@ -1,8 +1,8 @@
-package com.example.lesson1.gameInterface
+package com.example.lessonsFromSamsung.theme14InterfaceOfAndroidAplication.gameInterface
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.lesson1.R
+import com.example.lessonsFromSamsung.R
 
 class NewGame : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

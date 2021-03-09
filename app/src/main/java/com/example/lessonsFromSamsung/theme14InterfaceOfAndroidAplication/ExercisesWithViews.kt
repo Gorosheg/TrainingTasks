@@ -1,4 +1,4 @@
-package com.example.lesson1
+package com.example.lessonsFromSamsung.theme14InterfaceOfAndroidAplication
 
 import android.os.Bundle
 import android.view.View
@@ -8,10 +8,11 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.widget.doAfterTextChanged
-import com.example.lesson1.utils.setAppTextColor
+import com.example.lessonsFromSamsung.R
+import com.example.lessonsFromSamsung.utils.setAppTextColor
 import kotlinx.android.synthetic.main.activity_theme_14.*
 
-class Theme14Activity : AppCompatActivity() {
+class ExercisesWithViews : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) { // Метод жизненного цикла
         super.onCreate(savedInstanceState) // Вызываем метод onCreate у базового класса. Делать это обязательно

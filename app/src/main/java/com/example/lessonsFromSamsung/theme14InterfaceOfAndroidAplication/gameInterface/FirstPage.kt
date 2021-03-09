@@ -1,13 +1,13 @@
-package com.example.lesson1.gameInterface
+package com.example.lessonsFromSamsung.theme14InterfaceOfAndroidAplication.gameInterface
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.lesson1.R
+import com.example.lessonsFromSamsung.R
 import kotlinx.android.synthetic.main.activity_first.*
 
-class First : AppCompatActivity() {
+class FirstPage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_first)

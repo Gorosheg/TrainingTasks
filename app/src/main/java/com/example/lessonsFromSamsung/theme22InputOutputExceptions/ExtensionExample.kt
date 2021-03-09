@@ -1,4 +1,4 @@
-package com.example.lesson22InputOutputExceptions
+package com.example.lessonsFromSamsung.theme22InputOutputExceptions
 
 // example(1)
 fun example(someValue: Int) {}
