@@ -1,86 +1,117 @@
 package com.example.lessonsFromSamsung.theme23LocalStaticInnerClasses.quest
 
+import com.example.lessonsFromSamsung.utils.scanner
+
 private val act1AC = Act(
-    text = " ",
+    text = "Не делать ничего",
     answers = listOf(
-        Act.Answer(text = "А) Поесть"),
-        Act.Answer(text = "B) Посмотреть тикток")
+        Act.Answer(text = "1. Поесть", nextAct = Act(text = "Вы уснули...")),
+        Act.Answer(text = "2. Посмотреть тикток", nextAct = Act(text = "Вы отупели"))
     )
 )
 private val act1AB = Act(
-    text = " ",
+    text = "Делать уроки для основной школы",
     answers = listOf(
-        Act.Answer(text = "А) Отказаться от выполнения уроков и лечь спать"),
-        Act.Answer(text = "Вспомнить, что завтра экзамен по физике и начать делать её")
+        Act.Answer(
+            text = "1. Отказаться от выполнения уроков и лечь спать",
+            nextAct = Act(text = "Вы уснули...")
+        ),
+        Act.Answer(
+            text = "2. Вспомнить, что завтра экзамен по физике и начать делать её",
+            nextAct = Act(text = "Вы успешно сдали экзамен по физике, но пропустили тему в Samsung")
+        )
     )
 )
 
 private val act1AA = Act(
-    text = " ",
+    text = "Изучить презентацию",
     answers = listOf(
-        Act.Answer(text = "А) Не найти ссылку"),
-        Act.Answer(text = "B) Не найти презентацию"),
-        Act.Answer(text = "C) Изучить, но все забыть")
+        Act.Answer(
+            text = "1. Не найти ссылку",
+            nextAct = Act(text = "Вы отстали от программы")
+        ),
+        Act.Answer(
+            text = "2. Не найти презентацию",
+            nextAct = Act(text = "Ох уж эти ваши отмазки")
+        ),
+        Act.Answer(
+            text = "3. Изучить, но все забыть",
+            nextAct = Act(text = "Вы, оказывается, не очень-то умный...")
+        )
     )
 )
 
 private val act1C = Act(
-    text = "Добраться до школы.",
+    text = "Пойти на каток",
     answers = listOf(
-        Act.Answer(text = "А) Пойти всей семьей"),
-        Act.Answer(text = "B) Пойти одному"),
-        Act.Answer(text = "C) С друзьями")
+        Act.Answer(
+            text = "1. Пойти всей семьей",
+            nextAct = Act(text = "Было весело, но вы пропустили тему в Samsung")
+        ),
+        Act.Answer(
+            text = "2. Пойти одному",
+            nextAct = Act(text = "Вы интроверт, который пропустил тему в Samsung")
+        ),
+        Act.Answer(
+            text = "3. С друзьями",
+            nextAct = Act(text = "Было весело, но вы пропустили тему в Samsung")
+        )
     )
 )
 
 private val act1B = Act(
-    text = "Добраться до школы.",
+    text = "Добраться до школы",
     answers = listOf(
-        Act.Answer(text = "А) Поехать на автобусе"),
-        Act.Answer(text = "B) Пойти пешком")
+        Act.Answer(
+            text = "1. Поехать на автобусе",
+            nextAct = Act(text = "Вы получили новые знания, поздравляю, это победа!")
+        ),
+        Act.Answer(
+            text = "2. Пойти пешком",
+            nextAct = Act(text = "Вы опоздали и пропустили тему в Samsung")
+        )
     )
 )
-
 
 private val act1A = Act(
     text = "Надо изучить презентацию",
     answers = listOf(
-        Act.Answer(text = "А) Изучить презентацию", nextAct = act1AA),
-        Act.Answer(text = "B) Делать уроки для основной школы", nextAct = act1AB),
-        Act.Answer(text = "C) Не делать ничего", nextAct = act1AC)
+        Act.Answer(text = "1. Изучить презентацию", nextAct = act1AA),
+        Act.Answer(text = "2. Делать уроки для основной школы", nextAct = act1AB),
+        Act.Answer(text = "3. Не делать ничего", nextAct = act1AC)
     )
 )
 
 private val act1 = Act(
     text = "Надо идти в Samsung школу",
     answers = listOf(
-        Act.Answer(text = "А) Остаться дома", nextAct = act1A),
-        Act.Answer(text = "Б) Пойти в школу", nextAct = act1B),
-        Act.Answer(text = "В) Пойти гулять", nextAct = act1C)
+        Act.Answer(text = "1. Остаться дома", nextAct = act1A),
+        Act.Answer(text = "2. Пойти в школу", nextAct = act1B),
+        Act.Answer(text = "3. Пойти гулять", nextAct = act1C)
     )
 )
 
 private fun main() {
-    act1
+    showAct(act1)
 }
 
-/*
-1. Надо идти в Samsung школу
-А) Остаться дома. Б) Пойти в школу. В) Пойти гулять
+fun showAct(act: Act) {
+    println(act.text)
 
-1А) Надо изучить презентацию
-А) Изучить презентацию. B) Делать уроки для основной школы. C) Не делать ничего.
+    act.answers.forEach {
+        println(it.text)
+    }
 
-1B)  Добраться до школы.
-А) Поехать на автобусе. B) Пойти пешком.
+    // Тоже самое можно написать используя ссылку на функцию
+//    act.answers
+//        .map(Act.Answer::text)
+//        .forEach(::println)
 
-1C) Пойти на каток
-А) Пойти всей семьей   B) Пойти одному  C) С друзьями
+    if (act.answers.isNotEmpty()) {
+        val selectedAnswerIndex = scanner.nextInt() - 1
 
-
-1АА)  А) Не найти ссылку B) Не найти презентацию C) Изучить, но все забыть
-
-1АB)  А) Отказаться от выполнения уроков и лечь спать  B) Вспомнить, что завтра экзамен по физике и начать делать её
-
-1АC)  А) Поесть B) Посмотреть тикток
-*/
+        act.answers[selectedAnswerIndex]
+            .nextAct
+            ?.let(::showAct)
+    }
+}
