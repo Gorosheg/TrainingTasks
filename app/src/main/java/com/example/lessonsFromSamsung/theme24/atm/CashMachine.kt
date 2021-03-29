@@ -1,38 +1,83 @@
 package com.example.lessonsFromSamsung.theme24.atm
 
-import com.example.lessonsFromSamsung.utils.scanner
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.example.lessonsFromSamsung.R
+import kotlinx.android.synthetic.main.activity_theme24_cash_machine.*
 
-private fun main() {
-    var scanner = scanner.nextInt()
-    withdrawMoney(scanner)
-    depositMoney(scanner)
-}
+class CashMachine : AppCompatActivity() {
 
-private fun withdrawMoney(scanner: Int) {
-    var money = scanner
+    var money: Int = 100
 
-    synchronized(money) {
-        if (money - 70 > 0) {
-            try {
-                Thread.sleep((1000 * Math.random()).toLong())
-            } catch (e: InterruptedException) {
-            }
-            money -= 70
-            println(money)
-        } else println("There are no enough money on year account")
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_theme24_cash_machine)
+
+        withdrawMoney.setOnClickListener {
+            withdraw(money)
+        }
+
+        depositMoney.setOnClickListener {
+            deposit(money)
+        }
+
     }
-}
 
-private fun depositMoney(scanner: Int) {
-    var money = scanner
+    private fun withdraw(money: Int) {
+        Thread {
+            synchronized(money) {
+                val inputTotal = inputTotal()
 
-    synchronized(money) {
+                if (money - inputTotal > 0) {
+                    sleepWithTry()
+                    for (i in 0 until inputTotal()) {
+                        this.money -= 1
+                    }
+                } else {
+                    backMessage.text = "There are no enough money on year account"
+                }
+
+                runOnUiThread {
+                    checkBalance()
+                }
+            }
+        }.start()
+    }
+
+    private fun deposit(money: Int) {
+        Thread {
+            synchronized(money) {
+                sleepWithTry()
+                for (i in 0 until inputTotal()) {
+                    this.money += 1
+                }
+
+                runOnUiThread {
+                    checkBalance()
+                }
+            }
+        }.start()
+    }
+
+    private fun sleepWithTry() {
         try {
-            Thread.sleep((1000 * Math.random()).toLong())
+            Thread.sleep((100 * Math.random()).toLong())
         } catch (e: InterruptedException) {
         }
-        money += money
-        println(money)
     }
+
+    private fun checkBalance() {
+        backMessage.text = money.toString()
+    }
+
+    private fun inputTotal(): Int {
+        return if (inputAmount.text.isNotEmpty()) {
+            getCurrentInput()
+        } else {
+            0
+        }
+    }
+
+    private fun getCurrentInput() = inputAmount.text.toString().toInt()
 
 }

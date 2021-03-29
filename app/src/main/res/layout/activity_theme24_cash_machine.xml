@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".theme24.atm.CashMachine">
+
+
+    <TextView
+        android:id="@+id/chooseOperation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Выберите операцию"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.36" />
+
+    <Button
+        android:id="@+id/withdrawMoney"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Снять деньги"
+        app:layout_constraintBottom_toTopOf="@+id/inputAmount"
+        app:layout_constraintEnd_toStartOf="@+id/depositMoney"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chooseOperation" />
+
+    <Button
+        android:id="@+id/depositMoney"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="пополнить счет"
+        app:layout_constraintBottom_toTopOf="@+id/inputAmount"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/withdrawMoney"
+        app:layout_constraintTop_toBottomOf="@+id/chooseOperation" />
+
+    <EditText
+        android:id="@+id/inputAmount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Введите сумму"
+        android:inputType="number"
+        android:text="100"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chooseOperation"
+        app:layout_constraintVertical_bias="0.16" />
+
+    <TextView
+        android:id="@+id/backMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputAmount"
+        app:layout_constraintVertical_bias="0.18" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
