@@ -40,6 +40,10 @@
             android:enabled="true"
             android:exported="true"/>
 
+        <service android:name=".theme25.MusicService"
+            android:enabled="true"
+            android:exported="true"/>
+
     </application>
 
 </manifest>

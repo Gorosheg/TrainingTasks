@@ -13,14 +13,17 @@ import android.os.Build
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.lessonsFromSamsung.R
-import com.example.lessonsFromSamsung.theme25.example.MyService
+import com.example.lessonsFromSamsung.theme25.MusicService.Companion.startLightService
+import com.example.lessonsFromSamsung.theme25.MusicService.Companion.stopLightService
 import com.example.lessonsFromSamsung.theme25.example.NotificationManager.Companion.CHANNEL_ID
 import kotlinx.android.synthetic.main.activity_service.*
 
 class ServiceActivity : AppCompatActivity(), SensorEventListener {
 
     private lateinit var sensorManager: SensorManager
-    private lateinit var lightning: Sensor
+    private lateinit var light: Sensor
+
+    private var serviceStarted = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         createNotificationChannel()
@@ -29,13 +32,9 @@ class ServiceActivity : AppCompatActivity(), SensorEventListener {
         setContentView(R.layout.activity_service)
 
         sensorManager = getSystemService(SENSOR_SERVICE) as SensorManager
-        lightning = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT)
+        light = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT)
 
-        setNotificationButtonClickListener()
-
-        val intent = Intent(this, MyService::class.java)
-        startService(intent)
-
+    //    setNotificationButtonClickListener()
     }
 
     override fun onStart() {
@@ -49,8 +48,20 @@ class ServiceActivity : AppCompatActivity(), SensorEventListener {
     }
 
     override fun onSensorChanged(event: SensorEvent?) {
-        val value = event?.values ?: return
-//тут музыка должна включаться/выключаться
+        val values = event?.values ?: return
+        val lightCounter = values[0].toInt()
+        val isNight = lightCounter < 5
+//        values.forEach { println("qwerty $it") }
+
+        if (!serviceStarted && isNight) {
+            println("qwerty serviceStarted!")
+            serviceStarted = true
+            startLightService()
+        } else if (serviceStarted && !isNight){
+            println("qwerty serviceStopped!")
+            serviceStarted = false
+            stopLightService()
+        }
     }
 
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
@@ -84,8 +95,8 @@ class ServiceActivity : AppCompatActivity(), SensorEventListener {
 
     private fun registerSensorManagerListener() {
         sensorManager.registerListener(
-            LightService,
-            lightning,
+            this,
+            light,
             SensorManager.SENSOR_DELAY_NORMAL
         )
     }
