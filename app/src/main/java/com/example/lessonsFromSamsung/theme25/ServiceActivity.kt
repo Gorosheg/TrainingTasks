@@ -13,8 +13,7 @@ import android.os.Build
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.lessonsFromSamsung.R
-import com.example.lessonsFromSamsung.theme25.MusicService.Companion.startLightService
-import com.example.lessonsFromSamsung.theme25.MusicService.Companion.stopLightService
+import com.example.lessonsFromSamsung.theme25.MusicService.Companion.startMusicService
 import com.example.lessonsFromSamsung.theme25.example.NotificationManager.Companion.CHANNEL_ID
 import kotlinx.android.synthetic.main.activity_service.*
 
@@ -25,6 +24,8 @@ class ServiceActivity : AppCompatActivity(), SensorEventListener {
 
     private var serviceStarted = false
 
+    private val playerHolder = MusicPlayHolder
+
     override fun onCreate(savedInstanceState: Bundle?) {
         createNotificationChannel()
 
@@ -34,7 +35,8 @@ class ServiceActivity : AppCompatActivity(), SensorEventListener {
         sensorManager = getSystemService(SENSOR_SERVICE) as SensorManager
         light = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT)
 
-    //    setNotificationButtonClickListener()
+        startMusicService()
+        //    setNotificationButtonClickListener()
     }
 
     override fun onStart() {
@@ -56,11 +58,15 @@ class ServiceActivity : AppCompatActivity(), SensorEventListener {
         if (!serviceStarted && isNight) {
             println("qwerty serviceStarted!")
             serviceStarted = true
-            startLightService()
-        } else if (serviceStarted && !isNight){
+
+            // Вызываем функцию play playerHolder'а
+            playerHolder.play()
+        } else if (serviceStarted && !isNight) {
             println("qwerty serviceStopped!")
             serviceStarted = false
-            stopLightService()
+
+            // Вызываем функцию pause playerHolder'а, в который колбек приходит из сервиса
+            playerHolder.pause()
         }
     }
 

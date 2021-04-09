@@ -13,17 +13,27 @@ class MusicService : Service() {
     private lateinit var player: MediaPlayer
     private var totalTime = 0
 
+    private val playerHolder = MusicPlayHolder
+
     override fun onCreate() {
         super.onCreate()
+        createPlayer()
+
+        // Вызываем playerHolder, передаем туда колбек start
+        playerHolder.playCallback = {
+            player.start()
+        }
+
+        // Вызываем playerHolder, передаем туда колбек pause
+        playerHolder.pauseCallback = {
+            player.pause()
+        }
+    }
+
+    private fun createPlayer() {
         player = MediaPlayer.create(this, R.raw.akeboshi_wind)
         player.isLooping = true
         totalTime = player.duration
-        player.start()
-    }
-
-    override fun onDestroy() {
-        player.pause()
-        super.onDestroy()
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
@@ -39,11 +49,11 @@ class MusicService : Service() {
         private val Context.serviceIntent
             get() = Intent(this, MusicService::class.java)
 
-        fun Activity.startLightService() {
+        fun Activity.startMusicService() {
             startService(serviceIntent)
         }
 
-        fun Context.stopLightService() {
+        fun Context.stopMusicService() {
             stopService(serviceIntent)
         }
 
