@@ -15,7 +15,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.lessonsFromSamsung.R
 import com.example.lessonsFromSamsung.theme25.MusicService.Companion.startMusicService
 import com.example.lessonsFromSamsung.theme25.example.NotificationManager.Companion.CHANNEL_ID
-import kotlinx.android.synthetic.main.activity_service.*
+import kotlinx.android.synthetic.main.activity_theme_25_service.*
 
 class ServiceActivity : AppCompatActivity(), SensorEventListener {
 
@@ -30,7 +30,7 @@ class ServiceActivity : AppCompatActivity(), SensorEventListener {
         createNotificationChannel()
 
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_service)
+        setContentView(R.layout.activity_theme_25_service)
 
         sensorManager = getSystemService(SENSOR_SERVICE) as SensorManager
         light = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT)

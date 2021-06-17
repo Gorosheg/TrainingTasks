@@ -3,7 +3,7 @@ package com.example.lessonsFromSamsung.theme24.atm
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.lessonsFromSamsung.R
-import kotlinx.android.synthetic.main.activity_theme24_cash_machine.*
+import kotlinx.android.synthetic.main.activity_theme_24_cash_machine.*
 
 class CashMachine : AppCompatActivity() {
 
@@ -11,7 +11,7 @@ class CashMachine : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_theme24_cash_machine)
+        setContentView(R.layout.activity_theme_24_cash_machine)
 
         withdrawMoney.setOnClickListener {
             withdraw(money)

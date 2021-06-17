@@ -11,16 +11,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".theme25.ServiceActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".theme26Fragment.ActivityWithFragments">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
         </activity>
-        <activity android:name=".theme24.atm.CashMachine">
-
-        </activity>
+        <activity android:name=".theme25.ServiceActivity"/>
+        <activity android:name=".theme24.atm.CashMachine" />
         <activity android:name=".theme16TestingAndDebugging.color.MainChangeColorActivity" />
         <activity android:name=".theme16TestingAndDebugging.color.ChangeColorActivity" />
         <activity android:name=".theme14InterfaceOfAndroidAplication.gameInterface.Records" />
@@ -35,15 +34,14 @@
             android:name=".theme25.example.MyService"
             android:enabled="true"
             android:exported="true" />
-
-        <service android:name=".theme25.ToastService"
+        <service
+            android:name=".theme25.ToastService"
             android:enabled="true"
-            android:exported="true"/>
-
-        <service android:name=".theme25.MusicService"
+            android:exported="true" />
+        <service
+            android:name=".theme25.MusicService"
             android:enabled="true"
-            android:exported="true"/>
-
+            android:exported="true" />
     </application>
 
 </manifest>
