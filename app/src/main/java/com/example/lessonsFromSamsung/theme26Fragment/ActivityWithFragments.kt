@@ -9,6 +9,7 @@ open class ActivityWithFragments : FragmentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_theme_26_fragments)
+        // Review: В отдельную функцию
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
         val fragmentB = FragmentB()

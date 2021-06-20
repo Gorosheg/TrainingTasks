@@ -19,8 +19,9 @@ class FragmentA : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_a_theme_26, container, false)
 
+        // Review: В отдельный метод
+        // Review: Вызывать из onViewCreated
         val button1: Button = view.findViewById(R.id.button1)
-
         button1.setOnClickListener {
             Toast.makeText(view.context, "Вы нажали на кнопку", Toast.LENGTH_SHORT).show()
             fragmentTextChangeListener?.onTextChanged(text = "123")
