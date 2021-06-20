@@ -5,6 +5,7 @@ import androidx.fragment.app.FragmentActivity
 import com.example.lessonsFromSamsung.R
 
 open class ActivityWithFragments : FragmentActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_theme_26_fragments)
@@ -13,7 +14,16 @@ open class ActivityWithFragments : FragmentActivity() {
         val fragmentB = FragmentB()
         fragmentTransaction.add(R.id.frameLayout, fragmentB)
         fragmentTransaction.commit()
-      /*  val fragmentA = FragmentA()
-       fragmentTransaction.hide(fragmentA)*/
+
+        initFragmentTextChangeListener(fragmentB)
     }
+
+    private fun initFragmentTextChangeListener(fragmentB: FragmentB) {
+        val fragmentA: FragmentA? = supportFragmentManager.findFragmentById(R.id.fragmentA) as? FragmentA
+
+        if (fragmentA != null) {
+            fragmentA.fragmentTextChangeListener = fragmentB
+        }
+    }
+
 }

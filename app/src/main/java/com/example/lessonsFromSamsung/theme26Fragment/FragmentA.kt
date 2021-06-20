@@ -11,6 +11,8 @@ import com.example.lessonsFromSamsung.R
 
 class FragmentA : Fragment() {
 
+    var fragmentTextChangeListener: FragmentTextChangeListener? = null
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -21,6 +23,7 @@ class FragmentA : Fragment() {
 
         button1.setOnClickListener {
             Toast.makeText(view.context, "Вы нажали на кнопку", Toast.LENGTH_SHORT).show()
+            fragmentTextChangeListener?.onTextChanged(text = "123")
         }
 
         return view
