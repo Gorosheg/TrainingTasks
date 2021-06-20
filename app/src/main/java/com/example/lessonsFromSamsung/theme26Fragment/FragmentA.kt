@@ -13,21 +13,20 @@ class FragmentA : Fragment() {
 
     var fragmentTextChangeListener: FragmentTextChangeListener? = null
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.fragment_a_theme_26, container, false)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        return inflater.inflate(R.layout.fragment_a_theme_26, container, false)
+    }
 
-        // Review: В отдельный метод
-        // Review: Вызывать из onViewCreated
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val button1: Button = view.findViewById(R.id.button1)
+        makeToastOnButton(button1, view)
+    }
+
+    private fun makeToastOnButton(button1: Button, view: View) {
         button1.setOnClickListener {
             Toast.makeText(view.context, "Вы нажали на кнопку", Toast.LENGTH_SHORT).show()
             fragmentTextChangeListener?.onTextChanged(text = "123")
         }
-
-        return view
     }
 
 }
