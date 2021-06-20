@@ -5,9 +5,17 @@
     android:layout_height="match_parent"
     tools:context=".theme26Fragment.FragmentA">
 
-    <TextView
+    <Button
+        android:id="@+id/button1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_first_fragment" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="change text"/>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="change text"/>
 
 </FrameLayout>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".theme26Fragment.FragmentC">
+
+    <CheckBox
+        android:id="@+id/changingColorCheckBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:checked="false"
+        android:text="Hello third fragment" />
+
+    <CheckBox
+        android:id="@+id/changingBoldCheckBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:checked="false"
+        android:gravity="center_horizontal"
+        android:text="Hello third fragment" />
+
+</FrameLayout>

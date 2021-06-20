@@ -13,5 +13,7 @@ open class ActivityWithFragments : FragmentActivity() {
         val fragmentB = FragmentB()
         fragmentTransaction.add(R.id.frameLayout, fragmentB)
         fragmentTransaction.commit()
+      /*  val fragmentA = FragmentA()
+       fragmentTransaction.hide(fragmentA)*/
     }
 }

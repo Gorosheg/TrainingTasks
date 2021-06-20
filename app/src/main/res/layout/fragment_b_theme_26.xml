@@ -6,8 +6,11 @@
     tools:context=".theme26Fragment.FragmentB">
 
     <TextView
+        android:id="@+id/text"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_second_fragment" />
+        android:text="@string/hello_second_fragment"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="30dp"/>
 
 </FrameLayout>

@@ -10,8 +10,9 @@
     <fragment
         android:id="@+id/fragmentA"
         android:name="com.example.lessonsFromSamsung.theme26Fragment.FragmentA"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
+        android:layout_gravity="center"
         android:layout_weight="1"
         tools:layout="@layout/fragment_a_theme_26"/>
 
@@ -19,13 +20,14 @@
         android:id="@+id/frameLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1" />
+        android:layout_weight="0.5" />
 
     <fragment
         android:id="@+id/fragmentC"
         android:name="com.example.lessonsFromSamsung.theme26Fragment.FragmentC"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
+        android:layout_gravity="center"
         android:layout_weight="1"
         tools:layout="@layout/fragment_c_theme_26"/>
 
