@@ -9,8 +9,8 @@ import com.example.lessonsFromSamsung.R
 class FragmentC : Fragment(R.layout.fragment_c_theme_26) {
 
     var fragmentTextColorChangeListener: FragmentTextColorChangeListener? = null
-    var a = 0 // TODO boolean
-    var b = 0
+    var a = false
+    var b = false
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -19,32 +19,29 @@ class FragmentC : Fragment(R.layout.fragment_c_theme_26) {
 
         firstCheckBoxListener(checkBox1)
         secondCheckBoxListener(checkBox2)
-        val color = choiceOfColor() // todo в функцию
-        changeColor(color)
+        changeColor(choiceOfColor())
     }
 
     private fun firstCheckBoxListener(checkBox1: CheckBox) {
         checkBox1.setOnCheckedChangeListener { button, isChecked ->
-            a = if (isChecked) 1 else 0
-            val color = choiceOfColor()
-            changeColor(color)
+            a = isChecked
+            changeColor(choiceOfColor())
         }
     }
 
     private fun secondCheckBoxListener(checkBox2: CheckBox) {
         checkBox2.setOnCheckedChangeListener { button, isChecked ->
-            b = if (isChecked) 1 else 0
-            val color = choiceOfColor()
-            changeColor(color)
+            b = isChecked
+            changeColor(choiceOfColor())
         }
     }
 
     private fun choiceOfColor(): Int {
         return when {
-            a == 0 && b == 0 -> R.color.black
-            a == 1 && b == 0 -> R.color.blue
-            a == 0 && b == 1 -> R.color.red
-            a == 1 && b == 1 -> R.color.green
+            !a && !b -> R.color.black
+            a && !b -> R.color.blue
+            !a && b -> R.color.red
+            a && b -> R.color.green
             else -> R.color.white
         }
     }
