@@ -15,6 +15,7 @@ open class ActivityWithFragments : FragmentActivity() {
 
         createFragmentB(fragmentB)
         initFragmentTextChangeListener(fragmentB)
+        initFragmentTextColorChangeListener(fragmentB)
     }
 
     private fun createFragmentB(fragment: Fragment) {
@@ -29,6 +30,14 @@ open class ActivityWithFragments : FragmentActivity() {
 
         if (fragmentA != null) {
             fragmentA.fragmentTextChangeListener = fragmentB
+        }
+    }
+
+    private fun initFragmentTextColorChangeListener (fragmentB: FragmentB){
+        val fragmentC:FragmentC? = supportFragmentManager.findFragmentById(R.id.fragmentC) as? FragmentC
+
+        if (fragmentC != null){
+            fragmentC.fragmentTextColorChangeListener = fragmentB
         }
     }
 

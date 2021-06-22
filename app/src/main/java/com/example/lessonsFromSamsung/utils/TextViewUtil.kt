@@ -2,8 +2,10 @@ package com.example.lessonsFromSamsung.utils
 
 import android.widget.TextView
 import androidx.annotation.ColorRes
-import androidx.core.content.ContextCompat
 
+/**
+ * Устанавливает цвет текста по id ресурса цвета
+ */
 fun TextView.setAppTextColor(@ColorRes resId: Int) {
-    setTextColor(ContextCompat.getColor(context, resId))
+    setTextColor(context.getAppColor(resId))
 }

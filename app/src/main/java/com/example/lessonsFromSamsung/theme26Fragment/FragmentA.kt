@@ -20,12 +20,21 @@ class FragmentA : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val button1: Button = view.findViewById(R.id.button1)
         makeToastOnButton(button1, view)
+
+        val button2: Button = view.findViewById(R.id.button2)
+        setTextByButton(button2)
     }
 
     private fun makeToastOnButton(button1: Button, view: View) {
         button1.setOnClickListener {
             Toast.makeText(view.context, "Вы нажали на кнопку", Toast.LENGTH_SHORT).show()
-            fragmentTextChangeListener?.onTextChanged(text = "123")
+            fragmentTextChangeListener?.onTextChanged(text = "Синий")
+        }
+    }
+
+    private fun setTextByButton (button2: Button){
+        button2.setOnClickListener{
+            fragmentTextChangeListener?.onTextChanged(text = "Красный")
         }
     }
 
