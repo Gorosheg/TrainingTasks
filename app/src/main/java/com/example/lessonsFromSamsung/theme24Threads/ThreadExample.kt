@@ -1,4 +1,4 @@
-package com.example.lessonsFromSamsung.theme24
+package com.example.lessonsFromSamsung.theme24Threads
 
 private fun main() {
     println("1 Thread: ${Thread.currentThread()}")

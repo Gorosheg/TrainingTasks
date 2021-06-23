@@ -1,10 +1,10 @@
-package com.example.lessonsFromSamsung.theme25.example
+package com.example.lessonsFromSamsung.theme25Services.example
 
 import android.app.Activity
 import android.app.Service
 import android.content.Context
 import android.content.Intent
-import com.example.lessonsFromSamsung.theme25.example.NotificationManager.Companion.NOTIFICATION_ID
+import com.example.lessonsFromSamsung.theme25Services.example.NotificationManager.Companion.NOTIFICATION_ID
 
 // Это (форграунд) сервис, который отображает натификацию
 class MyService : Service() {

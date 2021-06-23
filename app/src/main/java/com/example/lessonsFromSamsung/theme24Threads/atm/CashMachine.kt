@@ -1,4 +1,4 @@
-package com.example.lessonsFromSamsung.theme24.atm
+package com.example.lessonsFromSamsung.theme24Threads.atm
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

@@ -1,4 +1,4 @@
-package com.example.lessonsFromSamsung.theme25
+package com.example.lessonsFromSamsung.theme25Services
 
 import android.app.Notification
 import android.app.NotificationChannel
@@ -13,8 +13,8 @@ import android.os.Build
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.lessonsFromSamsung.R
-import com.example.lessonsFromSamsung.theme25.MusicService.Companion.startMusicService
-import com.example.lessonsFromSamsung.theme25.example.NotificationManager.Companion.CHANNEL_ID
+import com.example.lessonsFromSamsung.theme25Services.MusicService.Companion.startMusicService
+import com.example.lessonsFromSamsung.theme25Services.example.NotificationManager.Companion.CHANNEL_ID
 import kotlinx.android.synthetic.main.activity_theme_25_service.*
 
 class ServiceActivity : AppCompatActivity(), SensorEventListener {

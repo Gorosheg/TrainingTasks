@@ -1,4 +1,4 @@
-package com.example.lessonsFromSamsung.theme25
+package com.example.lessonsFromSamsung.theme25Services
 
 // Это класс (singleton) у которого всегда только один экземпляр
 object MusicPlayHolder {

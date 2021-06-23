@@ -1,4 +1,4 @@
-package com.example.lessonsFromSamsung.theme25
+package com.example.lessonsFromSamsung.theme25Services
 
 import android.app.Service
 import android.content.Intent

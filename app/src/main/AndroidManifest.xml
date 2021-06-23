@@ -11,15 +11,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".theme27_2Dgraphics.GraphicsActivity"></activity>
         <activity android:name=".theme26Fragment.ActivityWithFragments">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
-        <activity android:name=".theme25.ServiceActivity"/>
-        <activity android:name=".theme24.atm.CashMachine" />
+        <activity android:name=".theme25Services.ServiceActivity" />
+        <activity android:name=".theme24Threads.atm.CashMachine" />
         <activity android:name=".theme16TestingAndDebugging.color.MainChangeColorActivity" />
         <activity android:name=".theme16TestingAndDebugging.color.ChangeColorActivity" />
         <activity android:name=".theme14InterfaceOfAndroidAplication.gameInterface.Records" />
@@ -31,15 +32,15 @@
         <activity android:name=".theme16TestingAndDebugging.AutorizationAndChangingBackgroundColorsActivity" />
 
         <service
-            android:name=".theme25.example.MyService"
+            android:name=".theme25Services.example.MyService"
             android:enabled="true"
             android:exported="true" />
         <service
-            android:name=".theme25.ToastService"
+            android:name=".theme25Services.ToastService"
             android:enabled="true"
             android:exported="true" />
         <service
-            android:name=".theme25.MusicService"
+            android:name=".theme25Services.MusicService"
             android:enabled="true"
             android:exported="true" />
     </application>
