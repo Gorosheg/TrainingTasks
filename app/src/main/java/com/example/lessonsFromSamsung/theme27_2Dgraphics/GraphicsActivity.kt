@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 class GraphicsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-     //   setContentView(R.layout.activity_graphics)
+        //   setContentView(R.layout.activity_graphics)
 
         /**
          * чтобы убрать рамку с заголовком активити

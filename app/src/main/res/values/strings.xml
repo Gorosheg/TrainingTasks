@@ -58,11 +58,6 @@
     <string name="red">Красный</string>
     <string name="questionOfChoosingColor">Какой цвет вы хотите выбрать?</string>
     <string name="confirm">Подтвердить</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="color">Цвет</string>
 
 </resources>
