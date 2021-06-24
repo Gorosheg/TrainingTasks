@@ -13,6 +13,7 @@ class GraphicsActivity : AppCompatActivity() {
          * чтобы убрать рамку с заголовком активити
          */
         requestWindowFeature(Window.FEATURE_NO_TITLE)
-        setContentView(MyDraw(this))
+        // setContentView(MyDraw(this))
+        setContentView(CrossingLines(this))
     }
 }
