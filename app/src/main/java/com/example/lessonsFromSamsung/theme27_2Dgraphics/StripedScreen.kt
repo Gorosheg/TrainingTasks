@@ -15,6 +15,7 @@ class StripedScreen(context: Context) : View(context) {
 
     }
 
+    // горизонтальные полоски
     /* override fun onDraw(canvas: Canvas?) {
          super.onDraw(canvas)
 
@@ -24,6 +25,7 @@ class StripedScreen(context: Context) : View(context) {
          }
      }*/
 
+    // диаганальные полоски
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
 

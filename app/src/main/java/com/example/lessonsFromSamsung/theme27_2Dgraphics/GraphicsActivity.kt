@@ -17,6 +17,7 @@ class GraphicsActivity : AppCompatActivity() {
         // setContentView(CrossingLines(this))
         // setContentView(StripedScreen(this))
         // setContentView(ScreenWithColumns(this))
-        setContentView(Spiral(this))
+        // setContentView(Spiral(this))
+        setContentView(Cube(this))
     }
 }
