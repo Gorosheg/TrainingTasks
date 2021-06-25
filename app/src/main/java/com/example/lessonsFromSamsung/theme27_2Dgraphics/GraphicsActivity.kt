@@ -15,6 +15,7 @@ class GraphicsActivity : AppCompatActivity() {
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         // setContentView(MyDraw(this))
         // setContentView(CrossingLines(this))
-        setContentView(StripedScreen(this))
+        // setContentView(StripedScreen(this))
+        setContentView(ScreenWithColumns(this))
     }
 }
