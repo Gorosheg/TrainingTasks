@@ -50,12 +50,13 @@ class MyDraw(context: Context) : View(context) {
         canvas?.drawText("some text", 50F, 100F, text1Paint)
 
         //текст под углом
-        val rotateCenterX: Float = 200f // Центр поворота холста по оси Х
-        val rotateCenterY: Float = 200f // Центр поворота холста по оси У
-        val rotateAngle: Float = 45f // Угол поворота
+        val rotateCenterX = 200f // Центр поворота холста по оси Х
+        val rotateCenterY = 200f // Центр поворота холста по оси У
+        val rotateAngle = 45f // Угол поворота
 
         // Поворачиваем холст
         canvas?.rotate(-rotateAngle, rotateCenterX, rotateCenterY)
+
         canvas?.drawText("some text two", 0f, 450f, text2Pint)
 
         // Поворачиваем холст обратно

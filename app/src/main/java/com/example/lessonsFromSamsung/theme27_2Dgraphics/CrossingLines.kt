@@ -8,14 +8,17 @@ import android.view.View
 
 class CrossingLines(context: Context) : View(context) {
 
+    // Review: greenPaint
     private val line1: Paint = Paint().apply {
         color = Color.GREEN
         style = Paint.Style.STROKE
         strokeWidth = 10F
     }
 
+    // Review: bluePaint
     private val line2: Paint = Paint().apply {
         color = Color.BLUE
+        // Review: STROKE
         style = Paint.Style.FILL
         strokeWidth = 10F
     }
