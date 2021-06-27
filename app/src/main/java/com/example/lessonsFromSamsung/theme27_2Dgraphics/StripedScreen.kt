@@ -5,6 +5,7 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.view.View
+import com.example.lessonsFromSamsung.theme27_2Dgraphics.util.drawLine
 
 class StripedScreen(context: Context) : View(context) {
 
@@ -16,29 +17,50 @@ class StripedScreen(context: Context) : View(context) {
 
     }
 
-    // горизонтальные полоски
-    /* override fun onDraw(canvas: Canvas?) {
-         super.onDraw(canvas)
-
-         // Review: Extract to fun
-         while (i <= height) {
-             canvas?.drawLine(0F, i.toFloat(), width.toFloat(), i.toFloat(), line)
-             i += 40
-         }
-     }*/
-
-    // диаганальные полоски
-    override fun onDraw(canvas: Canvas?) {
+    override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
+        horizontalLines(canvas)
+        diagonalStripes(canvas)
+    }
 
-        // Review: Extract to fun
+    private fun horizontalLines(canvas: Canvas) {
         while (i <= height) {
-            canvas?.drawLine(j.toFloat(), 0F, width.toFloat() + j.toFloat(), height.toFloat(), line)
-            canvas?.drawLine(0F, i.toFloat(), width.toFloat(), height.toFloat() + i.toFloat(), line)
+            canvas.drawHorizontalLine()
+            i += 40
+        }
+    }
+
+    private fun diagonalStripes(canvas: Canvas) {
+        while (i <= height) {
+            canvas.drawRightDiagonalStripe()
+            canvas.drawLeftDiagonalStripe()
 
             i += 70
             j += 40
         }
     }
 
+    private fun Canvas.drawHorizontalLine() = drawLine(
+        startX = 0,
+        startY = i,
+        stopX = width,
+        stopY = i,
+        paint = line
+    )
+
+    private fun Canvas.drawRightDiagonalStripe() = drawLine(
+        startX = j,
+        startY = 0,
+        stopX = width + j,
+        stopY = height,
+        paint = line
+    )
+
+    private fun Canvas.drawLeftDiagonalStripe() = drawLine(
+        startX = 0,
+        startY = i,
+        stopX = width,
+        stopY = height + i,
+        paint = line
+    )
 }

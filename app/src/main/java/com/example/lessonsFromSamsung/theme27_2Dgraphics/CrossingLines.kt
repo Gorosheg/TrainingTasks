@@ -5,29 +5,42 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.view.View
+import com.example.lessonsFromSamsung.theme27_2Dgraphics.util.drawLine
 
 class CrossingLines(context: Context) : View(context) {
 
-    // Review: greenPaint
-    private val line1: Paint = Paint().apply {
+    private val greenLinePaint: Paint = Paint().apply {
         color = Color.GREEN
         style = Paint.Style.STROKE
         strokeWidth = 10F
     }
 
-    // Review: bluePaint
-    private val line2: Paint = Paint().apply {
+    private val blueLinePaint: Paint = Paint().apply {
         color = Color.BLUE
-        // Review: STROKE
-        style = Paint.Style.FILL
+        style = Paint.Style.STROKE
         strokeWidth = 10F
     }
 
-    override fun onDraw(canvas: Canvas?) {
+    override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
 
-        canvas?.drawLine(0F, 0F, width.toFloat(), height.toFloat(), line1)
-        canvas?.drawLine(width.toFloat(), 0f, 0f, height.toFloat(), line2)
+        canvas.leftDiagonalLine()
+        canvas.rightDiagonalLine()
     }
 
+    private fun Canvas.leftDiagonalLine() = drawLine(
+        startX = 0,
+        startY = 0,
+        stopX = width,
+        stopY = height,
+        paint = greenLinePaint
+    )
+
+    private fun Canvas.rightDiagonalLine() = drawLine(
+        startX = width,
+        startY = 0,
+        stopX = 0,
+        stopY = height,
+        paint = blueLinePaint
+    )
 }

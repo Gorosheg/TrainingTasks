@@ -23,7 +23,7 @@ class ScreenWithColumns(context: Context) : View(context) {
 
         while (i <= height) {
             canvas.drawLeftHorizontalLine()
-            canvas.drawLine(width.toFloat() / 2 + 10f, i.toFloat(), width.toFloat() - 20f, i.toFloat(), line)
+            canvas.drawRightHorizontalLine()
 
             i += 40
         }
@@ -39,4 +39,11 @@ class ScreenWithColumns(context: Context) : View(context) {
         paint = line
     )
 
+    private fun Canvas.drawRightHorizontalLine() = drawLine(
+        startX = width / 2 + 10,
+        startY = i,
+        stopX = width - 20,
+        stopY = i,
+        paint = line
+    )
 }
