@@ -2,7 +2,9 @@ package com.example.lessonsFromSamsung.theme27_2Dgraphics
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.graphics.*
+import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.Paint
 import android.view.MotionEvent
 import android.view.View
 
@@ -39,7 +41,7 @@ class DrawWithClicksExample(context: Context) : View(context) {
                 println("ACTION_DOWN")
                 startX = event.x
                 startY = event.y
-                invalidate() // Заставляем перерисаоваться view, вызвать onDraw
+                invalidate() // Заставляем перерисоваться view, вызвать onDraw
             }
 
             MotionEvent.ACTION_MOVE -> {
