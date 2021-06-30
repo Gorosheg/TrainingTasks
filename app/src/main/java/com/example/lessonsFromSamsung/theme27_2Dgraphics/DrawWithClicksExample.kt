@@ -10,14 +10,6 @@ import android.view.View
 
 class DrawWithClicksExample(context: Context) : View(context) {
 
-    /*
-    TODO: Хранить нажатия в массиве list: MutableList<Pair<Float, Float>>
-      по клику добавлять элемент в массив
-      в onDraw рисовать клики в цикле list.forEach { pair ->  } // pair.first, pair.second
-     */
-
-    // TODO: Рисовать не прямоугольники а линии, которые будут соединяться с последней позицией нажатия
-
     private var startX = 0f
     private var startY = 0f
 

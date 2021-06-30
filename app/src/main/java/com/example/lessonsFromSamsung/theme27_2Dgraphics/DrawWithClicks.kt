@@ -5,10 +5,13 @@ import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
+import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
 
-class DrawWithClicks(context: Context) : View(context) {
+class DrawWithClicks @JvmOverloads constructor(
+    context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
+) : View(context, attrs, defStyleAttr) {
 
     // Создаем MutableList с классом Pair в котором два элемента(типа Float), в данном случае точки X и Y
     private val clicks: MutableList<Pair<Float, Float>> = mutableListOf()
@@ -23,13 +26,18 @@ class DrawWithClicks(context: Context) : View(context) {
         super.onDraw(canvas)
         canvas.drawColor(Color.WHITE)
         //  goThroughRectArray(canvas)
-        goThroughLineArray(canvas)
+        drawLines(canvas)
     }
 
-    private fun goThroughLineArray(canvas: Canvas) {
+    fun clear() {
+        clicks.clear()
+        invalidate()
+    }
+
+    private fun drawLines(canvas: Canvas) {
         if (clicks.size > 1) {
             for (i in 1 until clicks.size) {
-                giveArgumentsForDrawing(i, canvas)
+                drawLine(i, canvas)
             }
         }
     }
@@ -43,16 +51,16 @@ class DrawWithClicks(context: Context) : View(context) {
     @SuppressLint("ClickableViewAccessibility")
     override fun onTouchEvent(event: MotionEvent): Boolean {
         when (event.actionMasked) {
-            MotionEvent.ACTION_MOVE -> {
+            MotionEvent.ACTION_DOWN -> {
                 val pair = Pair(event.x, event.y) // Создаем пару из координат точки клика
                 clicks.add(pair) // С помощью add добавляем пару в массив
-                invalidate() // Запускается метод onDraw повторно
+                invalidate() // Инициирует запуск метода onDraw
             }
         }
         return true
     }
 
-    private fun giveArgumentsForDrawing(i: Int, canvas: Canvas) {
+    private fun drawLine(i: Int, canvas: Canvas) {
         val currentClick = clicks[i]
         val (previousX, previousY) = clicks[i - 1]
         drawLine(canvas, currentClick.first, currentClick.second, previousX, previousY)
