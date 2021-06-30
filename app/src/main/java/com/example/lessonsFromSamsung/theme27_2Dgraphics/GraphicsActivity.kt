@@ -8,7 +8,7 @@ import kotlinx.android.synthetic.main.activity_theme27_graphics.*
 class GraphicsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_theme27_graphics)
+        setContentView(R.layout.activity_theme_27_graphics)
 
         // Убираем рамку с заголовком активити
         //  requestWindowFeature(Window.FEATURE_NO_TITLE)

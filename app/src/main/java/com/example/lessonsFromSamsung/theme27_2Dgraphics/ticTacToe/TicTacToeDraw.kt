@@ -7,10 +7,13 @@ import android.graphics.Color
 import android.graphics.Paint
 import android.view.MotionEvent
 import android.view.View
+import com.example.lessonsFromSamsung.utils.createArrayWithZero
 
 class TicTacToeDraw(context: Context) : View(context) {
 
     private val clicks: MutableList<Pair<Float, Float>> = mutableListOf()
+
+    private val array = createArrayWithZero(9)
 
     private val linePaint: Paint = Paint().apply {
         style = Paint.Style.STROKE
@@ -45,12 +48,20 @@ class TicTacToeDraw(context: Context) : View(context) {
     override fun onTouchEvent(event: MotionEvent): Boolean {
         when (event.actionMasked) {
             MotionEvent.ACTION_DOWN -> {
-                val pair = Pair(event.x, event.y) // Создаем пару из координат точки клика
-                clicks.add(pair) // С помощью add добавляем пару в массив
-                invalidate() // Инициирует запуск метода onDraw
+                val pair = Pair(event.x, event.y)
+                clicks.add(pair)
+                findIndex(pair)
+                invalidate()
             }
         }
         return true
+    }
+
+    private fun findIndex(pair: Pair<Float, Float>) {
+        val x = pair.first / 2 * B
+        val y = pair.second - B / B
+        val index = 3 * x + y
+        array[index.toInt()] = 1
     }
 
     private fun drawCircle(canvas: Canvas) {
