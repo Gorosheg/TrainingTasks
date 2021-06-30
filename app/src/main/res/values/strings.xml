@@ -59,5 +59,12 @@
     <string name="questionOfChoosingColor">Какой цвет вы хотите выбрать?</string>
     <string name="confirm">Подтвердить</string>
     <string name="color">Цвет</string>
+    <string name="title_activity_tic_tac_toe">TicTacToe</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
 </resources>

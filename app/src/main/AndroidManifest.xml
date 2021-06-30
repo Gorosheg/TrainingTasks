@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.lessonsFromSamsung">
 
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
@@ -11,15 +12,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".theme27_2Dgraphics.GraphicsActivity">
+
+        <activity
+            android:name=".theme27_2Dgraphics.ticTacToe.TicTacToe"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".theme27_2Dgraphics.GraphicsActivity" />
         <activity android:name=".theme26Fragment.ActivityWithFragments" />
-
         <activity android:name=".theme25Services.ServiceActivity" />
         <activity android:name=".theme24Threads.atm.CashMachine" />
         <activity android:name=".theme16TestingAndDebugging.color.MainChangeColorActivity" />
