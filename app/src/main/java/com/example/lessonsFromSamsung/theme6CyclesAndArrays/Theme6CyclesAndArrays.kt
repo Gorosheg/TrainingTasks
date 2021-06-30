@@ -133,7 +133,7 @@ private fun ex4() {
 // Меньшее из рандомных чисел
 private fun ex4_declarative() {
     val arrayWithRandom = createRandomIntArray()
-    val minimum = arrayWithRandom.min() ?: 0
+    val minimum = arrayWithRandom.minOrNull() ?: 0
     printIntArray(arrayWithRandom)
     println(minimum)
 }
