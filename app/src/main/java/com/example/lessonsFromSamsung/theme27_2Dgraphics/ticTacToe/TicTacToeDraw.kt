@@ -12,8 +12,10 @@ import com.example.lessonsFromSamsung.utils.createArrayWithZero
 class TicTacToeDraw(context: Context) : View(context) {
 
     private val clicks: MutableList<Pair<Float, Float>> = mutableListOf()
-
     private val array = createArrayWithZero(9)
+    private var pointX = 0f
+    private var pointY = 0f
+    private var queue = true
 
     private val linePaint: Paint = Paint().apply {
         style = Paint.Style.STROKE
@@ -39,8 +41,9 @@ class TicTacToeDraw(context: Context) : View(context) {
         canvas.drawColor(Color.WHITE)
 
         drawGrid(canvas)
-        drawCircle(canvas)
+        findCoordinates()
         drawCross(canvas)
+        drawCircle(canvas)
     }
 
 
@@ -58,28 +61,63 @@ class TicTacToeDraw(context: Context) : View(context) {
     }
 
     private fun findIndex(pair: Pair<Float, Float>) {
-        val x = pair.first / 2 * B
-        val y = pair.second - B / B
-        val index = 3 * x + y
-        array[index.toInt()] = 1
+        val x = (pair.first / C).toInt()
+        val y = ((pair.second - C) / C).toInt()
+        val index = 3 * y + x
+        if (queue) array[index] = 1
+        else array[index] = 2
+    }
+
+    private fun findCoordinates() {
+        for (i in array.indices) {
+            if (array[i] != 0) {
+                findCoordinates(i)
+            }
+        }
+    }
+
+    private fun findCoordinates(i: Int) {
+        val line = i / 3
+        val column = i % 3
+
+        pointX = when (column) {
+            0 -> A
+            1 -> C
+            2 -> D
+            else -> A
+        }
+        pointY = when (line) {
+            0 -> C
+            1 -> D
+            2 -> E
+            else -> A
+        }
     }
 
     private fun drawCircle(canvas: Canvas) {
-        clicks.forEach { (x, y) ->
-            canvas.drawCircle(x, y, 175F, circlePaint)
+        for (i in array.indices) {
+            if (array[i] == 2) {
+                canvas.drawCircle(pointX + B, pointY + B, B, circlePaint)
+                queue = true
+            }
         }
     }
 
     private fun drawCross(canvas: Canvas) {
-        drawLine(A, B, B, C, canvas, crossLinePaint)
-        drawLine(B, B, A, C, canvas, crossLinePaint)
+        for (i in array.indices) {
+            if (array[i] == 1) {
+                drawLine(pointX, pointY, pointX + C, pointY + C, canvas, crossLinePaint)
+                drawLine(pointX + C, pointY, pointX, pointY + C, canvas, crossLinePaint)
+                queue = false
+            }
+        }
     }
 
     private fun drawGrid(canvas: Canvas) {
-        drawLine(B, B, B, E, canvas, linePaint)
-        drawLine(C, B, C, E, canvas, linePaint)
-        drawLine(A, C, D, C, canvas, linePaint)
-        drawLine(A, D, D, D, canvas, linePaint)
+        drawLine(C, C, C, F, canvas, linePaint)
+        drawLine(D, C, D, F, canvas, linePaint)
+        drawLine(A, D, E, D, canvas, linePaint)
+        drawLine(A, E, E, E, canvas, linePaint)
     }
 
     private fun drawLine(startX: Float, startY: Float, stopX: Float, stopY: Float, canvas: Canvas, linePaint: Paint) {
@@ -88,10 +126,11 @@ class TicTacToeDraw(context: Context) : View(context) {
 
     companion object {
         private const val A = 0f
-        private const val B = 350f
-        private const val C = 700f
-        private const val D = 1050f
-        private const val E = 1400f
+        private const val B = 175f
+        private const val C = 350f
+        private const val D = 700f
+        private const val E = 1050f
+        private const val F = 1400f
     }
 
 }

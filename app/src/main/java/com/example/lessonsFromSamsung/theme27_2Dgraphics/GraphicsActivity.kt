@@ -3,7 +3,6 @@ package com.example.lessonsFromSamsung.theme27_2Dgraphics
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.lessonsFromSamsung.R
-import kotlinx.android.synthetic.main.activity_theme27_graphics.*
 
 class GraphicsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,10 +17,10 @@ class GraphicsActivity : AppCompatActivity() {
         // setContentView(ScreenWithColumns(this))
         // setContentView(Spiral(this))
         //  setContentView(DrawWithClicks(this))
-        buttonClear.setOnClickListener { clearAll() }
+        //   buttonClear.setOnClickListener { clearAll() }
     }
 
-    private fun clearAll() {
-        drawingField.clear()
-    }
+    /*  private fun clearAll() {
+          drawingField.clear()
+      }*/
 }
