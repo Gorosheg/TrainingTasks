@@ -11,7 +11,6 @@ import com.example.lessonsFromSamsung.utils.createArrayWithZero
 
 class TicTacToeDraw(context: Context) : View(context) {
 
-    private val clicks: MutableList<Pair<Float, Float>> = mutableListOf()
     private val array = createArrayWithZero(9)
     private var pointX = 0f
     private var pointY = 0f
@@ -41,9 +40,7 @@ class TicTacToeDraw(context: Context) : View(context) {
         canvas.drawColor(Color.WHITE)
 
         drawGrid(canvas)
-        findCoordinates()
-        drawCross(canvas)
-        drawCircle(canvas)
+        writeCoordinates(canvas)
     }
 
 
@@ -52,31 +49,31 @@ class TicTacToeDraw(context: Context) : View(context) {
         when (event.actionMasked) {
             MotionEvent.ACTION_DOWN -> {
                 val pair = Pair(event.x, event.y)
-                clicks.add(pair)
-                findIndex(pair)
+                attachFigureToCell(pair)
                 invalidate()
             }
         }
         return true
     }
 
-    private fun findIndex(pair: Pair<Float, Float>) {
+    private fun attachFigureToCell(pair: Pair<Float, Float>) {
         val x = (pair.first / C).toInt()
         val y = ((pair.second - C) / C).toInt()
         val index = 3 * y + x
         if (queue) array[index] = 1
         else array[index] = 2
+        queue = !queue
     }
 
-    private fun findCoordinates() {
+    private fun writeCoordinates(canvas: Canvas) {
         for (i in array.indices) {
             if (array[i] != 0) {
-                findCoordinates(i)
+                writeCoordinates(i, canvas)
             }
         }
     }
 
-    private fun findCoordinates(i: Int) {
+    private fun writeCoordinates(i: Int, canvas: Canvas){
         val line = i / 3
         val column = i % 3
 
@@ -92,15 +89,8 @@ class TicTacToeDraw(context: Context) : View(context) {
             2 -> E
             else -> A
         }
-    }
-
-    private fun drawCircle(canvas: Canvas) {
-        for (i in array.indices) {
-            if (array[i] == 2) {
-                canvas.drawCircle(pointX + B, pointY + B, B, circlePaint)
-                queue = true
-            }
-        }
+        drawCross(canvas)
+        drawCircle(canvas)
     }
 
     private fun drawCross(canvas: Canvas) {
@@ -108,7 +98,14 @@ class TicTacToeDraw(context: Context) : View(context) {
             if (array[i] == 1) {
                 drawLine(pointX, pointY, pointX + C, pointY + C, canvas, crossLinePaint)
                 drawLine(pointX + C, pointY, pointX, pointY + C, canvas, crossLinePaint)
-                queue = false
+            }
+        }
+    }
+
+    private fun drawCircle(canvas: Canvas) {
+        for (i in array.indices) {
+            if (array[i] == 2) {
+                canvas.drawCircle(pointX + B, pointY + B, B, circlePaint)
             }
         }
     }
