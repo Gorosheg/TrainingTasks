@@ -40,7 +40,7 @@ class TicTacToeDraw(context: Context) : View(context) {
         canvas.drawColor(Color.WHITE)
 
         drawGrid(canvas)
-        writeCoordinates(canvas)
+        drawFigures(canvas)
     }
 
 
@@ -65,7 +65,7 @@ class TicTacToeDraw(context: Context) : View(context) {
         queue = !queue
     }
 
-    private fun writeCoordinates(canvas: Canvas) {
+    private fun drawFigures(canvas: Canvas) {
         for (i in array.indices) {
             if (array[i] != 0) {
                 writeCoordinates(i, canvas)
