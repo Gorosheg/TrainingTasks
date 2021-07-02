@@ -63,7 +63,7 @@ class TicTacToeDraw(context: Context) : View(context) {
     private fun attachFigureToCell(pair: Pair<Float, Float>) {
         val x = (pair.first / C).toInt()
         val y = ((pair.second - C) / C).toInt()
-        val index = 3 * y + x
+        val index = 3 * y + x // FIXME: ArrayIndexOutOfBoundsException: length=9; index=12
         array[index] = if (queue) 1 else 2
         queue = !queue
     }
