@@ -34,6 +34,8 @@ class TicTacToeDraw(context: Context) : View(context) {
 
         drawGrid(canvas)
         drawFigures(canvas)
+        checkForWin(canvas)
+        checkForDraw()
     }
 
     @SuppressLint("ClickableViewAccessibility")
@@ -95,6 +97,13 @@ class TicTacToeDraw(context: Context) : View(context) {
         } else if (array[i] == 2) {
             drawCircle(canvas, pointX, pointY)
         }
+    }
+
+    private fun checkForDraw() {
+        for (i in array.indices) {
+            if (array[i] == 0) return
+        }
+        vins = true
     }
 
     private fun checkForWin(canvas: Canvas) {
