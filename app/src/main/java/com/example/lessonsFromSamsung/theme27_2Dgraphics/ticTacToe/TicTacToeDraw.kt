@@ -12,26 +12,15 @@ import com.example.lessonsFromSamsung.utils.createArrayWithZero
 
 class TicTacToeDraw(context: Context) : View(context) {
 
-    private val array = createArrayWithZero(9)
-    private var pointX = 0f // TODO: делаем локальными и передаём в функцию параметром
-    private var pointY = 0f // TODO: делаем локальными и передаём в функцию параметром
+    private var array = createArrayWithZero(9)
     private var queue = true
 
-    private val linePaint: Paint = Paint().apply { // TODO: Use buildPaint
-        style = Paint.Style.STROKE
-        color = Color.GRAY
-        strokeWidth = 7f
-    }
-
+    private val linePaint: Paint = buildPaint(Color.GRAY)
     private val crossLinePaint: Paint = buildPaint(Color.BLUE)
+    private val circlePaint: Paint = buildPaint(Color.RED)
+    private var vins: Boolean = false
 
-    private val circlePaint: Paint = Paint().apply { // TODO: Use buildPaint
-        style = Paint.Style.STROKE
-        color = Color.RED
-        strokeWidth = 7f
-    }
-
-    private fun buildPaint(@ColorInt color: Int): Paint {
+    private fun buildPaint(@ColorInt color: Int): Paint { // Аннотация нужна, чтобы получить цвет, а не просто Int
         return Paint().apply {
             style = Paint.Style.STROKE
             this.color = color
@@ -53,7 +42,12 @@ class TicTacToeDraw(context: Context) : View(context) {
             MotionEvent.ACTION_DOWN -> {
                 val pair = Pair(event.x, event.y)
                 attachFigureToCell(pair)
+                if (vins) {
+                    array = createArrayWithZero(9)
+                    vins = false
+                }
                 invalidate()
+
             }
         }
 
@@ -63,31 +57,33 @@ class TicTacToeDraw(context: Context) : View(context) {
     private fun attachFigureToCell(pair: Pair<Float, Float>) {
         val x = (pair.first / C).toInt()
         val y = ((pair.second - C) / C).toInt()
-        val index = 3 * y + x // FIXME: ArrayIndexOutOfBoundsException: length=9; index=12
-        array[index] = if (queue) 1 else 2
-        queue = !queue
+        val index = 3 * y + x
+
+        if (array[index] == 0) {
+            array[index] = if (queue) 1 else 2
+            queue = !queue
+        }
+
     }
 
     private fun drawFigures(canvas: Canvas) {
         for (i in array.indices) {
             if (array[i] != 0) {
-                writeCoordinates(i, canvas)
+                drawFigure(i, canvas)
             }
         }
     }
 
-    private fun writeCoordinates(i: Int, canvas: Canvas) { // TODO: drawFigure
-        val line = i / 3
-        val column = i % 3
+    private fun drawFigure(i: Int, canvas: Canvas) {
 
-        pointX = when (column) {
+        val pointX = when (i % 3) {
             0 -> A
             1 -> C
             2 -> D
             else -> A
         }
 
-        pointY = when (line) {
+        val pointY = when (i / 3) {
             0 -> C
             1 -> D
             2 -> E
@@ -95,18 +91,72 @@ class TicTacToeDraw(context: Context) : View(context) {
         }
 
         if (array[i] == 1) {
-            drawCross(canvas)
+            drawCross(canvas, pointX, pointY)
         } else if (array[i] == 2) {
-            drawCircle(canvas)
+            drawCircle(canvas, pointX, pointY)
         }
     }
 
-    private fun drawCross(canvas: Canvas) {
+    private fun checkForWin(canvas: Canvas) {
+        when {
+
+            areSimilarFigures(0, 1, 2) -> {
+                drawLine(A, C + B, E, C + B, canvas, linePaint)
+                vins = true
+            }
+
+            areSimilarFigures(3, 4, 5) -> {
+                drawLine(A, D + B, E, D + B, canvas, linePaint)
+                vins = true
+            }
+
+            areSimilarFigures(6, 7, 8) -> {
+                drawLine(A, E + B, E, E + B, canvas, linePaint)
+                vins = true
+            }
+
+            areSimilarFigures(0, 3, 6) -> {
+                drawLine(B, C, B, F, canvas, linePaint)
+                vins = true
+            }
+
+            areSimilarFigures(1, 4, 7) -> {
+                drawLine(C + B, C, C + B, F, canvas, linePaint)
+                vins = true
+            }
+
+            areSimilarFigures(2, 5, 8) -> {
+                drawLine(D + B, C, D + B, F, canvas, linePaint)
+                vins = true
+            }
+
+            areSimilarFigures(0, 4, 8) -> {
+                drawLine(A, C, E, F, canvas, linePaint)
+                vins = true
+            }
+
+            areSimilarFigures(2, 4, 6) -> {
+                drawLine(E, C, A, F, canvas, linePaint)
+                vins = true
+            }
+
+        }
+    }
+
+    private fun areSimilarFigures(
+        a: Int,
+        b: Int,
+        c: Int
+    ): Boolean {
+        return (array[a] != 0 && array[a] == array[b] && array[b] == array[c])
+    }
+
+    private fun drawCross(canvas: Canvas, pointX: Float, pointY: Float) {
         drawLine(pointX, pointY, pointX + C, pointY + C, canvas, crossLinePaint)
         drawLine(pointX + C, pointY, pointX, pointY + C, canvas, crossLinePaint)
     }
 
-    private fun drawCircle(canvas: Canvas) {
+    private fun drawCircle(canvas: Canvas, pointX: Float, pointY: Float) {
         canvas.drawCircle(pointX + B, pointY + B, B, circlePaint)
     }
 
@@ -117,7 +167,14 @@ class TicTacToeDraw(context: Context) : View(context) {
         drawLine(A, E, E, E, canvas, linePaint)
     }
 
-    private fun drawLine(startX: Float, startY: Float, stopX: Float, stopY: Float, canvas: Canvas, linePaint: Paint) {
+    private fun drawLine(
+        startX: Float,
+        startY: Float,
+        stopX: Float,
+        stopY: Float,
+        canvas: Canvas,
+        linePaint: Paint
+    ) {
         canvas.drawLine(startX, startY, stopX, stopY, linePaint)
     }
 
@@ -133,3 +190,4 @@ class TicTacToeDraw(context: Context) : View(context) {
     }
 
 }
+
