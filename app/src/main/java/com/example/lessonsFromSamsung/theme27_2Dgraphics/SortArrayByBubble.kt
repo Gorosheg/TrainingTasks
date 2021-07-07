@@ -2,6 +2,7 @@ package com.example.lessonsFromSamsung.theme27_2Dgraphics
 
 import com.example.lessonsFromSamsung.utils.createRandomIntArray
 import com.example.lessonsFromSamsung.utils.printIntArray
+import com.example.lessonsFromSamsung.utils.scanner
 
 val array = createRandomIntArray(10, 50)
 
@@ -10,6 +11,8 @@ private fun main() {
     sort()
     println("")
     printIntArray(array)
+    println("")
+    searchNumber()
 }
 
 private fun sort() {
@@ -31,4 +34,13 @@ private fun swap(previous: Int, current: Int) {
     val container = array[previous]
     array[previous] = array[current]
     array[current] = container
+}
+
+private fun searchNumber(){
+    val n = scanner.nextInt()
+    for (i in array.indices){
+        if (array[i] == n){
+            println(i+1)
+        }
+    }
 }
