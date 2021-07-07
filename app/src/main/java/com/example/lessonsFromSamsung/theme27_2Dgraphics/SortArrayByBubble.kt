@@ -4,43 +4,43 @@ import com.example.lessonsFromSamsung.utils.createRandomIntArray
 import com.example.lessonsFromSamsung.utils.printIntArray
 import com.example.lessonsFromSamsung.utils.scanner
 
-val array = createRandomIntArray(10, 50)
-
 private fun main() {
+    val array = createRandomIntArray(10, 50)
+
     printIntArray(array)
-    sort()
+    array.sort()
     println("")
     printIntArray(array)
     println("")
-    searchNumber()
+    searchNumber(array)
 }
 
-private fun sort() {
+private fun Array<Int>.sort() {
     var sorted = false
     while (!sorted) {
         sorted = true
-        for (i in 1 until array.size) {
-            val previous = array[i - 1]
-            val current = array[i]
+        for (i in 1 until size) {
+            val previous = this[i - 1]
+            val current = this[i]
             if (previous > current) {
-                swap(i - 1, i)
+                swap(this, i - 1, i)
                 sorted = false
             }
         }
     }
 }
 
-private fun swap(previous: Int, current: Int) {
+private fun swap(array: Array<Int>, previous: Int, current: Int) {
     val container = array[previous]
     array[previous] = array[current]
     array[current] = container
 }
 
-private fun searchNumber(){
+private fun searchNumber(array: Array<Int>, ) {
     val n = scanner.nextInt()
-    for (i in array.indices){
-        if (array[i] == n){
-            println(i+1)
+    for (i in array.indices) {
+        if (array[i] == n) {
+            println(i + 1)
         }
     }
 }
