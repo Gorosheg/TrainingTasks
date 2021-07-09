@@ -1,4 +1,4 @@
-package com.example.lessonsFromSamsung.theme27_2Dgraphics
+package com.example.lessonsFromSamsung.theme27_2Dgraphics.draw
 
 import android.annotation.SuppressLint
 import android.content.Context

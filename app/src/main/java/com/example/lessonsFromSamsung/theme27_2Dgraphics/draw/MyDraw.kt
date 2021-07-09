@@ -1,4 +1,4 @@
-package com.example.lessonsFromSamsung.theme27_2Dgraphics
+package com.example.lessonsFromSamsung.theme27_2Dgraphics.draw
 
 import android.content.Context
 import android.graphics.*
