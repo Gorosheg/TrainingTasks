@@ -36,7 +36,7 @@ private fun swap(array: Array<Int>, previous: Int, current: Int) {
     array[current] = container
 }
 
-private fun searchNumber(array: Array<Int>, ) {
+private fun searchNumber(array: Array<Int>) {
     val n = scanner.nextInt()
     for (i in array.indices) {
         if (array[i] == n) {
