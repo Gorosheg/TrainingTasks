@@ -1,7 +1,7 @@
 package com.example.lessonsFromSamsung.theme27_2Dgraphics
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
 import com.example.lessonsFromSamsung.R
 import kotlinx.android.synthetic.main.activity_theme_27_password_strenght.*
@@ -12,64 +12,63 @@ class PasswordStrength : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_theme_27_password_strenght)
 
-        passwordField.addTextChangedListener { checkStrength()}
+        passwordField.addTextChangedListener { checkStrength() }
     }
 
     private fun checkStrength() {
         val password = passwordField.text.toString()
-        val numberOfSymbols = password.count()
+        val countSymbols = password.count()
         val array = password.toCharArray()
 
-        countNumbersAndLetters(array, numberOfSymbols)
+        countNumbersAndLetters(array, countSymbols)
     }
 
-    private fun countNumbersAndLetters(array: CharArray, numberOfSymbols: Int) {
-        var numberOfLetters = 0
+    private fun countNumbersAndLetters(array: CharArray, countSymbols: Int) {
+        var countLetters = 0
         var countNumbers = 0
 
         array.forEach {
             val symbol = it.toString()
             val v = symbol.toIntOrNull()
 
-            if (it.code in 65..90) it//todo
-            if (v != null) countNumbers += 1
-            else numberOfLetters += 1
+            if (it.code in 65..90) countLetters += 1
+            else if (v != null) countNumbers += 1
         }
 
-        strength(numberOfSymbols, numberOfLetters, countNumbers)
+        strength(countSymbols, countLetters, countNumbers)
     }
 
     private fun strength(
-        numberOfSymbols: Int,
-        numberOfLetters: Int,
+        countSymbols: Int,
+        countLetters: Int,
         countNumbers: Int
     ) {
         if (
-            numberOfSymbols >= 8 &&
-            numberOfLetters > 3 &&
+            countSymbols >= 8 &&
+            countLetters > 3 &&
             countNumbers > 3
         ) {
             return displayStrength(4)
         }
 
         if (
-            numberOfSymbols > 5 &&
-            numberOfLetters > 3 &&
+            countSymbols > 5 &&
+            countLetters > 3 &&
             countNumbers >= 2
         ) {
             return displayStrength(3)
         }
 
         if (
-            numberOfSymbols > 3 &&
-            (numberOfLetters < 2 || countNumbers < 2)
+            countSymbols > 3 &&
+            (countLetters < 2 || countNumbers < 2)
         ) {
             return displayStrength(2)
         }
 
         if (
-            numberOfSymbols < 3 ||
-            numberOfLetters < 3 ||
+            countSymbols < 3 ||
+            countLetters < 3 ||
             countNumbers < 1
         ) {
             return displayStrength(1)
