@@ -1,4 +1,4 @@
-package com.example.lessonsFromSamsung.theme8MultidimensionalArray
+package com.example.lessonsFromSamsung.utils
 
 import java.util.*
 

@@ -7,8 +7,8 @@ fun createIntArray(inScanner: Scanner): Array<Int> {
     return Array(arraySize) { inScanner.nextInt() }
 }
 
-fun createArrayWithZero(size1: Int): Array<Int> {
-    return Array(size1) { 0 }
+fun createArrayWithZero(size: Int): Array<Int> {
+    return Array(size) { 0 }
 }
 
 fun createSequentialIntArray(size: Int = 30): Array<Int> {

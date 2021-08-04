@@ -1,5 +1,7 @@
 package com.example.lessonsFromSamsung.theme8MultidimensionalArray
 
+import com.example.lessonsFromSamsung.utils.createTwoArrayWithZero
+import com.example.lessonsFromSamsung.utils.printIntTwoArray
 import java.util.*
 
 private val random = Random()

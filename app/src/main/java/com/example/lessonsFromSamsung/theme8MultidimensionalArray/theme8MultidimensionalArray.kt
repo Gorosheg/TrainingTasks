@@ -1,6 +1,6 @@
 package com.example.lessonsFromSamsung.theme8MultidimensionalArray
 
-import com.example.lessonsFromSamsung.utils.scanner
+import com.example.lessonsFromSamsung.utils.*
 
 private fun main() {
     snakeTwoArray()
