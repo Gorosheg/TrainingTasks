@@ -34,29 +34,55 @@ private fun sortTwoIntArray(array: Array<Array<Int>>) {
 
                 sortedHorizontal = sortHorizontal(array, i, j)
 
-                if (array[i + 1][array.size - 1] < array[i][array.size - 1]) {
-                    swapRightColumn(array, i)
-                    sortedRightColumn = false
-                }
+                sortedRightColumn = sortRightColumn(array, i)
 
-                if (array[array.size - 1][j + 1] < array[array.size - 1][j]) {
-                    swapDownLine(array, j)
-                    sortedBottomLine = false
-                }
+                sortedBottomLine = sortDownLine(array, j)
 
-                if (array[i][array.size - 1] > array[i + 1][0]) {
-                    swapExtremeInRow(array, i)
-                    sortedExtremeInRow = false
-                }
+                sortedExtremeInRow = sortExtremeInRow(array, i, sortedExtremeInRow)
             }
         }
     }
 }
 
+private fun sortExtremeInRow(
+    array: Array<Array<Int>>,
+    i: Int,
+    sortedExtremeInRow: Boolean
+): Boolean {
+    var sortedExtremeInRow1 = sortedExtremeInRow
+    if (array[i][array.size - 1] > array[i + 1][0]) {
+        swapExtremeInRow(array, i)
+        sortedExtremeInRow1 = false
+    }
+    return sortedExtremeInRow1
+}
+
+private fun sortDownLine(
+    array: Array<Array<Int>>,
+    j: Int
+): Boolean {
+    if (array[array.size - 1][j + 1] < array[array.size - 1][j]) {
+        swapDownLine(array, j)
+        return false
+    }
+    return true
+}
+
+private fun sortRightColumn(
+    array: Array<Array<Int>>,
+    i: Int
+): Boolean {
+    if (array[i + 1][array.size - 1] < array[i][array.size - 1]) {
+        swapRightColumn(array, i)
+        return false
+    }
+    return true
+}
+
 private fun sortHorizontal(
     array: Array<Array<Int>>,
     i: Int,
-    j: Int,
+    j: Int
 ): Boolean {
     if (array[i][j + 1] < array[i][j]) {
         swapHorizontal(array, i, j)
@@ -68,7 +94,7 @@ private fun sortHorizontal(
 private fun verticalSort(
     array: Array<Array<Int>>,
     i: Int,
-    j: Int,
+    j: Int
 ): Boolean {
     if (array[i + 1][j] < array[i][j]) {
         swapVertical(array, i, j)
