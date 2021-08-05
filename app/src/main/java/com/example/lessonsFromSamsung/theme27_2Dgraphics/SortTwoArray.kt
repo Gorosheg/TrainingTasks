@@ -29,15 +29,10 @@ private fun sortTwoIntArray(array: Array<Array<Int>>) {
 
         for (i in 0 until array.size - 1) {
             for (j in 0 until array[i].size - 1) {
-
                 sortVertical = verticalSort(array, i, j)
-
                 sortedHorizontal = sortHorizontal(array, i, j)
-
                 sortedRightColumn = sortRightColumn(array, i)
-
                 sortedBottomLine = sortDownLine(array, j)
-
                 sortedExtremeInRow = sortExtremeInRow(array, i, sortedExtremeInRow)
             }
         }
