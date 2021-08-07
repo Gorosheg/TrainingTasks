@@ -11,19 +11,19 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".theme27_2Dgraphics.PasswordStrength">
+        android:theme="@style/AppTheme"
+        tools:ignore="ExtraText">
+        <activity android:name=".theme28_SurfaceView.SurfaceViewActivity">
             <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".theme27_2Dgraphics.PasswordStrength" />
         <activity
             android:name=".theme27_2Dgraphics.ticTacToe.TicTacToe"
             android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity">
-
-        </activity>
+            tools:ignore="LockedOrientationActivity" />
         <activity android:name=".theme27_2Dgraphics.draw.GraphicsActivity" />
         <activity android:name=".theme26Fragment.ActivityWithFragments" />
         <activity android:name=".theme25Services.ServiceActivity" />
