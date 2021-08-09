@@ -14,9 +14,16 @@ class DrawSmile(context: Context) : SurfaceView(context), SurfaceHolder.Callback
 
     private var thread: DrawThread? = null
 
-    private val image: Bitmap = BitmapFactory.decodeResource(resources, R.drawable.smile)
+    private val imageGood: Bitmap = BitmapFactory.decodeResource(resources, R.drawable.smile2)
+    private val imageBad: Bitmap = BitmapFactory.decodeResource(resources, R.drawable.smile1)
+
     private val backgroundPaint: Paint = Paint().apply {
         color = Color.BLUE
+        style = Paint.Style.FILL
+    }
+
+    private val backgroundPaint2: Paint = Paint().apply {
+        color = Color.GREEN
         style = Paint.Style.FILL
     }
 
@@ -33,7 +40,7 @@ class DrawSmile(context: Context) : SurfaceView(context), SurfaceHolder.Callback
 
     override fun surfaceCreated(holder: SurfaceHolder) {
         thread = DrawThread(this, holder)
-        thread?.start() // Вызов жополнительного потока
+        thread?.start() // Вызов дополнительного потока
     }
 
     override fun surfaceChanged(holder: SurfaceHolder, format: Int, width: Int, height: Int) = Unit
@@ -54,13 +61,29 @@ class DrawSmile(context: Context) : SurfaceView(context), SurfaceHolder.Callback
 
     override fun draw(canvas: Canvas) {
         super.draw(canvas)
-        canvas.drawRect(0F, 0F, width.toFloat(), height.toFloat(), backgroundPaint)
-        canvas.drawBitmap(image, bitmapX.toFloat(), bitmapY.toFloat(), backgroundPaint)
 
-        if (bitmapX + image.width / 2 < towardPointX) bitmapX +=10
-        if (bitmapX + image.width / 2 > towardPointX) bitmapX -=10
-        if (bitmapY + image.height / 2 < towardPointY) bitmapY +=10
-        if (bitmapY + image.height / 2 > towardPointY) bitmapY -=10
+        drawBackground(canvas)
+        drawBitmap(canvas)
+        changeBitmapPosition()
+    }
+
+    private fun drawBackground(canvas: Canvas) {
+        canvas.drawRect(0F, 0F, width.toFloat(), height.toFloat(), backgroundPaint)
+    }
+
+    private fun changeBitmapPosition() {
+        if (bitmapX + imageGood.width / 2 < towardPointX) bitmapX += 30
+        if (bitmapX + imageGood.width / 2 > towardPointX) bitmapX -= 30
+        if (bitmapY + imageGood.height / 2 < towardPointY) bitmapY += 10
+        if (bitmapY + imageGood.height / 2 > towardPointY) bitmapY -= 10
+    }
+
+    private fun drawBitmap(canvas: Canvas) {
+        if (bitmapY < height / 2) {
+            canvas.drawBitmap(imageGood, bitmapX.toFloat(), bitmapY.toFloat(), backgroundPaint)
+        } else {
+            canvas.drawBitmap(imageBad, bitmapX.toFloat(), bitmapY.toFloat(), backgroundPaint)
+        }
     }
 
     override fun onTouchEvent(event: MotionEvent?): Boolean {
@@ -70,5 +93,4 @@ class DrawSmile(context: Context) : SurfaceView(context), SurfaceHolder.Callback
         }
         return false
     }
-
 }
