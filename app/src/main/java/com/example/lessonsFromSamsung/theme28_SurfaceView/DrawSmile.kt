@@ -29,8 +29,10 @@ class DrawSmile(context: Context) : SurfaceView(context), SurfaceHolder.Callback
 
     private var towardPointX = 0
     private var towardPointY = 0
-    private var bitmapX = 0
-    private var bitmapY = 0
+    private var imageX = 0
+    private var imageY = 0
+
+    var count = true
 
     // Init блок вызывается сразу после унаследования от интерфейса
     init {
@@ -63,26 +65,36 @@ class DrawSmile(context: Context) : SurfaceView(context), SurfaceHolder.Callback
         super.draw(canvas)
 
         drawBackground(canvas)
-        drawBitmap(canvas)
-        changeBitmapPosition()
+        drawImage(canvas)
+        changeImagePosition()
     }
 
     private fun drawBackground(canvas: Canvas) {
+       /* if (count) {
+            backgroundPaint.color = Color.GREEN
+            count = false
+        } else {
+            backgroundPaint.color = Color.BLUE
+            count = true
+        }*/
         canvas.drawRect(0F, 0F, width.toFloat(), height.toFloat(), backgroundPaint)
     }
 
-    private fun changeBitmapPosition() {
-        if (bitmapX + imageGood.width / 2 < towardPointX) bitmapX += 30
-        if (bitmapX + imageGood.width / 2 > towardPointX) bitmapX -= 30
-        if (bitmapY + imageGood.height / 2 < towardPointY) bitmapY += 10
-        if (bitmapY + imageGood.height / 2 > towardPointY) bitmapY -= 10
+    private fun changeImagePosition() {
+
+        //if (towardPointX < width / 2) {
+        if (imageX + imageGood.width / 2 < towardPointX) imageX += 30
+        if (imageX + imageGood.width / 2 > towardPointX) imageX -= 30
+        if (imageY + imageGood.height / 2 < towardPointY) imageY += 10
+        if (imageY + imageGood.height / 2 > towardPointY) imageY -= 10
+        //  }
     }
 
-    private fun drawBitmap(canvas: Canvas) {
-        if (bitmapY < height / 2) {
-            canvas.drawBitmap(imageGood, bitmapX.toFloat(), bitmapY.toFloat(), backgroundPaint)
+    private fun drawImage(canvas: Canvas) {
+        if (imageY < height / 2 - 150) {
+            canvas.drawBitmap(imageGood, imageX.toFloat(), imageY.toFloat(), backgroundPaint)
         } else {
-            canvas.drawBitmap(imageBad, bitmapX.toFloat(), bitmapY.toFloat(), backgroundPaint)
+            canvas.drawBitmap(imageBad, imageX.toFloat(), imageY.toFloat(), backgroundPaint)
         }
     }
 
