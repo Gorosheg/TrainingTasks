@@ -5,7 +5,7 @@ import android.graphics.*
 import android.view.View
 import com.example.lessonsFromSamsung.R
 
-class MyDraw(context: Context) : View(context) {
+class MyFirstDraw(context: Context) : View(context) {
 
     private val backGroundPaint: Paint = Paint().apply {
         style = Paint.Style.FILL

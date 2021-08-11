@@ -25,7 +25,7 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <com.example.lessonsFromSamsung.theme27_2Dgraphics.draw.DrawWithClicks
+    <com.example.lessonsFromSamsung.theme27_2Dgraphics.draw.DrawingWithClicks
         android:id="@+id/drawingField"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

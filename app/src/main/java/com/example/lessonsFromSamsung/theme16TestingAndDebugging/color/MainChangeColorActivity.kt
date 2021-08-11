@@ -27,7 +27,7 @@ class MainChangeColorActivity : AppCompatActivity() {
      */
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == KEY_COLOR_CHECK && resultCode == Activity.RESULT_OK) {
-            val userColorName = data?.getStringExtra(ChangeColorActivity.KEY_COLOR)
+            val userColorName = data?.getStringExtra(ChangingColorActivity.KEY_COLOR)
             setBackgroundColor(userColorName)
         } else {
             super.onActivityResult(requestCode, resultCode, data)
@@ -48,8 +48,8 @@ class MainChangeColorActivity : AppCompatActivity() {
     }
 
     private fun navigateToChangeColorActivity() {
-        val intent = Intent(this, ChangeColorActivity::class.java)
-        intent.putExtra(ChangeColorActivity.KEY_COLOR, userColor.name)
+        val intent = Intent(this, ChangingColorActivity::class.java)
+        intent.putExtra(ChangingColorActivity.KEY_COLOR, userColor.name)
         startActivityForResult(intent, KEY_COLOR_CHECK)
     }
 

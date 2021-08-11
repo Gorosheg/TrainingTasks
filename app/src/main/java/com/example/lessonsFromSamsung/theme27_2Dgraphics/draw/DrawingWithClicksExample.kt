@@ -8,7 +8,7 @@ import android.graphics.Paint
 import android.view.MotionEvent
 import android.view.View
 
-class DrawWithClicksExample(context: Context) : View(context) {
+class DrawingWithClicksExample(context: Context) : View(context) {
 
     private var startX = 0f
     private var startY = 0f

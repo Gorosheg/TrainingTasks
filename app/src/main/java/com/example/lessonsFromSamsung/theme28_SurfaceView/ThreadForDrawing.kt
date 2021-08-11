@@ -3,7 +3,7 @@ package com.example.lessonsFromSamsung.theme28_SurfaceView
 import android.view.SurfaceHolder
 import android.view.SurfaceView
 
-class DrawThread(private val view: SurfaceView, private var surfaceHolder: SurfaceHolder) : Thread() {
+class ThreadForDrawing(private val view: SurfaceView, private var surfaceHolder: SurfaceHolder) : Thread() {
 
     @Volatile  // Позволяет не кэшировать переменные в разных потоках
     var running = true

@@ -10,9 +10,9 @@ import com.example.lessonsFromSamsung.R
 /* SurfaceHolder осуществляет доступ к поверхности для рисования
    С помощью Callback SurfaceHolder следит за тем,
    когда создается изменяется или удаляется поверхность для рисования*/
-class DrawSmile(context: Context) : SurfaceView(context), SurfaceHolder.Callback {
+class SmileDrawing(context: Context) : SurfaceView(context), SurfaceHolder.Callback {
 
-    private var thread: DrawThread? = null
+    private var threadForDrawing: ThreadForDrawing? = null
 
     private val imageGood: Bitmap = BitmapFactory.decodeResource(resources, R.drawable.smile2)
     private val imageBad: Bitmap = BitmapFactory.decodeResource(resources, R.drawable.smile1)
@@ -41,19 +41,19 @@ class DrawSmile(context: Context) : SurfaceView(context), SurfaceHolder.Callback
     }
 
     override fun surfaceCreated(holder: SurfaceHolder) {
-        thread = DrawThread(this, holder)
-        thread?.start() // Вызов дополнительного потока
+        threadForDrawing = ThreadForDrawing(this, holder)
+        threadForDrawing?.start() // Вызов дополнительного потока
     }
 
     override fun surfaceChanged(holder: SurfaceHolder, format: Int, width: Int, height: Int) = Unit
 
     override fun surfaceDestroyed(holder: SurfaceHolder) {
-        thread?.requestStop() // Завершение дополнительного потока
+        threadForDrawing?.requestStop() // Завершение дополнительного потока
 
         var retry = true
         while (retry) {
             try {
-                thread?.join()
+                threadForDrawing?.join()
                 retry = false
             } catch (e: InterruptedException) {
 

@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.lessonsFromSamsung.R
 import kotlinx.android.synthetic.main.activity_theme_16_change_color.*
 
-class ChangeColorActivity : AppCompatActivity() {
+class ChangingColorActivity : AppCompatActivity() {
 
     private var userColor = MyBackgroundColor.WHITE
 

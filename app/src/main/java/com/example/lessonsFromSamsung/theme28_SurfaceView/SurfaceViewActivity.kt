@@ -6,6 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 class SurfaceViewActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(DrawSmile(this))
+        setContentView(SmileDrawing(this))
     }
 }
