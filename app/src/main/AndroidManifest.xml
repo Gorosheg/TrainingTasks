@@ -13,11 +13,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="ExtraText">
-        <activity android:name=".theme28_SurfaceView.SurfaceViewActivity">
+        <activity android:name=".theme29_TestSurfaceView.TestSurfaceViewActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            android:exported="true"
+        </activity>
+
+        <activity android:name=".theme28_SurfaceView.SurfaceViewActivity">
+
         </activity>
         <activity android:name=".theme27_2Dgraphics.PasswordStrength" />
         <activity
@@ -25,29 +31,29 @@
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity android:name=".theme27_2Dgraphics.draw.GraphicsActivity" />
-        <activity android:name=".theme26Fragment.ActivityWithFragments" />
-        <activity android:name=".theme25Services.ServiceActivity" />
-        <activity android:name=".theme24Threads.atm.CashMachine" />
-        <activity android:name=".theme16TestingAndDebugging.color.MainChangeColorActivity" />
-        <activity android:name=".theme16TestingAndDebugging.color.ChangingColorActivity" />
-        <activity android:name=".theme14InterfaceOfAndroidAplication.gameInterface.Records" />
-        <activity android:name=".theme14InterfaceOfAndroidAplication.gameInterface.Settings" />
-        <activity android:name=".theme14InterfaceOfAndroidAplication.gameInterface.NewGame" />
-        <activity android:name=".theme14InterfaceOfAndroidAplication.gameInterface.FirstPage" />
-        <activity android:name=".theme14InterfaceOfAndroidAplication.ExercisesWithViews" />
-        <activity android:name=".theme14InterfaceOfAndroidAplication.qize.QuizActivity" />
-        <activity android:name=".theme16TestingAndDebugging.AutorizationAndChangingBackgroundColorsActivity" />
+        <activity android:name=".theme26_Fragment.ActivityWithFragments" />
+        <activity android:name=".theme25_Services.ServiceActivity" />
+        <activity android:name=".theme24_Threads.atm.CashMachine" />
+        <activity android:name=".theme16_TestingAndDebugging.color.MainChangeColorActivity" />
+        <activity android:name=".theme16_TestingAndDebugging.color.ChangingColorActivity" />
+        <activity android:name=".theme14_InterfaceOfAndroidAplication.gameInterface.Records" />
+        <activity android:name=".theme14_InterfaceOfAndroidAplication.gameInterface.Settings" />
+        <activity android:name=".theme14_InterfaceOfAndroidAplication.gameInterface.NewGame" />
+        <activity android:name=".theme14_InterfaceOfAndroidAplication.gameInterface.FirstPage" />
+        <activity android:name=".theme14_InterfaceOfAndroidAplication.ExercisesWithViews" />
+        <activity android:name=".theme14_InterfaceOfAndroidAplication.qize.QuizActivity" />
+        <activity android:name=".theme16_TestingAndDebugging.AutorizationAndChangingBackgroundColorsActivity" />
 
         <service
-            android:name=".theme25Services.example.MyService"
+            android:name=".theme25_Services.example.MyService"
             android:enabled="true"
             android:exported="true" />
         <service
-            android:name=".theme25Services.ToastService"
+            android:name=".theme25_Services.ToastService"
             android:enabled="true"
             android:exported="true" />
         <service
-            android:name=".theme25Services.MusicService"
+            android:name=".theme25_Services.MusicService"
             android:enabled="true"
             android:exported="true" />
     </application>

@@ -5,11 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".theme26Fragment.ActivityWithFragments">
+    tools:context=".theme26_Fragment.ActivityWithFragments">
 
     <fragment
         android:id="@+id/fragmentA"
-        android:name="com.example.lessonsFromSamsung.theme26Fragment.FragmentA"
+        android:name="com.example.lessonsFromSamsung.theme26_Fragment.FragmentA"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
@@ -23,7 +23,7 @@
 
     <fragment
         android:id="@+id/fragmentC"
-        android:name="com.example.lessonsFromSamsung.theme26Fragment.FragmentC"
+        android:name="com.example.lessonsFromSamsung.theme26_Fragment.FragmentC"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"

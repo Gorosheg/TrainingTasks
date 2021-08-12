@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    tools:context=".theme14InterfaceOfAndroidAplication.qize.QuizActivity">
+    tools:context=".theme14_InterfaceOfAndroidAplication.qize.QuizActivity">
 
     <TextView
         android:layout_width="wrap_content"

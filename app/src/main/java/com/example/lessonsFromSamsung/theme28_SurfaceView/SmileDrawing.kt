@@ -22,17 +22,12 @@ class SmileDrawing(context: Context) : SurfaceView(context), SurfaceHolder.Callb
         style = Paint.Style.FILL
     }
 
-    private val backgroundPaint2: Paint = Paint().apply {
-        color = Color.GREEN
-        style = Paint.Style.FILL
-    }
-
     private var towardPointX = 0
     private var towardPointY = 0
     private var imageX = 0
     private var imageY = 0
 
-    var count = true
+    //  var count = true
 
     // Init блок вызывается сразу после унаследования от интерфейса
     init {
@@ -56,7 +51,6 @@ class SmileDrawing(context: Context) : SurfaceView(context), SurfaceHolder.Callb
                 threadForDrawing?.join()
                 retry = false
             } catch (e: InterruptedException) {
-
             }
         }
     }
@@ -70,13 +64,13 @@ class SmileDrawing(context: Context) : SurfaceView(context), SurfaceHolder.Callb
     }
 
     private fun drawBackground(canvas: Canvas) {
-       /* if (count) {
-            backgroundPaint.color = Color.GREEN
-            count = false
-        } else {
-            backgroundPaint.color = Color.BLUE
-            count = true
-        }*/
+        /* if (count) {
+             backgroundPaint.color = Color.GREEN
+             count = false
+         } else {
+             backgroundPaint.color = Color.BLUE
+             count = true
+         }*/
         canvas.drawRect(0F, 0F, width.toFloat(), height.toFloat(), backgroundPaint)
     }
 
