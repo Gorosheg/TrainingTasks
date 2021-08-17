@@ -64,7 +64,7 @@ class TestSurfaceView(context: Context) : SurfaceView(context), SurfaceHolder.Ca
 
 
     private fun drawCircle(canvas: Canvas) {
-        canvas?.drawCircle(towardPointX.toFloat(), towardPointY.toFloat(), circleRadius.toFloat(), circlePaint)
+        canvas.drawCircle(towardPointX.toFloat(), towardPointY.toFloat(), circleRadius.toFloat(), circlePaint)
     }
 
     private fun changeCircleRadius() {
