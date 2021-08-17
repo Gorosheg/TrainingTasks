@@ -4,6 +4,8 @@ import retrofit2.Call
 import retrofit2.http.GET
 
 interface CatApi {
-    @GET("/facts/random")
+
+    @GET("generate_insult.php?lang=en&type=json") // Конкретный путь до запроса
     fun getRandomFact(): Call<CatFact>
+
 }
