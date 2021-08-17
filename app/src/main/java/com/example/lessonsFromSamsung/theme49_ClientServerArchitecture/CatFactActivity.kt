@@ -18,17 +18,31 @@ class CatFactActivity : AppCompatActivity() {
     }
 
     private fun loadFact() {
-        NetworkManager.api()?.getRandomFact()?.enqueue(object : Callback<CatFact> {
+        val request = object : Callback<CatFact> { // Создаем запрос, реализуя анонимный класс
+
+            /**
+             * Сюда приходит пололжительный результат
+             * Серриалзация - перобразование класса в (строку/массив байт)
+             * Дессерриализация - наоборот
+             */
             override fun onResponse(call: Call<CatFact>, response: Response<CatFact>) {
                 val fact: CatFact? = response.body()
                 text.text = fact?.text
             }
 
-            override fun onFailure(call: Call<CatFact>, t: Throwable) {
+            /**
+             * this здесь - это Callback<CatFact>.
+             * Чтобы вызвать контекст класса, который находиться выше, надо писать через "@"
+             */
+            override fun onFailure(call: Call<CatFact>, t: Throwable) { // Сюда приходят ошибки
                 Toast.makeText(this@CatFactActivity, t.message, Toast.LENGTH_LONG).show()
-                t.printStackTrace()
+                t.printStackTrace() // Ошибка печатается в логах как Warning
             }
 
-        })
+        }
+
+        NetworkManager.api() // Вызов api, статической функции в объекте
+            ?.getRandomFact() // Вызов функции из интерфейса, который реализует ретрофит
+            ?.enqueue(request) // Ассинхронный запуск запроса
     }
 }

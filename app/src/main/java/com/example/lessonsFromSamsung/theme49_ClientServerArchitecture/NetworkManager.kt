@@ -5,6 +5,11 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
+/**
+ * object - singleton (может иметь только один экземпляр во всем проекте),
+ * нельзя ничего передать в конструктор
+ * Он создается при запуске приложения
+ */
 object NetworkManager {
     private var api: CatApi? = null
 
