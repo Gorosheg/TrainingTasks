@@ -17,28 +17,28 @@ private fun main() {
     }
 }
 
-fun plusNumbers() {
+private fun plusNumbers() {
     Addition().askToEnterNumbers()
     val a = inScanner.nextInt()
     val b = inScanner.nextInt()
     println(Addition().add(a, b))
 }
 
-fun minusNumbers() {
+private fun minusNumbers() {
     Subtraction().askToEnterNumbers()
     val a = inScanner.nextInt()
     val b = inScanner.nextInt()
     println(Subtraction().minus(a, b))
 }
 
-fun multiplyNumbers() {
+private fun multiplyNumbers() {
     Multiplication().askToEnterNumbers()
     val a = inScanner.nextInt()
     val b = inScanner.nextInt()
     println(Multiplication().multiplication(a, b))
 }
 
-fun splitNumbers() {
+private fun splitNumbers() {
     Division().askToEnterNumbers()
     val a = inScanner.nextInt()
     val b = inScanner.nextInt()
