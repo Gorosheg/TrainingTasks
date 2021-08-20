@@ -42,8 +42,11 @@ private fun addStudent(studentsArray: ArrayList<Student>) {
 }
 
 private fun excludeStudent(studentsArray: ArrayList<Student>) {
-    // TODO: Не работает по имени
-    studentsArray.remove(Student("Петров Андрей Иванович", 6)) // Удаление элемента по имени
+    val studentForRemove = studentsArray.find { it.fullName == "Иванов Петр Андреевич" } // Поиск студента по имени
+
+    // Удаление элемента по конкретному студенту, это должен быть тот же экземпляр
+    studentsArray.remove(studentForRemove)
+
     studentsArray.removeAt(2) // Удаление элемента по индексу
 }
 
@@ -51,6 +54,7 @@ private fun printStudents(studentsArray: ArrayList<Student>) {
     for (i in 0 until studentsArray.size) {
         printStudent(studentsArray, i)
     }
+
     println("")
 }
 
