@@ -3,14 +3,15 @@ package com.example.lessonsFromSamsung.thene30_ArrayList
 import com.example.lessonsFromSamsung.utils.createRandomIntArray
 import com.example.lessonsFromSamsung.utils.print
 import com.example.lessonsFromSamsung.utils.scanner
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 
 private fun main() {
     createRandomIntArray(size = 21, maxValue = 50).run {
         sort()
         print()
 
-        val index = binarySearch()
-        println(index)
+        binarySearch().let(::println)
     }
 }
 
