@@ -9,7 +9,8 @@ private fun main() {
         sort()
         print()
 
-        binarySearch().let(::println)
+        binarySearch(scanner.nextInt())
+            .let(::println)
     }
 }
 
@@ -37,10 +38,9 @@ private fun Array<Int>.swap(previous: Int, current: Int) {
     this[current] = temp
 }
 
-private fun Array<Int>.binarySearch(): Int {
+private fun Array<Int>.binarySearch(searchingNumber: Int): Int {
     var index = size / 2
     var supposedNumber = this[index]
-    val searchingNumber: Int = scanner.nextInt()
 
     while (supposedNumber != searchingNumber) {
         if (searchingNumber < supposedNumber) {
@@ -48,7 +48,9 @@ private fun Array<Int>.binarySearch(): Int {
         } else if (searchingNumber > supposedNumber) {
             index += index / 2
         }
+
         supposedNumber = this[index]
     }
+
     return index
 }
