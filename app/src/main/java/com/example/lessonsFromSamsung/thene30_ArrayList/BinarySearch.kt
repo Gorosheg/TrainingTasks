@@ -3,8 +3,6 @@ package com.example.lessonsFromSamsung.thene30_ArrayList
 import com.example.lessonsFromSamsung.utils.createRandomIntArray
 import com.example.lessonsFromSamsung.utils.print
 import com.example.lessonsFromSamsung.utils.scanner
-import kotlin.contracts.InvocationKind
-import kotlin.contracts.contract
 
 private fun main() {
     createRandomIntArray(size = 21, maxValue = 50).run {
@@ -17,6 +15,7 @@ private fun main() {
 
 private fun Array<Int>.sort() {
     var sorted = false
+
     while (!sorted) {
         sorted = true
 
@@ -25,17 +24,17 @@ private fun Array<Int>.sort() {
             val current = this[i]
 
             if (previous > current) {
-                swap(this, i - 1, i)
+                swap(previous = i - 1, current = i)
                 sorted = false
             }
         }
     }
 }
 
-private fun swap(array: Array<Int>, previous: Int, current: Int) {
-    val container = array[previous]
-    array[previous] = array[current]
-    array[current] = container
+private fun Array<Int>.swap(previous: Int, current: Int) {
+    val temp = this[previous]
+    this[previous] = this[current]
+    this[current] = temp
 }
 
 private fun Array<Int>.binarySearch(): Int {
