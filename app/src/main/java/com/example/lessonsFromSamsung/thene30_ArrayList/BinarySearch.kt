@@ -5,11 +5,13 @@ import com.example.lessonsFromSamsung.utils.print
 import com.example.lessonsFromSamsung.utils.scanner
 
 private fun main() {
-    val array = createRandomIntArray(size = 21, maxValue = 50)
-    array.sort()
-    array.print()
-    val index = array.binarySearch()
-    println(index)
+    createRandomIntArray(size = 21, maxValue = 50).run {
+        sort()
+        print()
+
+        val index = binarySearch()
+        println(index)
+    }
 }
 
 private fun Array<Int>.sort() {
