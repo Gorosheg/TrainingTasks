@@ -2,46 +2,47 @@ package com.example.lessonsFromSamsung.thene30_ArrayList
 
 private fun main() {
     val studentsArray = createStudentsArray()
-    printStudents(studentsArray)
+    printStudents(studentsArray) // TODO: Make as extension
     addStudent(studentsArray)
     printStudents(studentsArray)
     excludeStudent(studentsArray)
     printStudents(studentsArray)
 }
 
-private fun createStudentsArray(): ArrayList<Student> {
-    return arrayListOf(
-        Student(
-            "Иванов Петр Андреевич",
-            3
-        ),
-        Student(
-            "Петров Андрей Иванович",
-            6
-        ),
-        Student(
-            "Андреев Иван Петрович",
-            10
-        ),
-        Student(
-            "Сидорова Елена Анатольевна",
-            4
-        ),
-        Student(
-            "Антонова Софья Степановна",
-            6
-        )
+private fun createStudentsArray(): ArrayList<Student> = arrayListOf(
+    Student(
+        fullName = "Иванов Петр Андреевич",
+        classNumber = 3
+    ),
+    Student(
+        fullName = "Петров Андрей Иванович",
+        classNumber = 6
+    ),
+    Student(
+        fullName = "Андреев Иван Петрович",
+        classNumber = 10
+    ),
+    Student(
+        fullName = "Сидорова Елена Анатольевна",
+        classNumber = 4
+    ),
+    Student(
+        fullName = "Антонова Софья Степановна",
+        classNumber = 6
     )
-}
+)
 
-private fun addStudent(studentsArray: ArrayList<Student>) {
+private fun addStudent(studentsArray: ArrayList<Student>) { // TODO: make and add
     // Добавление элемента в конец списка
-    studentsArray.add(Student("Степанова Анна Викторовна", 11))
+    // TODO: extract func make and add on end. remove comment
+    studentsArray.add(Student(fullName = "Степанова Анна Викторовна", classNumber = 11))
+
     // Добавление элемента в нужное место по идексу
-    studentsArray.add(3, Student("Викторов Илья Ильич", 11))
+    studentsArray.add(3, Student(fullName = "Викторов Илья Ильич", classNumber = 11)) // TODO
 }
 
 private fun excludeStudent(studentsArray: ArrayList<Student>) {
+    // TODO extract func and provide fullName as parameter
     val studentForRemove = studentsArray.find { it.fullName == "Иванов Петр Андреевич" } // Поиск студента по имени
 
     // Удаление элемента по конкретному студенту, это должен быть тот же экземпляр
