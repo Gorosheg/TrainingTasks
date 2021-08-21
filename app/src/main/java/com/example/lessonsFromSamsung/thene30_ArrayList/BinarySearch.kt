@@ -9,8 +9,8 @@ private fun main() {
         sort()
         print()
 
-        binarySearch(scanner.nextInt())
-            .let(::println)
+        val result = binarySearch(scanner.nextInt())
+        println(result + 1)
     }
 }
 
