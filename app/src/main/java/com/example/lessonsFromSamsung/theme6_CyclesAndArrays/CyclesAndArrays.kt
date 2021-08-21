@@ -5,7 +5,7 @@ import kotlin.math.absoluteValue
 
 private fun main() {
     val array = createSequentialIntArray(size = 4)
-    printIntArray(array)
+    array.print()
 }
 
 private fun commonFor() {
@@ -94,14 +94,14 @@ private fun printSquareOfStars(squareSize: Int = scanner.nextInt()) {
 
 private fun printRandomArray() {
     val arrayWithRandom = createRandomIntArray()
-    printIntArray(arrayWithRandom)
+    arrayWithRandom.print()
 }
 
 // Сумма рандомных чисел
 private fun ex3() {
     val arrayWithRandom = createRandomIntArray()
     val sum = sumRandomNumbers(arrayWithRandom)
-    printIntArray(arrayWithRandom)
+    arrayWithRandom.print()
     println(sum)
 }
 
@@ -126,7 +126,7 @@ private fun ex4() {
         }
     }
 
-    printIntArray(arrayWithRandom)
+    arrayWithRandom.print()
     println(minimum)
 }
 
@@ -134,7 +134,7 @@ private fun ex4() {
 private fun ex4_declarative() {
     val arrayWithRandom = createRandomIntArray()
     val minimum = arrayWithRandom.minOrNull() ?: 0
-    printIntArray(arrayWithRandom)
+    arrayWithRandom.print()
     println(minimum)
 }
 
@@ -160,7 +160,7 @@ private fun countOfPositiveNumbers(array: Array<Int>): Int {
 private fun work69() {
     val intArray = createIntArray(scanner)
     reverseArray(intArray)
-    printIntArray(intArray)
+    intArray.print()
 }
 
 // Найти место новому числу в ряду чисел по убыванию
@@ -185,7 +185,7 @@ private fun findPositionOfNumber() {
 private fun moveNumbersInArrayInCircle() {
     val intArray = createIntArray(scanner)
     moveNumbersInArrayInCircle(intArray)
-    printIntArray(intArray)
+    intArray.print()
 }
 
 private fun moveNumbersInArrayInCircle(intArray: Array<Int>) {

@@ -20,13 +20,13 @@ fun createRandomIntArray(size: Int = 30, maxValue: Int = 100): Array<Int> {
     return Array(size) { random.nextInt(maxValue) }
 }
 
-fun printIntArray(array: Array<Int>) {
-    for (i in 0 until array.size - 1) {
-        val element = array[i]
+fun Array<Int>.print() {
+    for (i in 0 until size - 1) {
+        val element = this[i]
         print("$element, ")
     }
 
-    if (array.isNotEmpty()) {
-        print(array.last())
+    if (isNotEmpty()) {
+        print(last())
     }
 }

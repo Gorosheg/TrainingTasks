@@ -1,7 +1,7 @@
 package com.example.lessonsFromSamsung.theme9_OperationsWithArrays
 
 import com.example.lessonsFromSamsung.utils.createIntArray
-import com.example.lessonsFromSamsung.utils.printIntArray
+import com.example.lessonsFromSamsung.utils.print
 import com.example.lessonsFromSamsung.utils.scanner
 
 private fun main() {
@@ -15,7 +15,7 @@ private fun compressingArrayOfIntegers1() {
         moveElementsAndChekLastElementsForZero(array, i)
     }
 
-    printIntArray(array)
+    array.print()
 }
 
 

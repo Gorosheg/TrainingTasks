@@ -1,19 +1,15 @@
 package com.example.lessonsFromSamsung.thene30_ArrayList
 
 import com.example.lessonsFromSamsung.utils.createRandomIntArray
-import com.example.lessonsFromSamsung.utils.printIntArray
+import com.example.lessonsFromSamsung.utils.print
 import com.example.lessonsFromSamsung.utils.scanner
 
 private fun main() {
-    val array = createIntArray()
+    val array = createRandomIntArray(size = 21, maxValue = 50)
     array.sort()
-    printIntArray(array)
-    val index = binarySearch(array)
+    array.print()
+    val index = array.binarySearch()
     println(index)
-}
-
-private fun createIntArray(): Array<Int> {
-    return createRandomIntArray(21, 50)
 }
 
 private fun Array<Int>.sort() {
@@ -39,9 +35,9 @@ private fun swap(array: Array<Int>, previous: Int, current: Int) {
     array[current] = container
 }
 
-private fun binarySearch(array: Array<Int>): Int {
-    var index = array.size / 2
-    var supposedNumber = array[index]
+private fun Array<Int>.binarySearch(): Int {
+    var index = size / 2
+    var supposedNumber = this[index]
     val searchingNumber: Int = scanner.nextInt()
 
     while (supposedNumber != searchingNumber) {
@@ -50,7 +46,7 @@ private fun binarySearch(array: Array<Int>): Int {
         } else if (searchingNumber > supposedNumber) {
             index += index / 2
         }
-        supposedNumber = array[index]
+        supposedNumber = this[index]
     }
     return index
 }
