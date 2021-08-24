@@ -7,9 +7,11 @@ import android.view.SurfaceHolder
 import android.view.SurfaceView
 import com.example.lessonsFromSamsung.R
 
-/* SurfaceHolder осуществляет доступ к поверхности для рисования
-   С помощью Callback SurfaceHolder следит за тем,
-   когда создается изменяется или удаляется поверхность для рисования*/
+/**
+ * SurfaceHolder осуществляет доступ к поверхности для рисования
+ * С помощью Callback SurfaceHolder следит за тем,
+ * когда создается изменяется или удаляется поверхность для рисования
+ */
 class SmileDrawing(context: Context) : SurfaceView(context), SurfaceHolder.Callback {
 
     private var threadForDrawing: ThreadForDrawing? = null
@@ -51,6 +53,7 @@ class SmileDrawing(context: Context) : SurfaceView(context), SurfaceHolder.Callb
                 threadForDrawing?.join()
                 retry = false
             } catch (e: InterruptedException) {
+                e.printStackTrace()
             }
         }
     }

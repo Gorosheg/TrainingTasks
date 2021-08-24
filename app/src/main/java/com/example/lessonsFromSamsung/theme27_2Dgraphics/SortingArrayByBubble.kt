@@ -1,16 +1,16 @@
 package com.example.lessonsFromSamsung.theme27_2Dgraphics
 
 import com.example.lessonsFromSamsung.utils.createRandomIntArray
-import com.example.lessonsFromSamsung.utils.printIntArray
+import com.example.lessonsFromSamsung.utils.print
 import com.example.lessonsFromSamsung.utils.scanner
 
 private fun main() {
     val array = createRandomIntArray(10, 50)
 
-    printIntArray(array)
+    array.print()
     array.sort()
     println("")
-    printIntArray(array)
+    array.print()
     println("")
     searchNumber(array)
 }

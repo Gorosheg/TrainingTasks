@@ -1,23 +1,22 @@
 package com.example.lessonsFromSamsung.thene30_ArrayList
 
 import com.example.lessonsFromSamsung.utils.createRandomIntArray
-import com.example.lessonsFromSamsung.utils.printIntArray
+import com.example.lessonsFromSamsung.utils.print
 import com.example.lessonsFromSamsung.utils.scanner
 
 private fun main() {
-    val array = createIntArray()
-    array.sort()
-    printIntArray(array)
-    val index = binarySearch(array)
-    println(index)
-}
+    createRandomIntArray(size = 21, maxValue = 50).run {
+        sort()
+        print()
 
-private fun createIntArray(): Array<Int> {
-    return createRandomIntArray(21, 50)
+        val result = binarySearch(scanner.nextInt())
+        println(result + 1)
+    }
 }
 
 private fun Array<Int>.sort() {
     var sorted = false
+
     while (!sorted) {
         sorted = true
 
@@ -26,23 +25,22 @@ private fun Array<Int>.sort() {
             val current = this[i]
 
             if (previous > current) {
-                swap(this, i - 1, i)
+                swap(previous = i - 1, current = i)
                 sorted = false
             }
         }
     }
 }
 
-private fun swap(array: Array<Int>, previous: Int, current: Int) {
-    val container = array[previous]
-    array[previous] = array[current]
-    array[current] = container
+private fun Array<Int>.swap(previous: Int, current: Int) {
+    val temp = this[previous]
+    this[previous] = this[current]
+    this[current] = temp
 }
 
-private fun binarySearch(array: Array<Int>): Int {
-    var index = array.size / 2
-    var supposedNumber = array[index]
-    val searchingNumber: Int = scanner.nextInt()
+private fun Array<Int>.binarySearch(searchingNumber: Int): Int {
+    var index = size / 2
+    var supposedNumber = this[index]
 
     while (supposedNumber != searchingNumber) {
         if (searchingNumber < supposedNumber) {
@@ -50,7 +48,9 @@ private fun binarySearch(array: Array<Int>): Int {
         } else if (searchingNumber > supposedNumber) {
             index += index / 2
         }
-        supposedNumber = array[index]
+
+        supposedNumber = this[index]
     }
+
     return index
 }
