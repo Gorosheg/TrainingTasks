@@ -1,4 +1,4 @@
-package com.example.lessonsFromSamsung.thene30_ArrayList
+package com.example.lessonsFromSamsung.theme30_ArrayList
 
 private fun main() {
     val studentsArray = createStudentsArray()

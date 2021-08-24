@@ -15,19 +15,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="ExtraText">
-        <activity
-            android:name=".theme30_5_RecyclerView.RecyclerViewActivity"
-            android:exported="true" />
-        <activity android:name=".theme49_ClientServerArchitecture.CatFactActivity">
+        <activity android:name=".theme30_5_RecyclerView.RecyclerViewActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".theme29_TestSurfaceView.TestSurfaceViewActivity">
-            android:exported="true"
-        </activity>
+        <activity android:name=".theme49_ClientServerArchitecture.CatFactActivity" />
+        <activity android:name=".theme29_TestSurfaceView.TestSurfaceViewActivity" />
         <activity android:name=".theme28_SurfaceView.SurfaceViewActivity" />
         <activity android:name=".theme27_2Dgraphics.PasswordStrength" />
         <activity

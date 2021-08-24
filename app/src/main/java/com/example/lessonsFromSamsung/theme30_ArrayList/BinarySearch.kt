@@ -1,4 +1,4 @@
-package com.example.lessonsFromSamsung.thene30_ArrayList
+package com.example.lessonsFromSamsung.theme30_ArrayList
 
 import com.example.lessonsFromSamsung.utils.createRandomIntArray
 import com.example.lessonsFromSamsung.utils.print
