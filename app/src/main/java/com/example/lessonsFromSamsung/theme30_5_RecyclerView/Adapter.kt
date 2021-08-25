@@ -27,8 +27,7 @@ class Adapter(private val values: List<String>) : RecyclerView.Adapter<Adapter.V
      * Принимает объект ViewHolder и устанавливает необходимые данные для соответствующей строки во view-компоненте.
      */
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.largeTextView?.text = values[position]
-        holder.smallTextView?.text = "Кот"
+        holder.bind(values[position])
     }
 
     /**
@@ -38,14 +37,15 @@ class Adapter(private val values: List<String>) : RecyclerView.Adapter<Adapter.V
     override fun getItemCount(): Int = values.size
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var largeTextView: TextView? = null
-        var smallTextView: TextView? = null
 
-        init {
-            largeTextView = itemView.findViewById(R.id.textViewLarge)
-            smallTextView = itemView.findViewById(R.id.textViewSmall)
+        private var largeTextView: TextView = itemView.findViewById(R.id.textViewLarge)
+        private var smallTextView: TextView = itemView.findViewById(R.id.textViewSmall)
+
+        fun bind(value: String) {
+            largeTextView.text = value
+            smallTextView.text = "Кот"
         }
-    }
 
+    }
 
 }
