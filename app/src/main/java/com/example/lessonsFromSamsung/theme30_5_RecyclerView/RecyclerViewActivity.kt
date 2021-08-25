@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.lessonsFromSamsung.R
+import com.example.lessonsFromSamsung.theme30_5_RecyclerView.model.Cat
+import com.example.lessonsFromSamsung.theme30_5_RecyclerView.recycler.CatAdapter
 
 class RecyclerViewActivity : AppCompatActivity() {
 

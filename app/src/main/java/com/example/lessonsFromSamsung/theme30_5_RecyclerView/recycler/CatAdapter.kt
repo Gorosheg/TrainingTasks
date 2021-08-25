@@ -1,9 +1,10 @@
-package com.example.lessonsFromSamsung.theme30_5_RecyclerView
+package com.example.lessonsFromSamsung.theme30_5_RecyclerView.recycler
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.lessonsFromSamsung.R
+import com.example.lessonsFromSamsung.theme30_5_RecyclerView.model.Cat
 
 class CatAdapter(private val cats: List<Cat>) : RecyclerView.Adapter<CatViewHolder>() {
 
