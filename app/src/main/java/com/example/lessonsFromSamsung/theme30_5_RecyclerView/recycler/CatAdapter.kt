@@ -1,6 +1,7 @@
 package com.example.lessonsFromSamsung.theme30_5_RecyclerView.recycler
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.lessonsFromSamsung.R
@@ -9,18 +10,18 @@ import com.example.lessonsFromSamsung.theme30_5_RecyclerView.model.Cat
 class CatAdapter(private val cats: List<Cat>) : RecyclerView.Adapter<CatViewHolder>() {
 
     /**
-     * Создает новый объект ViewHolder всякий раз,
-     * когда создаётся layout строки списка и передается объекту ViewHolder.
+     * Создает новый объект ViewHolder для каждого элемента в списке cats
      */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CatViewHolder {
-        val itemView = LayoutInflater.from(parent.context)
+        val itemView: View = LayoutInflater.from(parent.context)
             .inflate(R.layout.activity_theme_30_5_list_item, parent, false)
 
         return CatViewHolder(itemView)
     }
 
     /**
-     * Принимает объект ViewHolder и устанавливает необходимые данные для соответствующей строки во view-компоненте.
+     * Вызывается для каждого view holder всякий раз, когда данные изменились и нужно их отобразить/обновить на экране
+     * @param position - это наш index в списке cats, по нему мы достаём конкретного cat
      */
     override fun onBindViewHolder(holder: CatViewHolder, position: Int) {
         holder.bind(cats[position])
