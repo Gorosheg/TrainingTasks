@@ -18,7 +18,12 @@ class RecyclerViewActivity : AppCompatActivity(), OnCatClickListener {
         // LinearLayoutManager показывает список вертикально(горизонтально)
         val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = CatAdapter(cats = buildList(), onCatClickListener = this)
+
+        recyclerView.adapter = CatAdapter(
+            cats = buildList(),
+            onCatClickListener = this, // Передаём activity как OnCatClickListener
+            onCatClickListener1 = ::onCatClick1 // Передаём ссылку на метод
+        )
     }
 
     private fun buildList(): List<Cat> {
@@ -34,7 +39,12 @@ class RecyclerViewActivity : AppCompatActivity(), OnCatClickListener {
 
     override fun onCatClick(cat: Cat) {
         // TODO: Navigate to cat screen
-        Toast.makeText(this, cat.id.toString(), Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "Interface " + cat.id.toString(), Toast.LENGTH_SHORT).show()
+    }
+
+    private fun onCatClick1(cat: Cat) {
+        // TODO: Navigate to cat screen
+        Toast.makeText(this, "Lambda " + cat.id.toString(), Toast.LENGTH_SHORT).show()
     }
 
 }

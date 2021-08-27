@@ -10,7 +10,8 @@ import com.example.lessonsFromSamsung.theme30_5_RecyclerView.model.Cat
 
 class CatAdapter(
     private val cats: List<Cat>,
-    private val onCatClickListener: OnCatClickListener
+    private val onCatClickListener: OnCatClickListener,
+    private val onCatClickListener1: (Cat) -> Unit // Lambda, callback - это как функция
 ) : RecyclerView.Adapter<CatViewHolder>() {
 
     /**
@@ -20,7 +21,11 @@ class CatAdapter(
         val itemView: View = LayoutInflater.from(parent.context)
             .inflate(R.layout.activity_theme_30_5_list_item, parent, false)
 
-        return CatViewHolder(itemView, onCatClickListener)
+        return CatViewHolder(
+            itemView = itemView,
+            onCatClickListener = onCatClickListener,
+            onCatClickListener1 = onCatClickListener1
+        )
     }
 
     /**
