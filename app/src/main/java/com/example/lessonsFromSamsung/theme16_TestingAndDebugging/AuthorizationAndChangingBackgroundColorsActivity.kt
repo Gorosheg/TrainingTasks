@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.activity_theme_16.*
 private const val LOGIN = "asdfg"
 private val PASSWORD = "12345"
 
-class AutorizationAndChangingBackgroundColorsActivity : AppCompatActivity() {
+class AuthorizationAndChangingBackgroundColorsActivity : AppCompatActivity() {
 
     var buttonClickCounter = 0
 
