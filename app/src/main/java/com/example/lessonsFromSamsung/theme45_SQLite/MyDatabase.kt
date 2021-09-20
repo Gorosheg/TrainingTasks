@@ -15,23 +15,22 @@ class MyDatabase(context: Context) : SQLiteOpenHelper(context, "MyDatabase", nul
         )
     }
 
-    override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-
-    }
+    override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) = Unit
 
     fun putProduct(product: Product) {
-        val database: SQLiteDatabase = writableDatabase
+        val contentValues = ContentValues().apply {
+            put("brand", product.brand)
+            put("name", product.name)
+            put("price", product.price)
+        }
 
-        val contentValues: ContentValues = ContentValues()
-        contentValues.put("brand", product.brand)
-        contentValues.put("name", product.name)
-        contentValues.put("price", product.price)
-
-        database.insert("Product", null, contentValues)
-        database.close()
+        writableDatabase.run {
+            insert("Product", null, contentValues)
+            close()
+        }
     }
 
-    private fun getAllProject(): List<Product> {
+    fun getAllProjects(): List<Product> {
         val cursor = readableDatabase.rawQuery(
             """SELECT * FROM Project""", null
         )
@@ -40,22 +39,21 @@ class MyDatabase(context: Context) : SQLiteOpenHelper(context, "MyDatabase", nul
     }
 
     private fun readProductsFromCursor(cursor: Cursor): List<Product> {
-        val list: ArrayList<Product> = ArrayList()
+        val list = mutableListOf<Product>()
 
-        if (cursor.moveToFirst()) {
+        if (cursor.moveToFirst()) { // метод передвигает курсор на первый элемент, возвращает false, если не удалось или нет элемента
             do {
                 val product = readProduct(cursor)
                 list.add(product)
-
             } while (cursor.moveToNext())
         }
 
         return list
     }
 
-    private fun getProduct(id: Long): Product {
+    fun getProduct(id: Long): Product {
         val cursor = readableDatabase.rawQuery(
-"""SELECT * FROM Product WHERE _id = ?""", arrayOf(String.valueOf(id))
+            """SELECT * FROM Product WHERE _id = ?""", arrayOf(String.valueOf(id))
         )
         return readProductsFromCursor(cursor)[0]
     }
