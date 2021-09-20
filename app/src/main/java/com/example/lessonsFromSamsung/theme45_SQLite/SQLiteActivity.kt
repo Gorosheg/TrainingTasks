@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.lessonsFromSamsung.R
 
 class SQLiteActivity : AppCompatActivity() {
-    val database = MyDatabase(this)
+    private val database = MyDatabase(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -15,6 +15,9 @@ class SQLiteActivity : AppCompatActivity() {
         val product = getProduct()
     }
 
+    /**
+     * Добавляем продукты в базу
+     **/
     private fun initDatabase() {
         database.putProduct(Product(0, "Nestle", "Шоколад", 97.50))
         database.putProduct(Product(1, "Milka", "Шоколад", 95.00))

@@ -9,6 +9,12 @@ import java.lang.String
 
 class MyDatabase(context: Context) : SQLiteOpenHelper(context, "MyDatabase", null, 1) {
 
+
+    /**
+     * Создаем базу данных с названием "Project".
+     * @param AUTOINCREMENT - автоматически присваивает id всем элементам таблицы
+     * @param PRIMARY KEY - идентификационный номер элемента по которому можно будет искать элемент
+     */
     override fun onCreate(db: SQLiteDatabase?) {
         db?.execSQL(
             """CREATE TABLE Project(_id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, brand TEXT, price REAL)""",
@@ -38,10 +44,18 @@ class MyDatabase(context: Context) : SQLiteOpenHelper(context, "MyDatabase", nul
         return readProductsFromCursor(cursor)
     }
 
+    fun getProduct(id: Long): Product {
+        val cursor = readableDatabase.rawQuery(
+            """SELECT * FROM Product WHERE _id = ?""", arrayOf(String.valueOf(id))
+        )
+        return readProductsFromCursor(cursor)[0]
+    }
+
     private fun readProductsFromCursor(cursor: Cursor): List<Product> {
         val list = mutableListOf<Product>()
 
         if (cursor.moveToFirst()) { // метод передвигает курсор на первый элемент, возвращает false, если не удалось или нет элемента
+            // Добавляет элемент в таблицу
             do {
                 val product = readProduct(cursor)
                 list.add(product)
@@ -51,13 +65,9 @@ class MyDatabase(context: Context) : SQLiteOpenHelper(context, "MyDatabase", nul
         return list
     }
 
-    fun getProduct(id: Long): Product {
-        val cursor = readableDatabase.rawQuery(
-            """SELECT * FROM Product WHERE _id = ?""", arrayOf(String.valueOf(id))
-        )
-        return readProductsFromCursor(cursor)[0]
-    }
-
+    /**
+     * Берет элемент из таблицы
+     */
     private fun readProduct(cursor: Cursor): Product {
         return Product(
             cursor.getLong(cursor.getColumnIndex("_id")),
