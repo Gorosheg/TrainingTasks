@@ -1,18 +1,30 @@
 package com.example.lessonsFromSamsung.theme45_SQLite
 
 import android.os.Bundle
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.lessonsFromSamsung.R
 
 class SQLiteActivity : AppCompatActivity() {
-    private val database = MyDatabase(this)
+
+    private val database by lazy { MyDatabase(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_theme_45_sqlite)
 
+        val productName: TextView = findViewById(R.id.name)
+        val productBrand: TextView = findViewById(R.id.brand)
+        val productId: TextView = findViewById(R.id.id)
+        val productPrice: TextView = findViewById(R.id.price)
+
         initDatabase()
         val product = getProduct()
+
+        productName.text = product.first().name
+        productBrand.text = product.first().brand
+        productId.text = product.first().id.toString()
+        productPrice.text = product.first().price.toString()
     }
 
     /**
@@ -27,7 +39,7 @@ class SQLiteActivity : AppCompatActivity() {
         database.putProduct(Product(5, "Mars", "Шоколад", 53.80))
     }
 
-    private fun getProduct(): Product {
-        return database.getProduct(2)
+    private fun getProduct(): List<Product> {
+        return database.getAllProjects()
     }
 }

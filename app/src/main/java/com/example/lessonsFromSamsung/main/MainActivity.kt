@@ -21,6 +21,7 @@ import com.example.lessonsFromSamsung.theme27_2Dgraphics.ticTacToe.TicTacToe
 import com.example.lessonsFromSamsung.theme28_SurfaceView.SurfaceViewActivity
 import com.example.lessonsFromSamsung.theme29_TestSurfaceView.TestSurfaceViewActivity
 import com.example.lessonsFromSamsung.theme30_5_RecyclerView.RecyclerViewActivity
+import com.example.lessonsFromSamsung.theme45_SQLite.SQLiteActivity
 import com.example.lessonsFromSamsung.theme49_ClientServerArchitecture.CatFactActivity
 
 class MainActivity : AppCompatActivity() {
@@ -53,6 +54,7 @@ class MainActivity : AppCompatActivity() {
             Theme(SurfaceViewActivity::class.java, "Theme28 SmileDrawing"),
             Theme(TestSurfaceViewActivity::class.java, "Theme29 DrawingCircle"),
             Theme(RecyclerViewActivity::class.java, "Theme30_5 ListOfCats"),
+            Theme(SQLiteActivity::class.java, "Theme 45 SQLiteActivity"),
             Theme(CatFactActivity::class.java, "Theme49 InsultsGenerator")
         )
     }

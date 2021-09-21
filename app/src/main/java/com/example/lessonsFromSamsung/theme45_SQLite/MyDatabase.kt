@@ -9,15 +9,15 @@ import java.lang.String
 
 class MyDatabase(context: Context) : SQLiteOpenHelper(context, "MyDatabase", null, 1) {
 
-
     /**
      * Создаем базу данных с названием "Project".
-     * @param AUTOINCREMENT - автоматически присваивает id всем элементам таблицы
-     * @param PRIMARY KEY - идентификационный номер элемента по которому можно будет искать элемент
+     *
+     * AUTOINCREMENT - автоматически присваивает id всем элементам таблицы
+     * PRIMARY KEY - идентификационный номер элемента по которому можно будет искать элемент
      */
     override fun onCreate(db: SQLiteDatabase?) {
         db?.execSQL(
-            """CREATE TABLE Project(_id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, brand TEXT, price REAL)""",
+            """CREATE TABLE Product(_id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, brand TEXT, price REAL)""",
         )
     }
 
@@ -38,7 +38,7 @@ class MyDatabase(context: Context) : SQLiteOpenHelper(context, "MyDatabase", nul
 
     fun getAllProjects(): List<Product> {
         val cursor = readableDatabase.rawQuery(
-            """SELECT * FROM Project""", null
+            """SELECT * FROM Product""", null
         )
 
         return readProductsFromCursor(cursor)
