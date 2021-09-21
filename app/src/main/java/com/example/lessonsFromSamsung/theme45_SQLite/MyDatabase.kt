@@ -36,7 +36,7 @@ class MyDatabase(context: Context) : SQLiteOpenHelper(context, "MyDatabase", nul
         }
     }
 
-    fun getAllProjects(): List<Product> {
+    fun getAllProducts(): List<Product> {
         val cursor = readableDatabase.rawQuery(
             """SELECT * FROM Product""", null
         )
@@ -48,7 +48,7 @@ class MyDatabase(context: Context) : SQLiteOpenHelper(context, "MyDatabase", nul
         val cursor = readableDatabase.rawQuery(
             """SELECT * FROM Product WHERE _id = ?""", arrayOf(String.valueOf(id))
         )
-        return readProductsFromCursor(cursor)[0]
+        return readProductsFromCursor(cursor)[id.toInt()]
     }
 
     private fun readProductsFromCursor(cursor: Cursor): List<Product> {

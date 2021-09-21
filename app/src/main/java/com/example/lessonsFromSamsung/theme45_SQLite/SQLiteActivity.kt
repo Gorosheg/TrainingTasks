@@ -1,13 +1,16 @@
 package com.example.lessonsFromSamsung.theme45_SQLite
 
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isGone
 import com.example.lessonsFromSamsung.R
 
 class SQLiteActivity : AppCompatActivity() {
 
     private val database by lazy { MyDatabase(this) }
+    var id = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,14 +20,35 @@ class SQLiteActivity : AppCompatActivity() {
         val productBrand: TextView = findViewById(R.id.brand)
         val productId: TextView = findViewById(R.id.id)
         val productPrice: TextView = findViewById(R.id.price)
+        val back: Button = findViewById(R.id.previous)
+        val next: Button = findViewById(R.id.next)
 
         initDatabase()
-        val product = getProduct()
+        val products: List<Product> = getProducts()
 
-        productName.text = product.first().name
-        productBrand.text = product.first().brand
-        productId.text = product.first().id.toString()
-        productPrice.text = product.first().price.toString()
+        showProduct(next, productName, productBrand, productId, productPrice, products)
+    }
+
+    private fun showProduct(
+        next: Button,
+        productName: TextView,
+        productBrand: TextView,
+        productId: TextView,
+        productPrice: TextView,
+        products: List<Product>
+    ) {
+        val size = products.size
+        next.setOnClickListener {
+            productName.text = products[id].name
+            productBrand.text = products[id].brand
+            productId.text = products[id].id.toString()
+            productPrice.text = products[id].price.toString()
+            id += 1
+            if (id == size - 1) {
+                next.isGone = true
+            }
+        }
+
     }
 
     /**
@@ -39,7 +63,7 @@ class SQLiteActivity : AppCompatActivity() {
         database.putProduct(Product(5, "Mars", "Шоколад", 53.80))
     }
 
-    private fun getProduct(): List<Product> {
-        return database.getAllProjects()
+    private fun getProducts(): List<Product> {
+        return database.getAllProducts()
     }
 }
