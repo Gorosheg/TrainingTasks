@@ -10,7 +10,7 @@ import java.lang.String
 class MyDatabase(context: Context) : SQLiteOpenHelper(context, "MyDatabase", null, 1) {
 
     /**
-     * Создаем базу данных с названием "Project".
+     * Создаем базу данных с названием "Product".
      *
      * AUTOINCREMENT - автоматически присваивает id всем элементам таблицы
      * PRIMARY KEY - идентификационный номер элемента по которому можно будет искать элемент

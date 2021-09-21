@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isGone
+import androidx.core.view.isInvisible
 import com.example.lessonsFromSamsung.R
 
 class SQLiteActivity : AppCompatActivity() {
@@ -16,51 +16,73 @@ class SQLiteActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_theme_45_sqlite)
 
-        val productName: TextView = findViewById(R.id.name)
-        val productBrand: TextView = findViewById(R.id.brand)
-        val productId: TextView = findViewById(R.id.id)
-        val productPrice: TextView = findViewById(R.id.price)
-        val back: Button = findViewById(R.id.previous)
-        val next: Button = findViewById(R.id.next)
+        fillDatabase()
 
-        initDatabase()
         val products: List<Product> = getProducts()
+        fillViews(products)
+        showProduct(products)
+    }
 
-        showProduct(next, productName, productBrand, productId, productPrice, products)
+    private fun fillDatabase() {
+        if (getProducts().isEmpty()) {
+            createInitialProducts().forEach {
+                database.putProduct(it)
+            }
+        }
     }
 
     private fun showProduct(
-        next: Button,
-        productName: TextView,
-        productBrand: TextView,
-        productId: TextView,
-        productPrice: TextView,
         products: List<Product>
     ) {
+        val next: Button = findViewById(R.id.next)
+        val back: Button = findViewById(R.id.previous)
         val size = products.size
+
         next.setOnClickListener {
-            productName.text = products[id].name
-            productBrand.text = products[id].brand
-            productId.text = products[id].id.toString()
-            productPrice.text = products[id].price.toString()
             id += 1
+            fillViews(products)
             if (id == size - 1) {
-                next.isGone = true
+                next.isInvisible = true
+            }
+            if (id != 0) {
+                back.isInvisible = false
+            }
+        }
+
+        back.setOnClickListener {
+            id -= 1
+            fillViews(products)
+            if (id == 0) {
+                back.isInvisible = true
+            }
+            if (id != size - 1) {
+                next.isInvisible = false
             }
         }
 
     }
 
-    /**
-     * Добавляем продукты в базу
-     **/
-    private fun initDatabase() {
-        database.putProduct(Product(0, "Nestle", "Шоколад", 97.50))
-        database.putProduct(Product(1, "Milka", "Шоколад", 95.00))
-        database.putProduct(Product(2, "Lipton", "Чай", 113.50))
-        database.putProduct(Product(3, "Orbit", "Жвачка", 35.70))
-        database.putProduct(Product(4, "BonAqua", "Вода", 26.50))
-        database.putProduct(Product(5, "Mars", "Шоколад", 53.80))
+    private fun fillViews(products: List<Product>) {
+        val productName: TextView = findViewById(R.id.name)
+        val productBrand: TextView = findViewById(R.id.brand)
+        val productId: TextView = findViewById(R.id.id)
+        val productPrice: TextView = findViewById(R.id.price)
+
+        productName.text = products[id].name
+        productBrand.text = products[id].brand
+        productId.text = products[id].id.toString()
+        productPrice.text = products[id].price.toString()
+    }
+
+    private fun createInitialProducts(): List<Product> {
+        return listOf(
+            Product(id = 0, brand = "Nestle", name = "Шоколад", price = 97.50),
+            Product(id = 1, brand = "Milka", name = "Шоколад", price = 95.00),
+            Product(id = 2, brand = "Lipton", name = "Чай", price = 113.50),
+            Product(id = 3, brand = "Orbit", name = "Жвачка", price = 35.70),
+            Product(id = 4, brand = "BonAqua", name = "Вода", price = 26.50),
+            Product(id = 5, brand = "Mars", name = "Шоколад", price = 53.80)
+        )
     }
 
     private fun getProducts(): List<Product> {
