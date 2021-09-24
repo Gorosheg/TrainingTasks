@@ -70,18 +70,18 @@ class SQLiteActivity : AppCompatActivity() {
 
         productName.text = products[id].name
         productBrand.text = products[id].brand
-        productId.text = products[id].id.toString()
+        productId.text = id.toString()
         productPrice.text = products[id].price.toString()
     }
 
     private fun createInitialProducts(): List<Product> {
         return listOf(
-            Product(id = 0, brand = "Nestle", name = "Шоколад", price = 97.50),
-            Product(id = 1, brand = "Milka", name = "Шоколад", price = 95.00),
-            Product(id = 2, brand = "Lipton", name = "Чай", price = 113.50),
-            Product(id = 3, brand = "Orbit", name = "Жвачка", price = 35.70),
-            Product(id = 4, brand = "BonAqua", name = "Вода", price = 26.50),
-            Product(id = 5, brand = "Mars", name = "Шоколад", price = 53.80)
+            Product(brand = "Nestle", name = "Шоколад", price = 97.50),
+            Product(brand = "Milka", name = "Шоколад", price = 95.00),
+            Product(brand = "Lipton", name = "Чай", price = 113.50),
+            Product(brand = "Orbit", name = "Жвачка", price = 35.70),
+            Product(brand = "BonAqua", name = "Вода", price = 26.50),
+            Product(brand = "Mars", name = "Шоколад", price = 53.80)
         )
     }
 

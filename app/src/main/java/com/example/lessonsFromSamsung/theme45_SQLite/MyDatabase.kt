@@ -55,7 +55,7 @@ class MyDatabase(context: Context) : SQLiteOpenHelper(context, "MyDatabase", nul
         val list = mutableListOf<Product>()
 
         if (cursor.moveToFirst()) { // метод передвигает курсор на первый элемент, возвращает false, если не удалось или нет элемента
-            // Добавляет элемент в таблицу
+            // Считывает жлементы из таблици и добавляет их в List
             do {
                 val product = readProduct(cursor)
                 list.add(product)
@@ -70,7 +70,6 @@ class MyDatabase(context: Context) : SQLiteOpenHelper(context, "MyDatabase", nul
      */
     private fun readProduct(cursor: Cursor): Product {
         return Product(
-            cursor.getLong(cursor.getColumnIndex("_id")),
             cursor.getString(cursor.getColumnIndex("brand")),
             cursor.getString(cursor.getColumnIndex("name")),
             cursor.getDouble(cursor.getColumnIndex("price"))
