@@ -1,11 +1,13 @@
 package com.example.lessonsFromSamsung.theme45_SQLite
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isInvisible
 import com.example.lessonsFromSamsung.R
+import kotlinx.android.synthetic.main.activity_theme_45_sqlite.*
 
 class SQLiteActivity : AppCompatActivity() {
 
@@ -21,6 +23,15 @@ class SQLiteActivity : AppCompatActivity() {
         val products: List<Product> = getProducts()
         fillViews(products)
         showProduct(products)
+
+        add_product.setOnClickListener {
+            startAddElementActivity()
+        }
+    }
+
+    private fun startAddElementActivity() {
+        val intent = Intent(this, AddElementsActivity::class.java)
+        startActivity(intent)
     }
 
     private fun fillDatabase() {

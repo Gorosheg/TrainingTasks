@@ -5,12 +5,14 @@
     <string name="checkbox_checked">checkBox checked</string>
     <string name="checkBox_unchecked">checkBox unchecked</string>
     <string name="written">Введите шонить</string>
+
     <string name="apply_button">Применить</string>
     <string name="plus_button">Прибавить</string>
-    <string name="zero">0</string>
     <string name="clear">Сбросить</string>
+    <string name="plus">Сложить</string>
+
+    <string name="zero">0</string>
     <string name="addendum">Введите слагаемое</string>
-    <string name="add">Сложить</string>
     <string name="heading_apply_text">Отобразить введенный текст</string>
     <string name="heading_add">Счетчик кликов</string>
     <string name="heading_sum">Сумма чисел</string>
@@ -23,13 +25,13 @@
 
     <string name="done">Готово</string>
     <string name="next">Далее</string>
-    <string name="previous">Назад</string>
+    <string name="back">Назад</string>
     <string name="start_again">Начать заново</string>
+    <string name="add">Добавить</string>
 
 
     <string name="potato_question">Если три картошки можно сварить за пятнадцать минут, то сколько времени нужно, чтобы сварить одну картошку?</string>
     <string name="five">5</string>
-
     <string name="calculation_numbers_question">Какие три числа, если их сложить или перемножить, дают один и тот же результат?</string>
     <string name="two_three_five">2, 3, 5</string>
     <string name="one_two_three">1, 2, 3</string>
@@ -52,6 +54,7 @@
     <string name="settings">Настройки</string>
     <string name="records">Рекорды</string>
     <string name="exit">Выход</string>
+
     <string name="green">Зеленый</string>
     <string name="blue">Синий</string>
     <string name="yellow">желтый</string>

@@ -1,5 +1,6 @@
 package com.example.lessonsFromSamsung.theme45_SQLite
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -17,6 +18,7 @@ class AddElementsActivity : AppCompatActivity() {
 
         add.setOnClickListener {
             addProduct()
+            startAddElementActivity()
         }
 
     }
@@ -33,5 +35,10 @@ class AddElementsActivity : AppCompatActivity() {
                 price.text.toString().toDouble()
             )
         )
+    }
+
+    private fun startAddElementActivity() {
+        val intent = Intent(this, SQLiteActivity::class.java)
+        startActivity(intent)
     }
 }
