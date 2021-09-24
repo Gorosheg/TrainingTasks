@@ -16,6 +16,9 @@
         android:theme="@style/AppTheme"
         tools:ignore="ExtraText">
         <activity
+            android:name=".theme45_SQLite.AddElementsActivity"
+            android:exported="true" />
+        <activity
             android:name=".theme45_SQLite.SQLiteActivity"
             android:exported="true" />
         <activity android:name=".main.MainActivity">
