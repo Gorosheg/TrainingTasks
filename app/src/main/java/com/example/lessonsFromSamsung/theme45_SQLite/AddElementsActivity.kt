@@ -40,5 +40,6 @@ class AddElementsActivity : AppCompatActivity() {
     private fun startAddElementActivity() {
         val intent = Intent(this, SQLiteActivity::class.java)
         startActivity(intent)
+
     }
 }
