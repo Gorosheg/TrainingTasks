@@ -6,8 +6,8 @@ import androidx.room.Room
 
 // Класс для создания и хранения БД
 class App : Application() {
-    var database: AppDatabase? = null
-    var instance: App? = null
+    lateinit var database: AppDatabase
+    lateinit var instance: App
 
     override fun onCreate() {
         super.onCreate()

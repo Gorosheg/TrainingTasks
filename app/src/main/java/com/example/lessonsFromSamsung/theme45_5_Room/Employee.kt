@@ -12,6 +12,6 @@ class Employee(
 
     val name: String,
 
-    val salary: Int
+    var salary: Int
 ) {
 }
