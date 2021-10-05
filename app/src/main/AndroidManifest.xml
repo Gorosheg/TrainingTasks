@@ -15,20 +15,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="ExtraText">
-        <activity
-            android:name=".theme45_SQLite.AddElementsActivity"
-            android:exported="true" />
-        <activity
-            android:name=".theme45_SQLite.SQLiteActivity"
-            android:exported="true" />
+
         <activity android:name=".main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            />
         </activity>
+        <activity android:name=".theme45_SQLite.AddElementsActivity" />
+        <activity android:name=".theme45_SQLite.SQLiteActivity" />
         <activity android:name=".theme30_5_RecyclerView.RecyclerViewActivity" />
         <activity android:name=".theme49_ClientServerArchitecture.CatFactActivity" />
         <activity android:name=".theme29_TestSurfaceView.TestSurfaceViewActivity" />
