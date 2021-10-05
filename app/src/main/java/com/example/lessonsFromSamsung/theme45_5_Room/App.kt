@@ -6,13 +6,14 @@ import androidx.room.Room
 
 // Класс для создания и хранения БД
 class App : Application() {
-    lateinit var database: AppDatabase
-    lateinit var instance: App
 
     override fun onCreate() {
         super.onCreate()
-        instance = this
         database = Room.databaseBuilder(this, AppDatabase::class.java, "database")
             .build()
+    }
+
+    companion object {
+        lateinit var database: AppDatabase
     }
 }
