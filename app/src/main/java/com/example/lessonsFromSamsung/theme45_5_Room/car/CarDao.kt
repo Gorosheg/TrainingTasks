@@ -1,4 +1,4 @@
-package com.example.lessonsFromSamsung.theme45_5_Room
+package com.example.lessonsFromSamsung.theme45_5_Room.car
 
 import androidx.room.Delete
 import androidx.room.Insert

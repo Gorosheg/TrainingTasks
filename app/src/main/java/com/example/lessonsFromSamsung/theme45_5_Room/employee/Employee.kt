@@ -1,4 +1,4 @@
-package com.example.lessonsFromSamsung.theme45_5_Room
+package com.example.lessonsFromSamsung.theme45_5_Room.employee
 
 import androidx.room.ColumnInfo
 import androidx.room.ColumnInfo.TEXT

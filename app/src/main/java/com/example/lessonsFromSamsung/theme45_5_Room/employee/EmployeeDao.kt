@@ -1,6 +1,7 @@
-package com.example.lessonsFromSamsung.theme45_5_Room
+package com.example.lessonsFromSamsung.theme45_5_Room.employee
 
 import androidx.room.*
+import com.example.lessonsFromSamsung.theme45_5_Room.employee.Employee
 
 
 // В @Dao описываются методы для работы с базой данных

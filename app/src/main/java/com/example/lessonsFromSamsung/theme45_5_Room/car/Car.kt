@@ -1,10 +1,11 @@
-package com.example.lessonsFromSamsung.theme45_5_Room
+package com.example.lessonsFromSamsung.theme45_5_Room.car
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.ForeignKey.CASCADE
 import androidx.room.PrimaryKey
+import com.example.lessonsFromSamsung.theme45_5_Room.employee.Employee
 
 //@Entity(primaryKeys = ["id", "model"]) // Составной ключ
 
