@@ -10,6 +10,7 @@ class App : Application() {
     override fun onCreate() {
         super.onCreate()
         database = Room.databaseBuilder(this, AppDatabase::class.java, "database")
+            .allowMainThreadQueries() // Тормозит приложение, вместо этого можно использовать Livedata или RxJava
             .build()
     }
 
