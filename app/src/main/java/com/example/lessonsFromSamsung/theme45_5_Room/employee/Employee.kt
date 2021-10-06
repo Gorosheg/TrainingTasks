@@ -1,10 +1,7 @@
 package com.example.lessonsFromSamsung.theme45_5_Room.employee
 
-import androidx.room.ColumnInfo
+import androidx.room.*
 import androidx.room.ColumnInfo.TEXT
-import androidx.room.Entity
-import androidx.room.Index
-import androidx.room.PrimaryKey
 
 //@Entity - Помечает объект, который будет храниться в БД.
 // Имя класса = имени таблицы
@@ -25,8 +22,17 @@ class Employee(
     @ColumnInfo(name = "last_name")
     val lastName: String,
 
-    @ColumnInfo(typeAffinity = TEXT,//меняет тип поля
-    index = true) // Задает индекс для поля
-    var salary: Int
-) {
-}
+    @ColumnInfo(
+        typeAffinity = TEXT, //меняет тип поля
+        index = true // Задает индекс для поля
+    )
+    var salary: Int,
+    // Embedded заставляет считать поля класса EmployeeAddress полями таблицы.
+    // Prefix используется, если названия полей двух классов совпадают
+    @Embedded(prefix = "address")
+    val address: EmployeeAddress,
+
+    /* @Ignore // Поле не должно записываться в базу или читаться из неё
+     * val avatar: Bitmap
+     */
+)
