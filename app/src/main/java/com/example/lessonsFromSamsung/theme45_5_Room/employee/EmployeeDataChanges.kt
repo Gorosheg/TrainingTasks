@@ -11,6 +11,17 @@ class EmployeeDataChanges {
         employeeDao.insert(employee)
     }
 
+    /* // Получение списка всех сотрудников
+     fun allEmployees(): LiveData<List<Employee>> {
+        val employeesLiveData = employeeDao.getAll()
+        employeesLiveData.observe(this, object : Observer<List<Employee?>?>() {
+             fun onChanged(@Nullable employees: List<Employee?>) {
+                log("onChanged $employees")
+             }
+        })
+        return employeesLiveData
+    }*/
+
     // Получение списка всех сотрудников
     fun allEmployees(): List<Employee> {
         return employeeDao.getAll()
@@ -22,7 +33,7 @@ class EmployeeDataChanges {
     }
 
     // Обновление данных по сотруднику
-    fun changeEmployeesData(employee: Employee, newSalary:Int) {
+    fun changeEmployeesData(employee: Employee, newSalary: Int) {
         employee.salary = newSalary
         employeeDao.update(employee)
     }
