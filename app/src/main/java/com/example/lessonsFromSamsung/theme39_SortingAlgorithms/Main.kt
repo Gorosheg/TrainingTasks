@@ -27,9 +27,7 @@ private fun sortStudents(list: ArrayList<Person>): ArrayList<Person> {
 }
 
 private fun swap(list: ArrayList<Person>, previous: Int, current: Int) {
-    val container = list[previous]
-    list[previous] = list[current]
-    list[current] = container
+    list[previous] = list[current].also { list[current] = list[previous] } // обмен значений
 }
 
 private fun printPersons(list: ArrayList<Person>) {
