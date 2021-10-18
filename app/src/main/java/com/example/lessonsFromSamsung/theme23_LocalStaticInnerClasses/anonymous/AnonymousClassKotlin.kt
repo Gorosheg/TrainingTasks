@@ -8,11 +8,11 @@ private class AnonymousClassKotlin {
     val onAttachListener: OnAttachStateChangeListener = object : OnAttachStateChangeListener {
 
         override fun onViewAttachedToWindow(v: View) {
-            // You code here
+            // Your code here
         }
 
         override fun onViewDetachedFromWindow(v: View) {
-            // You code here
+            // Your code here
         }
 
     }
@@ -20,24 +20,24 @@ private class AnonymousClassKotlin {
     val listener: View.OnClickListener = object : View.OnClickListener {
 
         override fun onClick(v: View?) {
-            // You code here
+            // Your code here
         }
 
     }
 
     val listenerWithLambda: View.OnClickListener = View.OnClickListener {
-        // You code here
+        // Your code here
     }
 
     // Lambda - это функция.
     // В скобках мы передаём параметры для этой функции,
     // а через стрелочку - возвращаемй тип
     val lambda: (View?) -> Unit = {
-        // You code here
+        // Your code here
     }
 
     val lambdaMultyParams: (string: String, Int, Boolean) -> Unit = { string, int, _ ->
-        // You code here
+        // Your code here
     }
 
     fun foo() {
