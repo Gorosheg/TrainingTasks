@@ -146,4 +146,17 @@ fun main() {
     val chunkedNumbers: List<List<Int>> = numbers14.chunked(3)
     println(chunkedNumbers) // [[0, 1, 2], [3, 4, 5], [6, 7, 8], [9, 10, 11], [12, 13]]
 
+    val numbers15 = setOf("one", "two", "three")
+    // union - объединяет две коллекции
+    println(numbers15 union setOf("four", "five")) // [one, two, three, four, five]
+    println(setOf("four", "five") union numbers15) // [four, five, one, two, three]
+    println(numbers15 intersect setOf("two", "one")) // [one, two] - ищет элементы, присутствующие в обоих коллекциях
+    println(numbers15 subtract setOf("three", "four")) // [one, two] - ищет элементы, который нет в обоих коллекциях
+
+    val numbersMap2 = mapOf("one" to 1, "two" to 2, "three" to 3)
+    println(numbersMap2.keys) // [one, two, three] - возвращает все ключи
+    println(numbersMap2.values) // [1, 2, 3] - возвращает все значения
+    println(numbersMap2.filterKeys { it.endsWith("1") }) // Фильтрация по ключам
+    println(numbersMap2.filterValues { it < 10 }) // филььтрация по значениям
+
 }
