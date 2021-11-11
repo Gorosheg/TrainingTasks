@@ -16,6 +16,9 @@
         android:theme="@style/AppTheme"
         tools:ignore="ExtraText">
         <activity
+            android:name=".theme50_RXJava.RXJavaActivity"
+            android:exported="false" />
+        <activity
             android:name=".theme45_5_Room.RoomActivity"
             android:exported="true" />
         <activity android:name=".main.MainActivity">
