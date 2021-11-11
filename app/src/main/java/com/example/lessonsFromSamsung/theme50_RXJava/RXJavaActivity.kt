@@ -8,12 +8,12 @@ import com.example.lessonsFromSamsung.R
 import io.reactivex.Flowable
 import io.reactivex.Observable
 import io.reactivex.Single
+import kotlinx.android.synthetic.main.activity_theme_50_rxjava.*
 
 class RXJavaActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_theme_50_rxjava)
-
 
         // Источники данных
         val observable = Observable.just(1, 2, 3)
@@ -36,6 +36,10 @@ class RXJavaActivity : AppCompatActivity() {
         }, {
 
         })*/
+
+        btnTest.setOnClickListener {
+            Log.e(TAG, "Click Click")
+        }
 
         val dispose = dataSource()
             .subscribe({

@@ -6,4 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".theme50_RXJava.RXJavaActivity">
 
+    <Button
+        android:id="@+id/btnTest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="Click"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
