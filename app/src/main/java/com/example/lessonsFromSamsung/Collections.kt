@@ -151,7 +151,7 @@ fun main() {
     println(numbers15 union setOf("four", "five")) // [one, two, three, four, five]
     println(setOf("four", "five") union numbers15) // [four, five, one, two, three]
     println(numbers15 intersect setOf("two", "one")) // [one, two] - ищет элементы, присутствующие в обоих коллекциях
-    println(numbers15 subtract setOf("three", "four")) // [one, two] - ищет элементы, который нет в обоих коллекциях
+    println(numbers15 subtract setOf("three", "four")) // [one, two] - ищет элементы, которых нет в обоих коллекциях
 
     val numbersMap2 = mapOf("one" to 1, "two" to 2, "three" to 3)
     println(numbersMap2.keys) // [one, two, three] - возвращает все ключи

@@ -7,7 +7,6 @@ fun main() {
     val field: MutableList<MutableList<Char>> = createList(sizeOfField)
     val fieldWithCrosses = addCrosses(field, sizeOfField)
     printField(sizeOfField, fieldWithCrosses)
-
 }
 
 private fun addCrosses(field: MutableList<MutableList<Char>>, sizeOfField: Int): MutableList<MutableList<Char>> {
