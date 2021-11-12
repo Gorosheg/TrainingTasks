@@ -21,7 +21,8 @@
         <activity
             android:name=".theme45_5_Room.RoomActivity"
             android:exported="true" />
-        <activity android:name=".main.MainActivity">
+        <activity android:name=".main.MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
