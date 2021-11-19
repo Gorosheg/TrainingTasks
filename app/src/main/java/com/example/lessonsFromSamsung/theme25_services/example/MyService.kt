@@ -1,10 +1,10 @@
-package com.example.lessonsFromSamsung.theme25_Services.example
+package com.example.lessonsFromSamsung.theme25_services.example
 
 import android.app.Activity
 import android.app.Service
 import android.content.Context
 import android.content.Intent
-import com.example.lessonsFromSamsung.theme25_Services.example.NotificationManager.Companion.NOTIFICATION_ID
+import com.example.lessonsFromSamsung.theme25_services.example.NotificationManager.Companion.NOTIFICATION_ID
 
 // Это (форграунд) сервис, который отображает натификацию
 class MyService : Service() {
@@ -19,7 +19,7 @@ class MyService : Service() {
         notificationManager = NotificationManager(applicationContext)
 
         // Запуск форграунд сервиса
-        startForeground(NOTIFICATION_ID, notificationManager.updateNotification("Аня классная!"))
+        startForeground(NOTIFICATION_ID, notificationManager.updateNotification("Cool!"))
     }
 
     // Нужно всегда

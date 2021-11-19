@@ -8,7 +8,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-        android:name=".theme45_5_Room.App"
+        android:name=".main.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -17,12 +17,16 @@
         android:theme="@style/AppTheme"
         tools:ignore="ExtraText">
         <activity
+            android:name=".theme25_services.serviceWithRxjava.BtnActivity"
+            android:exported="false" />
+        <activity
             android:name=".theme50_RXJava.RXJavaActivity"
             android:exported="false" />
         <activity
             android:name=".theme45_5_Room.RoomActivity"
             android:exported="true" />
-        <activity android:name=".main.MainActivity"
+        <activity
+            android:name=".main.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -43,7 +47,7 @@
             tools:ignore="LockedOrientationActivity" />
         <activity android:name=".theme27_2Dgraphics.draw.GraphicsActivity" />
         <activity android:name=".theme26_Fragment.ActivityWithFragments" />
-        <activity android:name=".theme25_Services.ServiceActivity" />
+        <activity android:name=".theme25_services.ServiceActivity" />
         <activity android:name=".theme24_Threads.atm.CashMachine" />
         <activity android:name=".theme16_TestingAndDebugging.color.MainChangeColorActivity" />
         <activity android:name=".theme16_TestingAndDebugging.color.ChangingColorActivity" />
@@ -56,15 +60,20 @@
         <activity android:name=".theme16_TestingAndDebugging.AuthorizationAndChangingBackgroundColorsActivity" />
 
         <service
-            android:name=".theme25_Services.example.MyService"
+            android:name=".theme25_services.example.MyService"
             android:enabled="true"
             android:exported="true" />
         <service
-            android:name=".theme25_Services.ToastService"
+            android:name=".theme25_services.ToastService"
             android:enabled="true"
             android:exported="true" />
         <service
-            android:name=".theme25_Services.MusicService"
+            android:name=".theme25_services.MusicService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <service
+            android:name=".theme25_services.serviceWithRxjava.NotificationRxService"
             android:enabled="true"
             android:exported="true" />
     </application>

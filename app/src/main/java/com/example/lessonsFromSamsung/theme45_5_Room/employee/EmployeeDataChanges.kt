@@ -1,6 +1,6 @@
 package com.example.lessonsFromSamsung.theme45_5_Room.employee
 
-import com.example.lessonsFromSamsung.theme45_5_Room.App
+import com.example.lessonsFromSamsung.main.App
 
 class EmployeeDataChanges {
     private val db = App.database //Получение БД

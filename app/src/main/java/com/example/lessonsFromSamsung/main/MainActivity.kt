@@ -14,7 +14,8 @@ import com.example.lessonsFromSamsung.theme14_InterfaceOfAndroidAplication.qize.
 import com.example.lessonsFromSamsung.theme16_TestingAndDebugging.AuthorizationAndChangingBackgroundColorsActivity
 import com.example.lessonsFromSamsung.theme16_TestingAndDebugging.color.MainChangeColorActivity
 import com.example.lessonsFromSamsung.theme24_Threads.atm.CashMachine
-import com.example.lessonsFromSamsung.theme25_Services.ServiceActivity
+import com.example.lessonsFromSamsung.theme25_services.ServiceActivity
+import com.example.lessonsFromSamsung.theme25_services.serviceWithRxjava.BtnActivity
 import com.example.lessonsFromSamsung.theme27_2Dgraphics.PasswordStrength
 import com.example.lessonsFromSamsung.theme27_2Dgraphics.draw.GraphicsActivity
 import com.example.lessonsFromSamsung.theme27_2Dgraphics.ticTacToe.TicTacToe
@@ -34,30 +35,31 @@ class MainActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         recyclerView.adapter = MainAdapter(
-            activities = buildList(),
-            onActivityClickListener = ::onActivityClick
+                activities = buildList(),
+                onActivityClickListener = ::onActivityClick
         )
     }
 
 
     private fun buildList(): List<Theme> {
         return listOf(
-            Theme(clazz = ExercisesWithViews::class.java, title = "Theme 14 ExercisesWithViews"),
-            Theme(clazz = FirstPage::class.java, title = "Theme 14 FirstPage"),
-            Theme(clazz = QuizActivity::class.java, title = "Theme 14 Quiz"),
-            Theme(MainChangeColorActivity::class.java, "Theme 16 ChangingColor"),
-            Theme(AuthorizationAndChangingBackgroundColorsActivity::class.java, "Theme 16 AuthorizationScreen"),
-            Theme(CashMachine::class.java, "Theme 24 CashMachine"),
-            Theme(ServiceActivity::class.java, "Theme 25 MusicPlayService"),
-            Theme(PasswordStrength::class.java, "Theme 27 PasswordStrength"),
-            Theme(TicTacToe::class.java, "Theme 27 TicTacToe"),
-            Theme(GraphicsActivity::class.java, "Theme 27 Drawing"),
-            Theme(SurfaceViewActivity::class.java, "Theme 28 SmileDrawing"),
-            Theme(TestSurfaceViewActivity::class.java, "Theme 29 DrawingCircle"),
-            Theme(RecyclerViewActivity::class.java, "Theme 30_5 ListOfCats"),
-            Theme(SQLiteActivity::class.java, "Theme 45 SQLiteActivity"),
-            Theme(CatFactActivity::class.java, "Theme 49 InsultsGenerator"),
-            Theme(RXJavaActivity::class.java, "Theme 50 RXJava")
+                Theme(clazz = ExercisesWithViews::class.java, title = "Theme 14 ExercisesWithViews"),
+                Theme(clazz = FirstPage::class.java, title = "Theme 14 FirstPage"),
+                Theme(clazz = QuizActivity::class.java, title = "Theme 14 Quiz"),
+                Theme(MainChangeColorActivity::class.java, "Theme 16 ChangingColor"),
+                Theme(AuthorizationAndChangingBackgroundColorsActivity::class.java, "Theme 16 AuthorizationScreen"),
+                Theme(CashMachine::class.java, "Theme 24 CashMachine"),
+                Theme(ServiceActivity::class.java, "Theme 25 MusicPlayService"),
+                Theme(BtnActivity::class.java, "Theme 25.1 Service withRx"),
+                Theme(PasswordStrength::class.java, "Theme 27 PasswordStrength"),
+                Theme(TicTacToe::class.java, "Theme 27 TicTacToe"),
+                Theme(GraphicsActivity::class.java, "Theme 27 Drawing"),
+                Theme(SurfaceViewActivity::class.java, "Theme 28 SmileDrawing"),
+                Theme(TestSurfaceViewActivity::class.java, "Theme 29 DrawingCircle"),
+                Theme(RecyclerViewActivity::class.java, "Theme 30_5 ListOfCats"),
+                Theme(SQLiteActivity::class.java, "Theme 45 SQLiteActivity"),
+                Theme(CatFactActivity::class.java, "Theme 49 InsultsGenerator"),
+                Theme(RXJavaActivity::class.java, "Theme 50 RXJava")
         )
     }
 
