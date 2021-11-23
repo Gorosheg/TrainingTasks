@@ -80,10 +80,10 @@ val subscriber4: Disposable = observable2
 val dispose: Disposable = dataSource()
     .subscribeOn(Schedulers.newThread()) // Запуск нового потока
     .observeOn(AndroidSchedulers.mainThread()) // Возвращает задачу в main поток
-    // В этой ветке код отработает, если программа выполнится успешно (onNext)
 //            .doOnNext {  }
 //            .doOnError {  }
 //            .doOnComplete {  }
+    // В этой ветке код отработает, если программа выполнится успешно (onNext)
     .subscribe({
         Log.e(TAG, "next Int $it")
     }, {
@@ -94,7 +94,7 @@ val dispose: Disposable = dataSource()
 
 val dispose2 = dataSource2()
     //  .doOnSuccess {  }
-    .subscribeOn(Schedulers.computation())
+    .subscribeOn(Schedulers.computation()) //
     .observeOn(AndroidSchedulers.mainThread())
     .subscribe({
         val first = it.first()

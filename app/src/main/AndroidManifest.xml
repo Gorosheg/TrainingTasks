@@ -17,6 +17,9 @@
         android:theme="@style/AppTheme"
         tools:ignore="ExtraText">
         <activity
+            android:name=".theme51_MVP_Example.ActivityMVP"
+            android:exported="false" />
+        <activity
             android:name=".theme25_services.serviceWithRxjava.BtnActivity"
             android:exported="false" />
         <activity
@@ -71,7 +74,6 @@
             android:name=".theme25_services.MusicService"
             android:enabled="true"
             android:exported="true" />
-
         <service
             android:name=".theme25_services.serviceWithRxjava.NotificationRxService"
             android:enabled="true"
