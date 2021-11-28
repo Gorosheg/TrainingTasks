@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.room.Room
 import com.example.lessonsFromSamsung.theme25_services.serviceWithRxjava.MyExampleData
 import com.example.lessonsFromSamsung.theme45_5_Room.AppDatabase
+import com.example.lessonsFromSamsung.theme52_CleanArc.di.CleanArcDI
 
 
 // Класс для создания и хранения БД
@@ -20,5 +21,6 @@ class App : Application() {
     companion object {
         lateinit var database: AppDatabase
         val myExampleData = MyExampleData()
+        val cleanArcDI = CleanArcDI()
     }
 }
