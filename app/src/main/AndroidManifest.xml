@@ -17,6 +17,9 @@
         android:theme="@style/AppTheme"
         tools:ignore="ExtraText">
         <activity
+            android:name=".theme52_CleanArc.presentation.CleanArcActivity"
+            android:exported="false" />
+        <activity
             android:name=".theme51_MVP_Example.ActivityMVP"
             android:exported="false" />
         <activity
