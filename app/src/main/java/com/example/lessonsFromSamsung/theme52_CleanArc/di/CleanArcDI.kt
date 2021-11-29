@@ -5,6 +5,8 @@ import com.example.lessonsFromSamsung.theme52_CleanArc.data.CleanArcRepositoryIm
 import com.example.lessonsFromSamsung.theme52_CleanArc.domain.CleanArcInteractor
 import com.example.lessonsFromSamsung.theme52_CleanArc.domain.CleanArcInteractorImpl
 
+
+// Связывает Repository с Interactor-ом
 class CleanArcDI {
 
     val interactor: CleanArcInteractor
