@@ -10,6 +10,10 @@ class CleanArcInteractorImpl(private val repository: CleanArcRepository) : Clean
             .filter { it.length > 3 }
             .map { "$it field mapped" }
 
+
+    override val myText: Observable<String>
+        get() = repository.myText
+
     override fun saveData(text: String) {
         repository.saveData(text)
     }

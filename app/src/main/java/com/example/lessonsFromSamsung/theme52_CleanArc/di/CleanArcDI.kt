@@ -13,15 +13,15 @@ val cleanModule = module {
     viewModel { params ->
         CleanArcViewModel(
             interactor = get { params }, // Прокидываем параметры дальше
-            text = params.get() // в качестве аргумента забираем первый (можно так: component1())
+            number = params.get() // в качестве аргумента забираем первый (можно так: component1())
         )
     }
 
-    single<CleanArcInteractor> { params ->
+    factory<CleanArcInteractor> { params ->
         CleanArcInteractorImpl(get { params }) // Прокидываем параметры дальше
     }
 
-    single<CleanArcRepository> { params ->
+    factory<CleanArcRepository> { params ->
         CleanArcRepositoryImpl(params.get()) // Достаем нужный параметр
     }
 

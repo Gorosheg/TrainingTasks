@@ -6,6 +6,8 @@ interface CleanArcInteractor {
 
     val data: Observable<String>
 
+    val myText: Observable<String>
+
     fun saveData(text: String)
 
 }

@@ -17,6 +17,9 @@
         android:theme="@style/AppTheme"
         tools:ignore="ExtraText">
         <activity
+            android:name=".theme52_CleanArc.presentation.TaskActivity"
+            android:exported="false" />
+        <activity
             android:name=".theme52_SharedPreferences.SharedPreferencesActivity"
             android:exported="false" />
         <activity
