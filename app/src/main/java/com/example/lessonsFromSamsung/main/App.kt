@@ -4,7 +4,8 @@ import android.app.Application
 import androidx.room.Room
 import com.example.lessonsFromSamsung.theme25_services.serviceWithRxjava.MyExampleData
 import com.example.lessonsFromSamsung.theme45_5_Room.AppDatabase
-import com.example.lessonsFromSamsung.theme52_CleanArc.di.CleanArcDI
+import com.example.lessonsFromSamsung.theme52_CleanArc.di.cleanModule
+import org.koin.core.context.startKoin
 
 
 // Класс для создания и хранения БД
@@ -16,11 +17,14 @@ class App : Application() {
             .allowMainThreadQueries() // Тормозит приложение, вместо этого можно использовать Livedata или RxJava
             .build()
 
+        startKoin {
+            modules(cleanModule)
+        }
+
     }
 
     companion object {
         lateinit var database: AppDatabase
         val myExampleData = MyExampleData()
-        val cleanArcDI = CleanArcDI()
     }
 }

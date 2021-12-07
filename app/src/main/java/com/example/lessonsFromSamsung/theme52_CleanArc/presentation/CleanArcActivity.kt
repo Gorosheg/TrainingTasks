@@ -1,19 +1,19 @@
 package com.example.lessonsFromSamsung.theme52_CleanArc.presentation
 
 import android.os.Bundle
-import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
-import androidx.lifecycle.ViewModelProvider
 import com.example.lessonsFromSamsung.R
 import io.reactivex.disposables.Disposable
+import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.parameter.parametersOf
 
 class CleanArcActivity : AppCompatActivity() {
-
-    private val viewModel: CleanArcViewModel by lazy { ViewModelProvider(this).get(CleanArcViewModel::class.java) }
+    private val text = "MyText"
+    private val number = 6
+    private val viewModel: CleanArcViewModel by viewModel { parametersOf(text, number) }
     private var disposable: Disposable? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
