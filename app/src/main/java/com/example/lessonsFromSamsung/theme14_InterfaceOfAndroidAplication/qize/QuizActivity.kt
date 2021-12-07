@@ -117,9 +117,11 @@ class QuizActivity : AppCompatActivity() {
     }
 
     private fun renderQuestion(question: Question) {
-        questionText.text = question.question
-        firstVariant.text = question.firstAnswer
-        secondVariant.text = question.secondAnswer
+        val (questionString, firstAnswer, secondAnswer, _) = question // Компоненты дата-класса можно записать так
+
+        questionText.text = questionString
+        firstVariant.text = firstAnswer
+        secondVariant.text = secondAnswer
     }
 
 
