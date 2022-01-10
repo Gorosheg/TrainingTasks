@@ -27,7 +27,7 @@ private fun main() {
         example.some = 4
     }
 
-    // Run equailent
+    // Run equivalent
     val exampleWith = with(Example()) {
         some = 5
         some

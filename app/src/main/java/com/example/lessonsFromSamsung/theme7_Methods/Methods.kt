@@ -57,7 +57,7 @@ private fun findMaxArrayNumber(array: Array<Int>): Int {
     return maximum
 }
 
-private fun fibanachiTask() {
+private fun fibonacciTask() {
     println(fibanachiSimple(8))
     println(fibanachi(8))
 }
