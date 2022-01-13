@@ -32,29 +32,6 @@ fun work3064() {
     println(amount - 1)
 }
 
-//На каком мосту будет авария
-fun work5ex3() {
-    val numberOfBridges = scanner.nextInt()
-    var crash = 0
-    var i = 0
-
-    while (i < numberOfBridges) {
-        val bridgeHeight = scanner.nextInt()
-
-        if (crash == 0 && bridgeHeight < 437) {
-            crash = i + 1
-        }
-
-        i++
-    }
-
-    if (crash == 0) {
-        println("Аварий нет")
-    } else {
-        println("Авария на $crash мосту")
-    }
-}
-
 // Найти все целые решения уравнения
 fun work350() {
     val a = scanner.nextInt()
@@ -136,7 +113,7 @@ fun work112214Old() {
     while (a != 0) {
         lastDigit = (a % 10)
         a /= 10
-        if (lastDigit == (a % 10))  break
+        if (lastDigit == (a % 10)) break
     }
 
     if (lastDigit == (a % 10)) {
