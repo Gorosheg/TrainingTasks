@@ -156,14 +156,11 @@ fun work112173() {
 }
 
 // определить, сколько вагонов в поезде
-fun work38() {
-    val fromHead = scanner.nextInt()
-    val vanNumber = scanner.nextInt()
-
-    if (vanNumber != fromHead) {
-        println(vanNumber + fromHead - 1)
+fun numbersOfVans(fromHead: Int, vanNumber: Int): Int {
+    return if (vanNumber != fromHead) {
+        (vanNumber + fromHead - 1)
     } else {
-        println(0)
+        0
     }
 }
 
@@ -205,18 +202,6 @@ fun work112169() {
     val isInCircle = xInSquare + yInSquare <= 1
 
     if (isInCircle && y >= x || isInCircle && x <= 0) {
-        println("Да")
-    } else {
-        println("Нет")
-    }
-}
-
-// Является ли число степенью двойки
-fun work3060() {
-    val x = scanner.nextInt()
-    val counting = x - 1 and x
-
-    if (counting == 0) {
         println("Да")
     } else {
         println("Нет")
