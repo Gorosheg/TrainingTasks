@@ -3,7 +3,7 @@ package com.example.lessonsFromSamsung.theme4_LogicalExpressions
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
-internal class DegreeOfTwoTest {
+internal class PowOfTwoTest {
 
     @Test
     fun `number is degree of two EXPECTED true`() {
