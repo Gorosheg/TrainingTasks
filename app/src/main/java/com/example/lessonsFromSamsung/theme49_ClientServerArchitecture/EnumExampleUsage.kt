@@ -23,6 +23,6 @@ private val Int.exampleField: Unit
 // Если перебирать enum в when, то не нужна ветка else.
 private val ExampleEnum.exampleField: String
     get() = when (this) {
-        ExampleEnum.CLEAR -> TODO()
-        ExampleEnum.SNOW -> TODO()
+        ExampleEnum.CLEAR -> "Clear"
+        ExampleEnum.SNOW -> "Snow"
     }

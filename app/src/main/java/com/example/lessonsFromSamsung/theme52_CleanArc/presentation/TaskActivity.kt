@@ -12,11 +12,11 @@ class TaskActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_theme_52_task)
 
-        val mytext: EditText = findViewById(R.id.textForSaving)
+        val myText: EditText = findViewById(R.id.textForSaving)
         val button: Button = findViewById(R.id.saveAndContinueBtn)
         button.setOnClickListener {
             val intent = Intent(this, CleanArcActivity::class.java)
-            intent.putExtra(MY_TEXT_ARG, mytext.text.toString())
+            intent.putExtra(MY_TEXT_ARG, myText.text.toString())
             startActivity(intent)
         }
 

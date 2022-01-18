@@ -38,12 +38,10 @@ class RecyclerViewActivity : AppCompatActivity(), OnCatClickListener {
     }
 
     override fun onCatClick(cat: Cat) {
-        // TODO: Navigate to cat screen
         Toast.makeText(this, "Interface " + cat.id.toString(), Toast.LENGTH_SHORT).show()
     }
 
     private fun onCatClick1(cat: Cat) {
-        // TODO: Navigate to cat screen
         Toast.makeText(this, "Lambda " + cat.id.toString(), Toast.LENGTH_SHORT).show()
     }
 

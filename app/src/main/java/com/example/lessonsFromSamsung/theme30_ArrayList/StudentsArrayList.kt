@@ -2,11 +2,13 @@ package com.example.lessonsFromSamsung.theme30_ArrayList
 
 private fun main() {
     val studentsArray = createStudentsArray()
-    printStudents(studentsArray) // TODO: Make as extension
-    addStudent(studentsArray)
-    printStudents(studentsArray)
-    excludeStudent(studentsArray)
-    printStudents(studentsArray)
+    studentsArray.run {
+        printStudents()
+        addStudent()
+        printStudents()
+        excludeStudent()
+        printStudents()
+    }
 }
 
 private fun createStudentsArray(): ArrayList<Student> = arrayListOf(
@@ -32,28 +34,39 @@ private fun createStudentsArray(): ArrayList<Student> = arrayListOf(
     )
 )
 
-private fun addStudent(studentsArray: ArrayList<Student>) { // TODO: make and add
+private fun ArrayList<Student>.addStudent() {
     // Добавление элемента в конец списка
-    // TODO: extract func make and add on end. remove comment
-    studentsArray.add(Student(fullName = "Степанова Анна Викторовна", classNumber = 11))
-
+    makeAndAddToEnd()
     // Добавление элемента в нужное место по идексу
-    studentsArray.add(3, Student(fullName = "Викторов Илья Ильич", classNumber = 11)) // TODO
+    makeAndAddByIndex()
 }
 
-private fun excludeStudent(studentsArray: ArrayList<Student>) {
-    // TODO extract func and provide fullName as parameter
-    val studentForRemove = studentsArray.find { it.fullName == "Иванов Петр Андреевич" } // Поиск студента по имени
+private fun ArrayList<Student>.makeAndAddToEnd() {
+    add(Student(fullName = "Степанова Анна Викторовна", classNumber = 11))
+}
+
+private fun ArrayList<Student>.makeAndAddByIndex() {
+    add(3, Student(fullName = "Викторов Илья Ильич", classNumber = 11))
+}
+
+private fun ArrayList<Student>.excludeStudent() {
+    // Поиск студента по имени
+    val studentForRemove = findByName()
 
     // Удаление элемента по конкретному студенту, это должен быть тот же экземпляр
-    studentsArray.remove(studentForRemove)
+    remove(studentForRemove)
 
-    studentsArray.removeAt(2) // Удаление элемента по индексу
+    // Удаление элемента по индексу
+    removeAt(2)
 }
 
-private fun printStudents(studentsArray: ArrayList<Student>) {
-    for (i in 0 until studentsArray.size) {
-        printStudent(studentsArray, i)
+private fun ArrayList<Student>.findByName(): Student? {
+    return find { it.fullName == "Иванов Петр Андреевич" }
+}
+
+private fun ArrayList<Student>.printStudents() {
+    for (i in 0 until size) {
+        printStudent(this, i)
     }
 
     println("")
@@ -62,5 +75,4 @@ private fun printStudents(studentsArray: ArrayList<Student>) {
 private fun printStudent(studentsArray: ArrayList<Student>, index: Int) {
     val forPrint = studentsArray[index] // Находим элемент по индексу
     println(forPrint.fullName + " " + forPrint.classNumber) // Печатаем нужные поля
-
 }
