@@ -14,7 +14,7 @@ fun main() {
     println(sourceList2) // [1, 2, 3, 4]
 
     val sourceList3 = mutableListOf(1, 2, 3)
-    val referenceList3: List<Int> = sourceList
+    val referenceList3: List<Int> = sourceList3
     // referenceList3.add(4) // ошибка компиляции
     sourceList3.add(4)
     println(referenceList) // [1, 2, 3, 4]
@@ -65,6 +65,11 @@ fun main() {
     val oddNumbers: Sequence<Int> = generateSequence(1) { it + 2 } // `it` - это предыдущее значение
     println(oddNumbers.take(5).toList()) // Take - количество элементов, которые нужно выдать. [1, 3, 5, 7, 9]
     //println(oddNumbers.count())     // ошибка: последовательность бесконечна
+    //  В последовательностях нам не нужно проходить по всем элементам,
+    //  мы сразу применяем все нужные операции к элементу и прекращаем операции, если цель достигнута.
+
+    val cats = sequenceOf("Барсик", "Мурзик", "Рыжик", "Васька") // другой вариант
+    // Если есть уже готовые List или Set, то их можно преобразовать в последовательность через asSequence().
 
     val numbers6 = listOf("one", "two", "three", "four")
     val longerThan3 = numbers6.filter { it.length > 3 }

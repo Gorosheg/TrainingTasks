@@ -1,4 +1,4 @@
-package com.example.lessonsFromSamsung
+package com.example.lessonsFromSamsung.theme53_Examples
 
 private enum class Color(val rgb: Int) { // Перечисление
     RED(0xFF0000),
