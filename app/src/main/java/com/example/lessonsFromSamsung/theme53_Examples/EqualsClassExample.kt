@@ -7,12 +7,12 @@ private class EqualsClassExample(
 ) {
 
     override fun equals(other: Any?): Boolean {
-        if (this === other) return true
+        if (this === other) return true // Сравнивает по ссылке
         if (javaClass != other?.javaClass) return false
 
         other as EqualsClassExample
 
-        if (param1 != other.param1) return false
+        if (param1 != other.param1) return false // Сравнивает по содержанию
         if (param2 != other.param2) return false
         if (param3 != other.param3) return false
 
@@ -37,9 +37,9 @@ private fun main() {
     val firstHashCode = first.hashCode()
     val secondHashCode = second.hashCode()
 
-    println("По ссылке: $compareByLink")
-    println("По знач: $compareByContent")
+    println("По ссылке: $compareByLink") // false
+    println("По знач: $compareByContent") // true (это и есть equals)
     println("Первый хеш-код: $firstHashCode")
     println("Второй хеш-код: $secondHashCode")
-    println(firstHashCode == secondHashCode)
+    println(firstHashCode == secondHashCode) // true
 }

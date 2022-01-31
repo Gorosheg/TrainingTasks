@@ -12,8 +12,8 @@ open class ActivityWithFragments : FragmentActivity() {
         setContentView(R.layout.activity_theme_26_fragments)
 
         val fragmentB = FragmentB()
-
         createFragmentB(fragmentB)
+
         initFragmentTextChangeListener(fragmentB)
         initFragmentTextColorChangeListener(fragmentB)
     }
