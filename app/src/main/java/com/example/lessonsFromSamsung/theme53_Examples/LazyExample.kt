@@ -1,4 +1,4 @@
-package com.example.lessonsFromSamsung
+package com.example.lessonsFromSamsung.theme53_Examples
 
 val lazyValue: String by lazy {
     println("computed!")

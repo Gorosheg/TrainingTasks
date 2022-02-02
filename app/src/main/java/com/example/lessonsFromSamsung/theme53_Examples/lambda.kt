@@ -1,4 +1,4 @@
-package com.example.lessonsFromSamsung
+package com.example.lessonsFromSamsung.theme53_Examples
 
 private fun main() {
     // Если у лямбды есть параметры, то они указываются перед знаком '->'

@@ -1,4 +1,4 @@
-package com.example.lessonsFromSamsung
+package com.example.lessonsFromSamsung.theme53_Examples
 
 fun main() {
     val sourceList = listOf(1, 2, 3)

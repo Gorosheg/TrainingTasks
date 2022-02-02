@@ -14,9 +14,9 @@ class CatViewHolder(
     private val onCatClickListener1: (Cat) -> Unit
 ) : RecyclerView.ViewHolder(itemView) {
 
-    private var rootLayout: LinearLayout = itemView.findViewById(R.id.rootLayout)
-    private var largeTextView: TextView = itemView.findViewById(R.id.textViewLarge)
-    private var smallTextView: TextView = itemView.findViewById(R.id.textViewSmall)
+    private val rootLayout: LinearLayout = itemView.findViewById(R.id.rootLayout)
+    private val largeTextView: TextView = itemView.findViewById(R.id.textViewLarge)
+    private val smallTextView: TextView = itemView.findViewById(R.id.textViewSmall)
 
     private var cat: Cat? = null
 

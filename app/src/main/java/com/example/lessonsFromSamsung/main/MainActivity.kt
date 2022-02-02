@@ -26,6 +26,7 @@ import com.example.lessonsFromSamsung.theme45_SQLite.SQLiteActivity
 import com.example.lessonsFromSamsung.theme49_ClientServerArchitecture.CatFactActivity
 import com.example.lessonsFromSamsung.theme50_RXJava.RXJavaActivity
 import com.example.lessonsFromSamsung.theme52_CleanArc.presentation.TaskActivity
+import com.example.lessonsFromSamsung.theme54_DelegateAdapter.DelegateAdapterActivity
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -61,7 +62,8 @@ class MainActivity : AppCompatActivity() {
             Theme(SQLiteActivity::class.java, "SQLiteActivity"),
             Theme(CatFactActivity::class.java, "InsultsGenerator"),
             Theme(RXJavaActivity::class.java, "RXJava"),
-            Theme(TaskActivity::class.java, "Clean architecture")
+            Theme(TaskActivity::class.java, "Clean architecture"),
+            Theme(DelegateAdapterActivity::class.java, "DelegateAdapterActivity")
         )
     }
 
