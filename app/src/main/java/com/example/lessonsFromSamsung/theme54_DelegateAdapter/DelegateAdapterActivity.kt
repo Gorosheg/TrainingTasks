@@ -57,12 +57,12 @@ class DelegateAdapterActivity : AppCompatActivity() {
         (0..10).forEach { i ->
             addElement(i)
         }
-
         return data
     }
 
     private fun addElement(position: Int) {
         val type = random.nextInt(9)
+
         if (type in 3..9) {
             val item = Items.News(position, "Header $position", "Description $position")
             data.add(item)
@@ -78,6 +78,7 @@ class DelegateAdapterActivity : AppCompatActivity() {
 
     private fun mixList() {
         val countOfChanges = random.nextInt(5)
+
         for (i in 0..countOfChanges) {
             val firstIndex = randomPosition()
             val secondIndex = randomPosition()
@@ -92,9 +93,11 @@ class DelegateAdapterActivity : AppCompatActivity() {
 
     private fun changeRecycler() {
         val newList: MutableList<Items> = mutableListOf()
+
         for (i in 0 until data.size) {
             newList.add(data[i])
         }
+
         adapter.items = newList
     }
 

@@ -53,7 +53,9 @@ class DelegateAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     }
 
     companion object {
+
         private const val TYPE_NEWS = 1
         private const val TYPE_ADVERB = 2
+
     }
 }
