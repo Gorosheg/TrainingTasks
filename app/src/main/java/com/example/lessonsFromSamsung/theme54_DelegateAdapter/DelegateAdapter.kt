@@ -8,11 +8,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.lessonsFromSamsung.R
 import com.example.lessonsFromSamsung.theme54_DelegateAdapter.model.Items
 
-class DelegateAdapter(firstList: List<Items>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class DelegateAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    var items: List<Items> = firstList
+    var items: List<Items> = emptyList()
         set(value) {
-            val diffResult = DiffUtil.calculateDiff(CitiesDiffCallback(items, value))
+            val diffResult = DiffUtil.calculateDiff(CitiesDiffCallback(field, value))
             field = value
             diffResult.dispatchUpdatesTo(this)
         }

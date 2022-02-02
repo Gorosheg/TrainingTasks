@@ -20,17 +20,19 @@
                 android:id="@+id/add"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="@string/add"/>
+                android:hint="@string/add" />
 
             <Button
+                android:id="@+id/delete"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="@string/delete"/>
+                android:hint="@string/delete" />
 
             <Button
+                android:id="@+id/mix"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="@string/mix"/>
+                android:hint="@string/mix" />
         </androidx.appcompat.widget.Toolbar>
 
     </com.google.android.material.appbar.AppBarLayout>
@@ -38,6 +40,8 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/delegateRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
+        android:layout_height="match_parent"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+        tools:itemCount="3"
+        tools:listitem="@layout/activity_theme_54_news" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
