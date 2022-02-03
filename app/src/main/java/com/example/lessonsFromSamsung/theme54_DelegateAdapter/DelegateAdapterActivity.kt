@@ -47,8 +47,10 @@ class DelegateAdapterActivity : AppCompatActivity() {
         }
 
         btnMix.setOnClickListener {
-            mixList()
-            changeRecycler()
+            if (data.isNotEmpty()) {
+                mixList()
+                changeRecycler()
+            }
         }
 
     }
@@ -87,7 +89,7 @@ class DelegateAdapterActivity : AppCompatActivity() {
     }
 
     private fun randomPosition(): Int {
-        return if (data.size<=1) 0
+        return if (data.size <= 1) 0
         else random.nextInt(data.size - 1)
     }
 

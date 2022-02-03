@@ -36,7 +36,10 @@ class ServiceActivity : AppCompatActivity(), SensorEventListener {
         light = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT)
 
         startMusicService()
-        //    setNotificationButtonClickListener()
+
+        notificationButton.setOnClickListener {
+            startToastService()
+        }
     }
 
     override fun onStart() {
@@ -72,12 +75,6 @@ class ServiceActivity : AppCompatActivity(), SensorEventListener {
 
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
 
-    }
-
-    private fun setNotificationButtonClickListener() {
-        notificationButton.setOnClickListener {
-            startToastService()
-        }
     }
 
     private fun createNotificationChannel() {
