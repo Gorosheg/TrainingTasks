@@ -2,7 +2,7 @@ package com.example.lessonsFromSamsung.theme53_Examples
 
 import kotlin.reflect.KClass
 
-class InlineReified {
+class ReifiedExample {
 
     private fun main() {
         val q = Pair(1, 2)
