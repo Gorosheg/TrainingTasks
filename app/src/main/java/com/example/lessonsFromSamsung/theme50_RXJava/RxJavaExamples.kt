@@ -22,7 +22,7 @@ completable - ветки: onError, onComplete
 
 
 // Источники данных
-val observable = Observable.just(1, 2, 3)
+val observable: Observable<Int> = Observable.just(1, 2, 3)
 val single = Single.just(1)
 val flowable = Flowable.just(1, 2, 3)
 
@@ -69,6 +69,7 @@ val subscriber4: Disposable = observable2
         val delay = Random().nextInt(10)
         Observable.just(it).delay(delay.toLong(), TimeUnit.SECONDS)
     }
+    // как только появляются новые данные, switchMap бросает обработку старых
     .switchMap {
         val delay = Random().nextInt(10)
         Observable.just(it).delay(delay.toLong(), TimeUnit.SECONDS)
@@ -83,9 +84,8 @@ val dispose: Disposable = dataSource()
 //            .doOnNext {  }
 //            .doOnError {  }
 //            .doOnComplete {  }
-    // В этой ветке код отработает, если программа выполнится успешно (onNext)
     .subscribe({
-        Log.e(TAG, "next Int $it")
+        Log.e(TAG, "next Int $it") // В этой ветке код отработает, если программа выполнится успешно (onNext)
     }, {
         // код отработает при ошибке(onError)
     }, {
@@ -94,7 +94,7 @@ val dispose: Disposable = dataSource()
 
 val dispose2 = dataSource2()
     //  .doOnSuccess {  }
-    .subscribeOn(Schedulers.computation()) //
+    .subscribeOn(Schedulers.computation())
     .observeOn(AndroidSchedulers.mainThread())
     .subscribe({
         val first = it.first()

@@ -10,7 +10,7 @@ import com.example.lessonsFromSamsung.theme25_services.ServiceActivity
 
 internal class NotificationManager(private val context: Context) {
 
-    // Класс, который создает натификацию
+    // Класс, который создает натификацию (уведомление)
     private val notificationBuilder: NotificationCompat.Builder = NotificationCompat.Builder(context, CHANNEL_ID)
 
     // Отображает натификацию
