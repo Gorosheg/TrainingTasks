@@ -6,7 +6,7 @@ private class Example {
 
 }
 
-object KotlinStandardExample {
+private object KotlinStandardExample {
 
     var some = 0
 
@@ -50,9 +50,23 @@ object KotlinStandardExample {
     }
 }
 
+private data class Music(val title: String, val author: String)
 
-fun main() {
-    val (x, y) = Pair(1, 2)
-    x
-    y
+private fun componentExample() {
+    val music = Music("Kalinka", "Abba")
+
+    val title1 = music.component1()
+    val author1 = music.component2()
+
+    val (title, author) = music // То же самое, что и выше
+
+    println("$title $author")
+
+    musicBuilder { (title, author) ->
+        println("$title $author")
+    }
+}
+
+private fun musicBuilder(callback: (Music) -> Unit) {
+    callback.invoke(Music("Kalinka", "Abba"))
 }

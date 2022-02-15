@@ -11,16 +11,19 @@ class StaticMain {
 
 class StaticClassJava {
 
-    private int someValue = 0;
+    private static int someValue = 0;
+    private int notStaticValue = 0;
 
     private void bar() {
         someValue = 2;
+        notStaticValue = 2;
     }
 
     static class Static {
 
         void foo() {
-            // We can't use someValue
+            someValue = 1;
+            // We can't use notStaticValue
         }
 
     }
