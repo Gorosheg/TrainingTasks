@@ -1,15 +1,48 @@
 package com.example.lessonsFromSamsung.theme24_Threads
 
-private fun main() {
-    println("1 Thread: ${Thread.currentThread()}")
+fun main() {
+  val chickenVoice = ChickenVoice()
+    chickenVoice.dispute()
+}
 
-    Thread {
-        println("2 Thread: ${Thread.currentThread()}")
-    }.start()
+private class EggVoice : Thread() {
+    override fun run() {
+        for (i in 0..4) {
+            try {
+                sleep(1000) //Приостанавливает поток на 1 секунду
+            } catch (e: InterruptedException) {
+            }
+            println("яйцо!")
+        }
+        //Слово «яйцо» сказано 5 раз
+    }
+}
 
-    Thread {
-        println("3 Thread: ${Thread.currentThread()}")
-    }.start()
+ private class ChickenVoice {
 
-    println("4 Thread: ${Thread.currentThread()}")
+     fun dispute() {
+        val mAnotherOpinion = EggVoice() //Создание потока
+        println("Спор начат...")
+        mAnotherOpinion.start() //Запуск потока
+
+        for (i in 0..4) {
+            try {
+                Thread.sleep(1000) //Приостанавливает поток на 1 секунду
+            } catch (e: InterruptedException) {
+            }
+            println("курица!")
+        }
+        //Слово «курица» сказано 5 раз
+
+        if (mAnotherOpinion.isAlive) { //Если оппонент еще не сказал последнее слово
+            try {
+                mAnotherOpinion.join() //Подождать пока оппонент закончит высказываться.
+            } catch (e: InterruptedException) {
+            }
+            println("Первым появилось яйцо!")
+        } else { //если оппонент уже закончил высказываться
+            println("Первой появилась курица!")
+        }
+        println("Спор закончен!")
+    }
 }
